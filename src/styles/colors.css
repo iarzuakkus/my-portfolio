@@ -1,0 +1,22 @@
+/* src/styles/colors.css */
+
+:root {
+  /* Page */
+  --page-bg: #f5f5f5;
+
+  /* NEW PALETTE */
+  --purple: #977ef2;
+  --green: #04d976;
+  --lime: #a5f230;
+  --yellow: #f2e750;
+  --orange: #f26513;
+
+  /* Borders */
+  --border-dark: #000000;
+
+  /* Icon */
+  --icon-fill: #ffffff;
+
+  /* Text */
+  --text-dark: #111111;
+}

@@ -1,0 +1,135 @@
+/* =========================
+   HEADER WRAPPER
+========================= */
+
+.site-header {
+  position: sticky;
+  top: 0;
+  z-index: 9999;
+
+  width: 100%;
+  height: calc(var(--header-height) * 1.35); /* 🔴 %50 → %35 */
+
+  padding: 22px 40px; /* 24x48 → biraz küçültüldü */
+  box-sizing: border-box;
+
+  /* 🔴 MASKE ARKA PLAN */
+  background-color: var(--page-bg);
+  background-image: radial-gradient(
+    rgba(0, 0, 0, 0.09) 1.5px,
+    transparent 1.5px
+  );
+  background-size: 24px 24px;
+}
+
+/* =========================
+   HEADER INNER
+========================= */
+
+.header-inner {
+  height: 100%;
+  max-width: 1400px; /* 1500 → 1400 */
+  margin: 0 auto;
+
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+
+  gap: 28px; /* 🔴 36 → 28 (yakınlaştı) */
+}
+
+/* =========================
+   LEFT SIDE
+========================= */
+
+.header-left {
+  display: flex;
+  align-items: center;
+  gap: 14px; /* 🔴 18 → 14 */
+}
+
+/* LOGO / NAME */
+.name-box {
+  background: var(--yellow);
+  border: 3px solid var(--border-dark);
+  border-radius: 18px;
+
+  padding: 12px 24px; /* 14x28 → %35 */
+  cursor: pointer;
+}
+
+.name-text {
+  font-family: "JetBrains Mono", monospace;
+  font-size: 26px; /* 30 → 26 */
+  font-weight: 600;
+  color: #111;
+  white-space: nowrap;
+}
+
+/* MENU */
+.menu-btn {
+  font-size: 28px; /* 32 → 28 */
+  padding: 14px 16px;
+}
+
+/* =========================
+   RIGHT SIDE
+========================= */
+
+.header-right {
+  margin-left: auto;
+
+  display: flex;
+  align-items: center;
+  gap: 14px; /* 🔴 18 → 14 */
+}
+
+/* =========================
+   ICONS
+========================= */
+
+.icon {
+  width: 26px;  /* 32 → 26 */
+  height: 26px;
+  color: #000;
+}
+
+.icon path,
+.icon rect,
+.icon circle,
+.icon line,
+.icon polyline {
+  fill: currentColor;
+  stroke: currentColor;
+}
+
+/* =========================
+   LINKS
+========================= */
+
+.header-right a {
+  text-decoration: none;
+  color: inherit;
+}
+
+/* =========================
+   RESPONSIVE
+========================= */
+
+@media (max-width: 900px) {
+  .site-header {
+    height: auto;
+    padding: 18px 20px;
+  }
+
+  .header-inner {
+    flex-direction: column;
+    gap: 16px;
+  }
+
+  .header-right {
+    margin-left: 0;
+    justify-content: center;
+    flex-wrap: wrap;
+  }
+}
