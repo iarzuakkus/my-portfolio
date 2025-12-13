@@ -1,3 +1,5 @@
+// File: C:\Users\ASUS\my-portfolio\src\components\header\Header.jsx
+
 import "./header.css";
 import HeaderLeft from "./HeaderLeft";
 import HeaderRight from "./HeaderRight";
