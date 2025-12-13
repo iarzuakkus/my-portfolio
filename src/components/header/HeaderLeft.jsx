@@ -1,4 +1,4 @@
-// src/components/header/HeaderLeft.jsx
+// File: C:\Users\ASUS\my-portfolio\src\components\header\HeaderLeft.jsx
 
 export default function HeaderLeft() {
   const scrollToHero = () => {
@@ -18,15 +18,6 @@ export default function HeaderLeft() {
         aria-label="Go to hero section"
       >
         <span className="name-text">İ. Arzu Akkuş</span>
-      </button>
-
-      {/* Menu button */}
-      <button
-        type="button"
-        className="btn btn-icon purple menu-btn"
-        aria-label="Menu"
-      >
-        ☰
       </button>
     </div>
   );

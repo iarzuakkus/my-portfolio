@@ -44,14 +44,14 @@ export default function HeaderRight() {
         <img src={mailIcon} alt="Contact" className="icon" />
       </button>
 
-      {/* Resume */}
+      {/* CV */}
       <a
         className="btn orange"
         href="/resume.pdf"
         download
       >
-        <img src={downloadIcon} alt="Resume" className="icon" />
-        Resume
+        <img src={downloadIcon} alt="CV" className="icon" />
+        CV
       </a>
 
       {/* GitHub */}

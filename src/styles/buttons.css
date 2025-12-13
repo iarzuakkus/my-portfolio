@@ -1,33 +1,35 @@
+/* File: src/styles/components/button.css */
+
 /* ======================
    BASE BUTTON
+   (Header name-box ile AYNI BOYUT)
 ====================== */
 
 .btn {
   display: inline-flex;
   align-items: center;
-  gap: 11px; /* 8 → ~11 */
+  gap: 9px;
 
-  padding: 16px 27px; /* 12x20 → %35 */
-  border-radius: 18px; /* 14 → ~18 */
+  /* 🔴 HEADER NAME-BOX İLE AYNI */
+  padding: 14px 23px;
+  border-radius: 15px;
 
-  /* CODE FONT */
   font-family: "JetBrains Mono", "Fira Code", "Source Code Pro", monospace;
-  font-size: 19px; /* 14 → ~19 */
+  font-size: 17px;
   font-weight: 500;
 
   cursor: pointer;
 
-  /* 🔴 LINK MAVİLİĞİNİ KES */
   text-decoration: none;
   color: #000;
 
   background: transparent;
-  border: 3px solid var(--border-dark); /* 2 → 3 */
+  border: 2.5px solid var(--border-dark);
 
   transition: transform 0.15s ease;
 }
 
-/* a etiketi için ekstra güvenlik */
+/* link güvenliği */
 .btn:visited,
 .btn:hover,
 .btn:active {
@@ -39,49 +41,20 @@
    PALETTE VARIANTS
 ====================== */
 
-.btn.purple {
-  background: var(--purple);
-}
-
-.btn.green {
-  background: var(--green);
-}
-
-.btn.lime {
-  background: var(--lime);
-}
-
-.btn.yellow {
-  background: var(--yellow);
-}
-
-.btn.orange {
-  background: var(--orange);
-}
+.btn.purple { background: var(--purple); }
+.btn.green  { background: var(--green); }
+.btn.lime   { background: var(--lime); }
+.btn.yellow { background: var(--yellow); }
+.btn.orange { background: var(--orange); }
 
 /* ======================
-   ICON BUTTON
-====================== */
-
-.btn-icon {
-  padding: 16px; /* 12 → ~16 */
-  border-radius: 18px;
-
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-}
-
-/* ======================
-   ICON COLOR CONTROL
+   ICON SUPPORT
 ====================== */
 
 .btn .icon {
-  width: 24px; /* 18 → ~24 */
-  height: 24px;
+  width: 21px;
+  height: 21px;
   display: block;
-
-  /* ikonlar siyah */
   color: #000;
 }
 
