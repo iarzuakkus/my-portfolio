@@ -6,10 +6,11 @@ import heroImage from "../../assets/images/hero-profile.png";
 export default function Hero() {
   return (
     <section className="hero-section">
-      <div className="hero-inner">
+      {/* Container yerine hero-inner sınıfını ekledik */}
+      <div className="hero-inner"> 
+        
         {/* LEFT TEXT */}
         <div className="hero-text">
-
           {/* 1. SATIR */}
           <div className="hero-row">
             <span className="hero-line yellow">Merhaba</span>
@@ -18,16 +19,15 @@ export default function Hero() {
 
           {/* 2. SATIR */}
           <div className="hero-line green hero-wide">
-            <span>Bilgisayar</span>
-            <span>Mühendisiyim</span>
+            <span>Bilgisayar Mühendisiyim</span>
           </div>
-
         </div>
 
         {/* RIGHT IMAGE */}
         <div className="hero-image-wrapper">
           <img src={heroImage} alt="İ. Arzu Akkuş" />
         </div>
+
       </div>
     </section>
   );

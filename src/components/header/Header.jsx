@@ -7,7 +7,7 @@ import HeaderRight from "./HeaderRight";
 export default function Header() {
   return (
     <header className="site-header">
-      <div className="header-inner">
+      <div className="container header-inner">
         <HeaderLeft />
         <HeaderRight />
       </div>

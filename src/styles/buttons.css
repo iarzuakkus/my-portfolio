@@ -1,76 +1,85 @@
-/* File: src/styles/components/button.css */
+/* File: C:\Users\ASUS\my-portfolio\src\styles/components/button.css */
 
 /* ======================
-   BASE BUTTON
-   (Header name-box ile AYNI BOYUT)
+   NAV ICON BUTTONS
 ====================== */
 
-.btn {
-  display: inline-flex;
+.nav-btn {
+  position: relative;
+  display: flex;
   align-items: center;
-  gap: 9px;
+  justify-content: center;   /* 🔴 ikon ortada */
 
-  /* 🔴 HEADER NAME-BOX İLE AYNI */
-  padding: 14px 23px;
+  width: 52px;
+  height: 52px;
+
+  padding: 0;
   border-radius: 15px;
 
-  font-family: "JetBrains Mono", "Fira Code", "Source Code Pro", monospace;
-  font-size: 17px;
-  font-weight: 500;
+  border: 2.5px solid var(--border-dark);
+  background: transparent;
 
   cursor: pointer;
+  overflow: hidden;
 
-  text-decoration: none;
-  color: #000;
-
-  background: transparent;
-  border: 2.5px solid var(--border-dark);
-
-  transition: transform 0.15s ease;
+  transition:
+    width 0.35s ease,
+    background-color 0.25s ease;
 }
 
-/* link güvenliği */
-.btn:visited,
-.btn:hover,
-.btn:active {
-  color: #000;
-  text-decoration: none;
-}
-
-/* ======================
-   PALETTE VARIANTS
-====================== */
-
-.btn.purple { background: var(--purple); }
-.btn.green  { background: var(--green); }
-.btn.lime   { background: var(--lime); }
-.btn.yellow { background: var(--yellow); }
-.btn.orange { background: var(--orange); }
-
-/* ======================
-   ICON SUPPORT
-====================== */
-
-.btn .icon {
+/* ikon */
+.nav-btn .icon {
   width: 21px;
   height: 21px;
-  display: block;
-  color: #000;
+  flex-shrink: 0;
+
+  transition: transform 0.25s ease;
 }
 
-.btn .icon path,
-.btn .icon rect,
-.btn .icon circle,
-.btn .icon line,
-.btn .icon polyline {
-  fill: currentColor;
-  stroke: currentColor;
+/* yazı – başta gizli */
+.nav-btn .btn-text {
+  position: absolute;
+  left: 52px;                /* 🔴 ikonun sağı */
+  white-space: nowrap;
+
+  font-family: "JetBrains Mono", monospace;
+  font-size: 16px;
+  font-weight: 600;
+
+  opacity: 0;
+  transform: translateX(-6px);
+
+  transition:
+    opacity 0.25s ease,
+    transform 0.25s ease;
+}
+
+/* 🔴 HOVER */
+.nav-btn:hover {
+  width: 150px;
+  justify-content: flex-start;  /* ikon sola geçer */
+  padding-left: 16px;
+}
+
+/* ikon sola kayar */
+.nav-btn:hover .icon {
+  transform: translateX(0);
+}
+
+/* yazı görünür */
+.nav-btn:hover .btn-text {
+  opacity: 1;
+  transform: translateX(0);
 }
 
 /* ======================
-   HOVER
+   COLOR VARIANTS
 ====================== */
 
-.btn:hover {
-  transform: translateY(-2px);
-}
+.nav-btn.color-1 { background: #977ef2; }
+.nav-btn.color-2 { background: #a5f230; }
+.nav-btn.color-3 { background: #04d976; }
+.nav-btn.color-4 { background: #f26513; } /* 🔴 DÜZELTİLDİ */
+.nav-btn.color-5 { background: #04d976; }
+.nav-btn.color-6 { background: #a5f230; }
+.nav-btn.color-7 { background: #977ef2; }

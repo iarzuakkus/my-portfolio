@@ -60,3 +60,25 @@ body::before {
 
   pointer-events: none;
 }
+
+/* =========================
+   GLOBAL CONTAINER
+========================= */
+
+.container {
+  max-width: 1240px;
+  margin-left: auto;
+  margin-right: auto;
+
+  /* Header ile uyumlu yan boşluk */
+  padding-left: 30px;
+  padding-right: 30px;
+}
+
+/* Mobile */
+@media (max-width: 900px) {
+  .container {
+    padding-left: 16px;
+    padding-right: 16px;
+  }
+}
