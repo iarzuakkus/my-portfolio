@@ -2,13 +2,79 @@
 
 .hero-section {
   width: 100%;
-  /* Sayfanın tam yüksekliğini kapla */
   min-height: 100vh; 
   display: flex;
-  align-items: center;    /* Dikeyde tam orta */
-  justify-content: center; /* Yatayda tam orta */
+  align-items: center;
+  justify-content: center;
   overflow-x: hidden;
   padding: 40px 0;
+  position: relative;
+}
+
+/* =========================
+   ANIMASYON (Yıldızlar)
+========================= */
+
+@keyframes starPulse {
+  0% { transform: scale(0) rotate(0deg); opacity: 0; }
+  50% { transform: scale(1.1) rotate(45deg); opacity: 1; }
+  100% { transform: scale(0) rotate(90deg); opacity: 0; }
+}
+
+/* =========================
+   DEKORASYON KONUMLARI
+========================= */
+
+.decor-shine {
+  position: absolute;
+  z-index: 5;
+  animation: starPulse 4s ease-in-out infinite;
+}
+
+/* 1. Büyük Yıldız: Orijinal Rengini Kullanır */
+.shine-1 {
+  top: 15%;
+  left: 8%;
+  width: 85px;
+  /* Filtre kaldırıldı, dosyadaki orijinal renk görünecek */
+}
+
+/* 2. Küçük Yıldız: TURUNCU (#f26513) */
+.shine-2 {
+  top: 22%;
+  left: 14%;
+  width: 63px;
+  animation-delay: 2s;
+  filter: invert(47%) sepia(96%) saturate(1478%) hue-rotate(352deg) brightness(97%) contrast(95%);
+}
+
+/* Dalgalar */
+.decor-wave {
+  position: absolute;
+  pointer-events: none;
+}
+
+/* Sol Dalgalar: 15px daha aşağı indirildi */
+.wave-1 {
+  bottom: -75px; /* Önceki -10px idi, 15px daha aşağı çekildi */
+  left: -40px;   /* Kesik efekti korundu */
+  width: 440px;
+  z-index: 3;    /* Siyah dalga en üstte */
+}
+
+.wave-2 {
+  bottom: -45px; /* Önceki -5px idi, 15px daha aşağı çekildi */
+  left: -20px;
+  width: 440px;
+  z-index: 2;    /* Mor dalga altta */
+}
+
+/* Sağ Dalga: Konumu korundu */
+.wave-3 {
+  bottom: 22%;  
+  right: -20px; 
+  width: 350px; 
+  z-index: 2;
 }
 
 /* =========================
@@ -20,18 +86,13 @@
   max-width: 1240px;
   margin: 0 auto;
   padding: 0 24px;
-
   display: flex;
   flex-direction: row;
-  align-items: center;      /* İçerikleri birbirine göre dikeyde ortalar */
-  justify-content: space-between; /* Yazıyı sola, resmi sağa yaslar */
-  
-  flex-wrap: nowrap;
+  align-items: center;
+  justify-content: space-between;
+  position: relative;
+  z-index: 10;
 }
-
-/* =========================
-   LEFT TEXT (Yazı Bloğu)
-========================= */
 
 .hero-text {
   display: flex;
@@ -64,10 +125,6 @@
 .hero-line.purple { background-color: #a8a2ff; }
 .hero-line.green  { background-color: #32d777; }
 
-/* =========================
-   RIGHT IMAGE (Resim)
-========================= */
-
 .hero-image-wrapper {
   flex-shrink: 0;
   width: 480px; 
@@ -81,31 +138,15 @@
   width: 100%;
   height: 100%;
   object-fit: contain;
-  display: block;
 }
 
-/* =========================
-   RESPONSIVE (Mobil Ayarları)
-========================= */
-
+/* Mobil Ayarlar */
 @media (max-width: 1024px) {
   .hero-inner {
     flex-direction: column;
-    justify-content: center;
     text-align: center;
     gap: 50px;
   }
-  
-  .hero-text {
-    align-items: center;
-  }
-
-  .hero-line {
-    font-size: 36px;
-  }
-
-  .hero-image-wrapper {
-    width: 350px;
-    height: 350px;
-  }
+  .hero-text { align-items: center; }
+  .decor-wave, .decor-shine { display: none; }
 }
