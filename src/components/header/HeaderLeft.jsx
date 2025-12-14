@@ -1,5 +1,4 @@
 // File: C:\Users\ASUS\my-portfolio\src\components\header\HeaderLeft.jsx
-
 export default function HeaderLeft() {
   const scrollToHero = () => {
     const heroSection = document.getElementById("hero");
@@ -10,7 +9,6 @@ export default function HeaderLeft() {
 
   return (
     <div className="header-left">
-      {/* Name / Logo → HERO’ya scroll */}
       <button
         type="button"
         className="name-box"
