@@ -23,8 +23,8 @@
   overflow: hidden;
 
   transition:
-    width 0.35s ease,
-    background-color 0.25s ease;
+    max-width 0.65s cubic-bezier(0.25, 0.1, 0.25, 1)
+    background-color 0.3s ease;
 }
 
 /* ikon */

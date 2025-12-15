@@ -78,14 +78,6 @@
    NAV BUTONLARI – MASAÜSTÜ BAŞLANGIÇ (HEPSİ EŞİT KARE)
 ============================================================ */
 @media (min-width: 901px) {
-  .nav-btn,
-  .header-right a {
-    justify-content: center;
-    gap: 0;
-    padding: 12px;
-    height: 56px;
-    max-width: 56px;   /* 🔴 TEK kontrol noktası */
-  }
 
   /* Yazı başlangıçta gizli */
   .nav-btn .btn-text,
