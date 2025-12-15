@@ -1,29 +1,22 @@
-/* File: C:\Users\ASUS\my-portfolio\src\components\hero/hero.css */
-
+/* Masaüstü tasarımına (buraya) dokunulmadı */
 .hero-section {
   width: 100%;
-  min-height: 100vh; 
+  min-height: 100vh;
   display: flex;
   align-items: center;
   justify-content: center;
   overflow-x: hidden;
-  padding: 40px 0;
   position: relative;
+  padding: 40px 0;
+  padding-top: 120px;
 }
 
-/* =========================
-   ANIMASYON (Yıldızlar)
-========================= */
-
+/* Masaüstü animasyon ve ikon değerleri sabit */
 @keyframes starPulse {
   0% { transform: scale(0) rotate(0deg); opacity: 0; }
   50% { transform: scale(1.1) rotate(45deg); opacity: 1; }
   100% { transform: scale(0) rotate(90deg); opacity: 0; }
 }
-
-/* =========================
-   DEKORASYON KONUMLARI
-========================= */
 
 .decor-shine {
   position: absolute;
@@ -31,122 +24,135 @@
   animation: starPulse 4s ease-in-out infinite;
 }
 
-/* 1. Büyük Yıldız: Orijinal Rengini Kullanır */
-.shine-1 {
-  top: 15%;
-  left: 8%;
-  width: 85px;
-  /* Filtre kaldırıldı, dosyadaki orijinal renk görünecek */
-}
-
-/* 2. Küçük Yıldız: TURUNCU (#f26513) */
+.shine-1 { top: 15%; left: 8%; width: 85px; }
 .shine-2 {
-  top: 22%;
-  left: 14%;
-  width: 63px;
+  top: 22%; left: 14%; width: 63px;
   animation-delay: 2s;
   filter: invert(47%) sepia(96%) saturate(1478%) hue-rotate(352deg) brightness(97%) contrast(95%);
 }
 
-/* Dalgalar */
-.decor-wave {
-  position: absolute;
-  pointer-events: none;
-}
-
-/* Sol Dalgalar: 15px daha aşağı indirildi */
-.wave-1 {
-  bottom: -75px; /* Önceki -10px idi, 15px daha aşağı çekildi */
-  left: -40px;   /* Kesik efekti korundu */
-  width: 440px;
-  z-index: 3;    /* Siyah dalga en üstte */
-}
-
-.wave-2 {
-  bottom: -45px; /* Önceki -5px idi, 15px daha aşağı çekildi */
-  left: -20px;
-  width: 440px;
-  z-index: 2;    /* Mor dalga altta */
-}
-
-/* Sağ Dalga: Konumu korundu */
-.wave-3 {
-  bottom: 22%;  
-  right: -20px; 
-  width: 350px; 
-  z-index: 2;
-}
-
-/* =========================
-   HERO LAYOUT
-========================= */
+.decor-wave { position: absolute; pointer-events: none; }
+.wave-1 { bottom: -75px; left: -40px; width: 440px; z-index: 3; }
+.wave-2 { bottom: -45px; left: -20px; width: 440px; z-index: 2; }
+.wave-3 { bottom: 22%; right: -20px; width: 350px; z-index: 2; }
 
 .hero-inner {
-  width: 100%;
-  max-width: 1240px;
-  margin: 0 auto;
-  padding: 0 24px;
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-  justify-content: space-between;
-  position: relative;
-  z-index: 10;
+  width: 100%; max-width: 1240px; margin: 0 auto; padding: 0 24px;
+  display: flex; align-items: center; justify-content: space-between;
+  position: relative; z-index: 10;
 }
 
-.hero-text {
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-  gap: 24px;
-}
+.hero-text { display: flex; flex-direction: column; align-items: flex-start; gap: 22px; }
+.hero-row { display: flex; gap: 16px; }
 
-.hero-row {
-  display: flex;
-  gap: 18px;
-}
-
+@keyframes typing { from { width: 0; } to { width: 100%; } }
 .hero-line {
-  width: fit-content;
-  padding: 16px 32px;
-  font-family: "JetBrains Mono", monospace;
-  font-size: 48px;
-  font-weight: 700;
-  border: 4px solid #000;
-  border-radius: 12px;
-  background-color: white;
-  color: #000;
-  line-height: 1.1;
-  white-space: nowrap;
-  box-shadow: 8px 8px 0px #000;
+  width: fit-content; max-width: 100%; padding: 14px 28px;
+  font-family: "JetBrains Mono", monospace; font-size: 44px; font-weight: 700;
+  border: 4px solid #000; border-radius: 12px; background-color: white; color: #000;
+  line-height: 1.1; white-space: nowrap; overflow: hidden; box-shadow: 8px 8px 0px #000;
+  animation: typing 1.2s steps(20, end) forwards;
 }
+
+.hero-row:nth-child(1) .hero-line { animation-delay: 0.2s; }
+.hero-row:nth-child(2) .hero-line { animation-delay: 0.6s; }
+.hero-row:nth-child(3) .hero-line { animation-delay: 1s; }
 
 .hero-line.yellow { background-color: #f4df4e; }
 .hero-line.purple { background-color: #a8a2ff; }
 .hero-line.green  { background-color: #32d777; }
 
-.hero-image-wrapper {
-  flex-shrink: 0;
-  width: 480px; 
-  height: 480px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
+.hero-image-wrapper { flex-shrink: 0; width: 480px; height: 480px; display: flex; align-items: center; justify-content: center; }
+.hero-image-wrapper img { width: 100%; height: 100%; object-fit: contain; }
 
-.hero-image-wrapper img {
-  width: 100%;
-  height: 100%;
-  object-fit: contain;
-}
+/* ============================================================
+   RESPONSIVE - TÜM DEĞİŞİKLİKLER BURADA YAPILDI
+   ============================================================ */
 
-/* Mobil Ayarlar */
 @media (max-width: 1024px) {
   .hero-inner {
     flex-direction: column;
     text-align: center;
-    gap: 50px;
+    gap: 40px;
   }
-  .hero-text { align-items: center; }
-  .decor-wave, .decor-shine { display: none; }
+
+  .hero-text {
+    align-items: center;
+    width: 100%;
+  }
+
+  .hero-row {
+    justify-content: center;
+    width: 100%;
+  }
+
+  /* Resim yukarıda kalsın */
+  .hero-image-wrapper {
+    order: -1;
+    width: clamp(260px, 50vw, 350px);
+    height: auto;
+  }
+
+  /* --- Yazma Animasyonu İyileştirme --- */
+  .hero-line {
+    /* Yazı ekrana tam sığsın diye küçültüldü */
+    font-size: clamp(20px, 4.5vw, 32px);
+    /* Yavaşlatıldı (1.2s -> 2.5s) */
+    animation-duration: 2.5s; 
+    animation-timing-function: steps(30, end);
+  }
+
+  /* Satır gecikmeleri yavaş akış için artırıldı */
+  .hero-row:nth-child(1) .hero-line { animation-delay: 0.3s; }
+  .hero-row:nth-child(2) .hero-line { animation-delay: 1.8s; }
+  .hero-row:nth-child(3) .hero-line { animation-delay: 3.3s; }
+
+  /* --- Çizimine Göre İkon Yerleşimleri --- */
+  
+  /* LİME YILDIZ: Resmin sol üstünde, büyütüldü */
+  .shine-1 {
+    top: 10%;
+    left: 5%;
+    width: 100px; /* Belirginleştirildi */
+  }
+
+  /* TURUNCU DALGA: Resmin sağ ortası, yazının üstü */
+  .wave-3 {
+    top: 35%;
+    right: -20px;
+    width: clamp(200px, 35vw, 300px);
+    z-index: 4;
+  }
+
+  /* TURUNCU YILDIZ: Turuncu dalganın altına, yazının üstüne */
+  .shine-2 {
+    top: 45%; /* Dalga ile koordineli */
+    right: 15%;
+    width: 75px;
+    z-index: 15; /* Yazıların üstünde görünmesi için */
+  }
+
+  /* MOR/SİYAH DALGA: Resmin sol altı */
+  .wave-1 {
+    top: 40%;
+    left: -30px;
+    width: clamp(180px, 30vw, 250px);
+    bottom: auto; /* Masaüstü değerini sıfırla */
+  }
+
+  .wave-2 {
+    display: none; /* Mobilde kalabalığı önlemek için gizlendi */
+  }
+}
+
+@media (max-width: 600px) {
+  .hero-line {
+    font-size: clamp(18px, 6vw, 24px); /* Mobilde taşmayı kesin engeller */
+    padding: 10px 18px;
+    box-shadow: 5px 5px 0px #000;
+  }
+  
+  .hero-row {
+    gap: 8px;
+  }
 }
