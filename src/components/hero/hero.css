@@ -238,28 +238,30 @@
   }
 
   .shine-2 {
-    top: 45%;
-    right: 15%;
-    width: 75px;
+    top: 15%;              /* wave-3 (30%)'un üstü */
+    right: 6%;             /* 👈 SAĞA KİLİTLENDİ */
+    left: auto;            /* 👈 sol ihtimali tamamen kapatıldı */
+
+    width: 70px;
     opacity: 0.75;
     z-index: 2;
   }
 
   .wave-3 {
-    top: 35%;
+    top: 33%;
     right: -20px;
     width: clamp(200px, 35vw, 300px);
   }
 
   .wave-2 {
-    top: 44%;
+    top: 42%;
     left: -25px;
     width: clamp(200px, 34vw, 260px);
     bottom: auto;
   }
 
   .wave-1 {
-    top: 44.5%;
+    top: 42.5%;
     left: -35px;
     width: clamp(220px, 36vw, 280px);
     bottom: auto;
