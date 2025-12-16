@@ -91,7 +91,7 @@
     order: -1;
     width: clamp(260px, 50vw, 350px);
     height: auto;
-    margin-top: -90px;   /* 👈 resmi yukarı alır */
+    margin-top: -130px;   /* 👈 resmi yukarı alır */
   }
 
 
