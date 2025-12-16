@@ -70,10 +70,17 @@
    ============================================================ */
 
 @media (max-width: 1024px) {
+
+  /* ------------------------------------------------------------
+     HERO YAPI
+  ------------------------------------------------------------ */
+
   .hero-inner {
     flex-direction: column;
     text-align: center;
     gap: 40px;
+    position: relative;
+    z-index: 10; /* 👈 GERÇEK İÇERİK EN ÜSTTE */
   }
 
   .hero-text {
@@ -86,82 +93,101 @@
     width: 100%;
   }
 
-  /* Resim yukarıda kalsın */
+  /* ------------------------------------------------------------
+     HERO IMAGE
+  ------------------------------------------------------------ */
+
   .hero-image-wrapper {
     order: -1;
     width: clamp(260px, 50vw, 350px);
     height: auto;
-    margin-top: -130px;   /* 👈 resmi yukarı alır */
+    margin-top: -130px; /* 👈 resmi yukarı aldık */
+    position: relative;
+    z-index: 8;
   }
 
+  /* ------------------------------------------------------------
+     YAZI ANİMASYONU
+  ------------------------------------------------------------ */
 
-  /* --- Yazma Animasyonu İyileştirme --- */
   .hero-line {
-    /* Yazı ekrana tam sığsın diye küçültüldü */
     font-size: clamp(20px, 4.5vw, 32px);
-    /* Yavaşlatıldı (1.2s -> 2.5s) */
-    animation-duration: 2.5s; 
+    animation-duration: 2.5s;
     animation-timing-function: steps(30, end);
   }
 
-  /* Satır gecikmeleri yavaş akış için artırıldı */
   .hero-row:nth-child(1) .hero-line { animation-delay: 0.3s; }
   .hero-row:nth-child(2) .hero-line { animation-delay: 1.8s; }
   .hero-row:nth-child(3) .hero-line { animation-delay: 3.3s; }
 
-  /* --- Çizimine Göre İkon Yerleşimleri --- */
-  
-  /* LİME YILDIZ: Resmin sol üstünde, büyütüldü */
+  /* ------------------------------------------------------------
+     DEKORLAR (ARKA PLAN HİSSİ)
+  ------------------------------------------------------------ */
+
+  .decor-shine,
+  .decor-wave {
+    position: absolute;
+    pointer-events: none;
+    user-select: none;
+    z-index: 1; /* 👈 DEKOR = ARKA PLAN */
+  }
+
+  /* LİME YILDIZ */
   .shine-1 {
     top: 10%;
     left: 5%;
-    width: 100px; /* Belirginleştirildi */
+    width: 100px;
+    opacity: 0.7;
   }
 
-  /* TURUNCU DALGA: Resmin sağ ortası, yazının üstü */
+  /* TURUNCU DALGA (SAĞ) */
   .wave-3 {
     top: 35%;
     right: -20px;
     width: clamp(200px, 35vw, 300px);
-    z-index: 4;
+    z-index: 1;
   }
 
-  /* TURUNCU YILDIZ: Turuncu dalganın altına, yazının üstüne */
+  /* TURUNCU YILDIZ */
   .shine-2 {
-    top: 45%; /* Dalga ile koordineli */
+    top: 45%;
     right: 15%;
     width: 75px;
-    z-index: 15; /* Yazıların üstünde görünmesi için */
+    opacity: 0.75;
+    z-index: 2;
   }
 
-/* MOR DALGA (rightwave2) — ARKADA */
-.wave-2 {
-  display: block;              /* Mobilde geri açıyoruz */
-  top: 46%;                     /* Merhaba yazısının hemen üstü */
-  left: -25px;
-  width: clamp(200px, 34vw, 260px);
-  z-index: 2;                   /* Arkada */
-  bottom: auto;
+  /* MOR DALGA — ARKADA */
+  .wave-2 {
+    top: 44%;
+    left: -25px;
+    width: clamp(200px, 34vw, 260px);
+    z-index: 1;
+    bottom: auto;
+  }
+
+  /* SİYAH DALGA — MORUN ÜZERİNDE, BİRAZ DAHA AŞAĞIDA */
+  .wave-1 {
+    top: 44.5%;
+    left: -35px;
+    width: clamp(220px, 36vw, 280px);
+    z-index: 2;
+    bottom: auto;
+  }
 }
 
-/* SİYAH DALGA (rightwave1) — ÖNDE */
-.wave-1 {
-  top: 44%;                     /* Mor dalgadan biraz yukarı */
-  left: -35px;
-  width: clamp(220px, 36vw, 280px);
-  z-index: 3;                   /* Mor dalganın üstünde */
-  bottom: auto;
-}
-
-}
+/* ------------------------------------------------------------
+   KÜÇÜK MOBİL
+------------------------------------------------------------ */
 
 @media (max-width: 600px) {
+
   .hero-line {
-    font-size: clamp(18px, 6vw, 24px); /* Mobilde taşmayı kesin engeller */
+    font-size: clamp(18px, 6vw, 24px);
     padding: 10px 18px;
     box-shadow: 5px 5px 0px #000;
   }
-  
+
   .hero-row {
     gap: 8px;
   }
