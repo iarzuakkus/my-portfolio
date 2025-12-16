@@ -191,6 +191,7 @@
   .hero-text {
     align-items: center;
     width: 100%;
+    margin-top: 40px; /* 👈 yazıyı aşağı indirir */
   }
 
   .hero-row {
