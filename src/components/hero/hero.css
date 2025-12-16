@@ -91,7 +91,9 @@
     order: -1;
     width: clamp(260px, 50vw, 350px);
     height: auto;
+    margin-top: -90px;   /* 👈 resmi yukarı alır */
   }
+
 
   /* --- Yazma Animasyonu İyileştirme --- */
   .hero-line {
@@ -132,17 +134,25 @@
     z-index: 15; /* Yazıların üstünde görünmesi için */
   }
 
-  /* MOR/SİYAH DALGA: Resmin sol altı */
-  .wave-1 {
-    top: 40%;
-    left: -30px;
-    width: clamp(180px, 30vw, 250px);
-    bottom: auto; /* Masaüstü değerini sıfırla */
-  }
+/* MOR DALGA (rightwave2) — ARKADA */
+.wave-2 {
+  display: block;              /* Mobilde geri açıyoruz */
+  top: 46%;                     /* Merhaba yazısının hemen üstü */
+  left: -25px;
+  width: clamp(200px, 34vw, 260px);
+  z-index: 2;                   /* Arkada */
+  bottom: auto;
+}
 
-  .wave-2 {
-    display: none; /* Mobilde kalabalığı önlemek için gizlendi */
-  }
+/* SİYAH DALGA (rightwave1) — ÖNDE */
+.wave-1 {
+  top: 44%;                     /* Mor dalgadan biraz yukarı */
+  left: -35px;
+  width: clamp(220px, 36vw, 280px);
+  z-index: 3;                   /* Mor dalganın üstünde */
+  bottom: auto;
+}
+
 }
 
 @media (max-width: 600px) {
