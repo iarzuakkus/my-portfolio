@@ -1,0 +1,13 @@
+/* File: src/components/background/variants/dots.css */
+
+/* ============================================================
+   DOTS BACKGROUND (HERO)
+============================================================ */
+
+.bg-dots {
+  background-image: radial-gradient(
+    rgba(0, 0, 0, 0.09) 1.5px,
+    transparent 1.5px
+  );
+  background-size: 24px 24px;
+}
