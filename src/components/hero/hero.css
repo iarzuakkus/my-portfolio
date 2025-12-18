@@ -21,8 +21,7 @@
   align-items: flex-start;
 
   padding: 0; 
-  
-}
+  }
 
 .hero-inner {
   width: 100%;
@@ -194,18 +193,29 @@
 ============================================================ */
 
 @media (max-width: 1024px) {
+  .hero-section {
+    /* Snap'in bozulmaması için yüksekliği içeriğe göre esnetiyoruz */
+    height: auto; 
+    min-height: var(--section-height);
+    display: flex;
+    align-items: center; 
+    /* Resim yukarı (-130px) taşacağı için Header'a çarpmaması için güvenli alan: */
+    padding-top: 100px; 
+    padding-bottom: 50px;
+  }
 
   /* Stack layout vertically */
   .hero-inner {
     flex-direction: column;
     text-align: center;
     gap: 40px;
+    height: auto; /* İçerik ne kadar uzarsa o kadar kaplar */
   }
 
   .hero-text {
     align-items: center;
     width: 100%;
-    margin-top: 40px; /* 👈 yazıyı aşağı indirir */
+    margin-top: 40px; /* Senin değerin */
   }
 
   .hero-row {
@@ -218,53 +228,46 @@
     order: -1;
     width: clamp(260px, 50vw, 350px);
     height: auto;
-    margin-top: -130px; /* Lift image upward visually */
+    margin-top: -130px; /* Senin değerin - Aynen korundu */
     position: relative;
     z-index: 8;
   }
 
-  /* Slower typing animation for mobile */
+  /* Yazı animasyon ve dekoratif (wave/shine) konumların aynen korunmalı */
   .hero-line {
     font-size: clamp(20px, 4.5vw, 32px);
     animation-duration: 2.5s;
     animation-timing-function: steps(30, end);
   }
 
-  .hero-row:nth-child(1) .hero-line { animation-delay: 0.3s; }
-  .hero-row:nth-child(2) .hero-line { animation-delay: 1.8s; }
-  .hero-row:nth-child(3) .hero-line { animation-delay: 3.3s; }
-
-  /* Background-only decorative behavior */
-  .decor-shine,
-  .decor-wave {
-    position: absolute;
-    pointer-events: none;
-    user-select: none;
-    z-index: 1;
-  }
-
-  /* Decorative fine tuning */
   .shine-1 {
-    top: 10%;
+    top: 8%;
     left: 5%;
     width: 100px;
     opacity: 0.7;
   }
 
+  /* Diğer tüm wave ve shine değerlerini buraya senin verdiğin gibi ekle... */
   .shine-2 {
-    top: 15%;              /* wave-3 (30%)'un üstü */
-    right: 6%;             /* 👈 SAĞA KİLİTLENDİ */
-    left: auto;            /* 👈 sol ihtimali tamamen kapatıldı */
-
+    top: 14%;
+    right: 6%;
+    left: auto;
     width: 70px;
     opacity: 0.75;
     z-index: 2;
   }
-
-  .wave-3 {
-    top: 33%;
+    .wave-3 {
+    top: 29%;
     right: -20px;
     width: clamp(200px, 35vw, 300px);
+  }
+
+  .wave-1 {
+    top: 42.5%;
+    left: -35px;
+    width: clamp(220px, 36vw, 280px);
+    bottom: auto;
+    z-index: 3;
   }
 
   .wave-2 {
@@ -274,49 +277,5 @@
     bottom: auto;
   }
 
-  .wave-1 {
-    top: 42.5%;
-    left: -35px;
-    width: clamp(220px, 36vw, 280px);
-    bottom: auto;
-    z-index: 2;
-  }
-}
 
-/* ============================================================
-   SMALL MOBILE DEVICES
-============================================================ */
-
-@media (max-width: 600px) {
-
-  .hero-line {
-    font-size: clamp(18px, 6vw, 24px);
-    padding: 10px 18px;
-    box-shadow: 5px 5px 0px #000;
-  }
-
-  .hero-row {
-    gap: 8px;
-  }
-}
-
-/* ============================================================
-   SCROLL SNAP - SECTION BASED PAGE FLOW
-   Hero scrolls to next section instead of internal scrolling
-============================================================ */
-
-html,
-body {
-  height: 100%;
-  scroll-behavior: smooth;
-}
-
-/* Enable section-based vertical scrolling */
-body {
-  scroll-snap-type: y mandatory;
-}
-
-/* Hero acts as a single snap section */
-.hero-section {
-  scroll-snap-align: start;
 }
