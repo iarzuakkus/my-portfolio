@@ -226,7 +226,7 @@
   /* Image moves to top and slightly upward */
   .hero-image-wrapper {
     order: -1;
-    width: clamp(260px, 50vw, 350px);
+    width: clamp(300px, 55vw, 420px);;
     height: auto;
     margin-top: -130px; /* Senin değerin - Aynen korundu */
     position: relative;
@@ -241,39 +241,39 @@
   }
 
   .shine-1 {
-    top: 8%;
+    top: 1%;
     left: 5%;
-    width: 100px;
+    width: 110px;
     opacity: 0.7;
   }
 
   /* Diğer tüm wave ve shine değerlerini buraya senin verdiğin gibi ekle... */
   .shine-2 {
-    top: 14%;
+    top: 13%;
     right: 6%;
     left: auto;
-    width: 70px;
+    width: 80px;
     opacity: 0.75;
     z-index: 2;
   }
     .wave-3 {
     top: 29%;
     right: -20px;
-    width: clamp(200px, 35vw, 300px);
+    width: clamp(250px, 40vw, 350px);
   }
 
   .wave-1 {
-    top: 42.5%;
+    top: 41.5%;
     left: -35px;
-    width: clamp(220px, 36vw, 280px);
+    width: clamp(250px, 40vw, 300px);
     bottom: auto;
     z-index: 3;
   }
 
   .wave-2 {
-    top: 42%;
+    top: 40%;
     left: -25px;
-    width: clamp(200px, 34vw, 260px);
+    width: clamp(240px, 40vw, 300px);
     bottom: auto;
   }
 
