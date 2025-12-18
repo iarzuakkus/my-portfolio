@@ -1,125 +1,77 @@
-/* File: src/components/about/about.css */
-
+/* ============================================================
+    ABOUT SECTION (Hero ile Aynı Mantık)
+============================================================ */
 .about-section {
-  height: 100vh;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  scroll-snap-align: start;
-  position: relative; 
+  width: 100%;
+  /* index.css'den gelen (100vh - 88px) değerini kullanır */
+  height: var(--section-height); 
+
+  position: relative;
   overflow: hidden;
+
+  /* İçeriği dikey ve yatayda ortalamak için */
+  display: flex;
+  justify-content: center;
+  align-items: center; 
+
+  /* Padding'i sıfırlıyoruz, böylece aşağı kayma yapmaz */
+  padding: 0; 
+}
+
+/* Hero-inner mantığında About içeriği */
+.about-inner {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center; 
+  justify-content: center;
+  position: relative;
+  z-index: 2;
 }
 
 /* ============================================================
-   ASLA KAYMAYAN IZGARA KATMANI
+    IZGARA KATMANI (Fixed Grid Layer)
 ============================================================ */
 .fixed-grid-layer {
   position: absolute;
+  /* Section'ın en tepesinden (Header bittiği yer) başlar */
   top: 0;
   left: 0;
-  /* Genişlik ve yüksekliğin tam dolduğundan emin oluyoruz */
+  
   width: 100%;
-  height: 100%;
+  /* Section yüksekliği ile tam aynı boyda kalır */
+  height: 100%; 
+  
   display: grid;
-  /* Kendi ayarladığın 65px ölçüleri */
   grid-template-columns: repeat(auto-fill, 65px);
   grid-auto-rows: 65px;
+  gap: 0;
+  
   pointer-events: none;
   z-index: 0;
-  /* Boşlukları (gap) sıfırlıyoruz ki kesiklik yapmasın */
-  gap: 0; 
 }
 
 .about-grid-square {
-  /* İstediğin renk: F5F5F5 */
   background-color: #f5f5f5; 
-  
-  /* Boyanmama sorununu çözmek için: */
-  width: 100%;
-  height: 100%;
+  width: 65px;
+  height: 65px;
   display: block;
-
-  /* Çizgilerin üzerine milimetrik taşmaları önlemek için */
-  outline: 1px solid transparent; 
-  backface-visibility: hidden;
+  /* Kareler arasındaki milimetrik boşlukları kapatır */
+  box-shadow: 0 0 0 1px #f5f5f5; 
 }
 
 /* ============================================================
-   ABOUT CARD (PINK THEME)
+    ABOUT CARD (Pink Theme)
 ============================================================ */
 .about-card {
   position: relative;
-  z-index: 2; 
+  z-index: 3; 
   max-width: 980px;
   padding: 48px 56px;
   
-  /* Kartın altındaki kareleri kapatması için istediğin zemin rengi (#f5f5f5) */
-  /* Eğer kartın arkası pembe kalsın istersen burayı sayfanın ana pembe tonuyla değiştir */
   background-color: #f5f5f5; 
-  
   border: 5px solid #000;
   border-radius: 28px;
   box-shadow: 10px 10px 0px #000;
   font-family: "JetBrains Mono", monospace;
-}
-
-.about-title {
-  font-size: 42px;
-  font-weight: 800;
-  margin-bottom: 24px;
-  background-color: #ff90e8;
-  display: inline-block;
-  padding: 8px 18px;
-  border-radius: 12px;
-  border: 3px solid #000;
-}
-
-.about-card p {
-  font-size: 16px;
-  line-height: 1.75;
-  margin-bottom: 18px;
-  color: #000;
-}
-
-
-/* File: src/components/about/about.css */
-
-.fixed-grid-layer {
-  position: absolute;
-  top: 0;
-  left: 0;
-  /* Taşmayı engellemek yerine sağa doğru taşmaya izin veriyoruz */
-  width: 110%; 
-  height: 100%;
-  display: grid;
-  /* Ölçülerin olan 65px'i koruyoruz */
-  grid-template-columns: repeat(auto-fill, 65px);
-  grid-auto-rows: 65px;
-  pointer-events: none;
-  z-index: 0;
-  gap: 0;
-}
-
-.about-grid-square {
-  /* İstediğin renk */
-  background-color: #f5f5f5; 
-  
-  /* Yarım kalan yerleri tam boyamak için kritik ayarlar: */
-  width: 65px;  /* Yüzde yerine sabit px vererek hücrenin küçülmesini engelliyoruz */
-  height: 65px;
-  display: block;
-
-  /* Tarayıcı çizgisi hatalarını (kesik beyazlıkları) önlemek için: */
-  box-shadow: 0 0 0 1px #f5f5f5; 
-  margin: 0;
-}
-
-/* Ekranın en sağında beyaz boşluk kalmaması için section ayarı */
-.about-section {
-  position: relative;
-  height: 100vh;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  overflow: hidden; /* Dışarı taşan (sağdaki) kare fazlalıklarını gizler */
 }
