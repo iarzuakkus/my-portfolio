@@ -1,116 +1,128 @@
+/* src/components/about/about.css */
+
 /* ============================================================
-    ABOUT SECTION (Hero ile Aynı Mantık)
+   ABOUT SECTION (Yeni – Grid’siz, Dot Background ile)
 ============================================================ */
+
 .about-section {
   width: 100%;
-  /* index.css'den gelen (100vh - 88px) değerini kullanır */
-  height: var(--section-height); 
+  height: var(--section-height);
 
   position: relative;
   overflow: hidden;
 
-  /* İçeriği dikey ve yatayda ortalamak için */
   display: flex;
   justify-content: center;
-  align-items: center; 
+  align-items: center;
+  padding: 0;
 
-  /* Padding'i sıfırlıyoruz, böylece aşağı kayma yapmaz */
-  padding: 0; 
+  /* 🔴 Dot background renkleri BU SAYFAYA ÖZEL */
+  --bg-color: #f7f4f2;
+  --dot-color: rgba(255, 160, 170, 0.45);
+  --dot-opacity: 0.55;
+  --dot-size: 28px;
 }
 
-/* Hero-inner mantığında About içeriği */
 .about-inner {
   width: 100%;
   height: 100%;
+
   display: flex;
-  align-items: center; 
   justify-content: center;
+  align-items: center;
+
   position: relative;
   z-index: 2;
 }
 
 /* ============================================================
-    IZGARA KATMANI (Fixed Grid Layer)
+   ABOUT CARD (Görsele uygun kart)
 ============================================================ */
-.fixed-grid-layer {
-  position: absolute;
-  /* Section'ın en tepesinden (Header bittiği yer) başlar */
-  top: 0;
-  left: 0;
-  
-  width: 100%;
-  /* Section yüksekliği ile tam aynı boyda kalır */
-  height: 100%; 
-  
-  display: grid;
-  grid-template-columns: repeat(auto-fill, 65px);
-  grid-auto-rows: 65px;
-  gap: 0;
-  
-  pointer-events: none;
-  z-index: 0;
-}
 
-.about-grid-square {
-  background-color: #f5f5f5; 
-  width: 65px;
-  height: 65px;
-  display: block;
-  /* Kareler arasındaki milimetrik boşlukları kapatır */
-  box-shadow: 0 0 0 1px #f5f5f5; 
-}
-
-/* ============================================================
-    ABOUT CARD (Pink Theme)
-============================================================ */
 .about-card {
   position: relative;
-  z-index: 3; 
+  z-index: 3;
+
   max-width: 980px;
-  padding: 48px 56px;
-  
-  background-color: #f5f5f5; 
+  width: 100%;
+  padding: 0;
+
+  background-color: #fff3f6;
   border: 5px solid #000;
   border-radius: 28px;
   box-shadow: 10px 10px 0px #000;
+
   font-family: "JetBrains Mono", monospace;
+  overflow: hidden;
 }
 
-/* src/components/about/about.css içine ekle */
+/* Üst başlık barı */
+.about-card-header {
+  background-color: #ff9adf;
+  border-bottom: 4px solid #000;
+  padding: 12px 20px;
+
+  font-size: 18px;
+  font-weight: 700;
+}
+
+/* İç metin alanı */
+.about-card-content {
+  padding: 32px 36px;
+  font-size: 14.5px;
+  line-height: 1.65;
+  color: #111;
+}
+
+/* Alt navigasyon (oklar) */
+.about-card-footer {
+  display: flex;
+  justify-content: center;
+  gap: 16px;
+  padding: 16px 0 24px;
+}
+
+.about-card-footer button {
+  width: 34px;
+  height: 34px;
+  border-radius: 8px;
+  border: 3px solid #000;
+  background-color: #ffd1eb;
+  cursor: pointer;
+}
+
+/* ============================================================
+   RESPONSIVE
+============================================================ */
 
 @media (max-width: 768px) {
   .about-section {
-    padding: 40px 16px; /* Kenarlardan nefes alsın */
     height: auto;
     min-height: var(--section-height);
   }
 
   .about-card {
-    padding: 24px;
-    border-width: 3px;
+    width: 82%;
+    max-height: 85vh;
+    border: 3px solid #000;
     border-radius: 20px;
     box-shadow: 6px 6px 0px #000;
   }
 
-  .about-title {
-    font-size: 28px;
-    padding: 6px 12px;
+  .about-card-header {
+    font-size: 16px;
+    padding: 10px 16px;
   }
 
-  .about-card p {
-    font-size: 14px;
-    line-height: 1.6;
+  .about-card-content {
+    padding: 20px;
+    font-size: 13.5px;
+    line-height: 1.55;
   }
+}
 
-  /* Mobilde ızgara karelerini küçültmek istersen */
-  .fixed-grid-layer {
-    grid-template-columns: repeat(auto-fill, 40px);
-    grid-auto-rows: 40px;
-    height: 100%; /* İçerik uzarsa ızgara da uzasın */
-  }
-
-  .about-grid-square {
-    width: 40px;
-    height: 40px;
-  }
+.about-section {
+  --dot-color: rgba(238, 174, 254, 0.444);
+  --dot-opacity: 0.55;
+  --dot-gap: 32px;
 }

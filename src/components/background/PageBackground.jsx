@@ -1,21 +1,17 @@
 // File: src/components/background/PageBackground.jsx
 
-import "./page-background.css";
 import "./variants/dots.css";
-import "./variants/grid.css";
 
-export default function PageBackground({ variant = "dots", children }) {
+export default function PageBackground({ children }) {
   return (
-    <div className="page-background">
-      {/* Background layer (FULL SIZE OF PARENT) */}
-      <div className={`background-layer bg-${variant}`} />
+    <>
+      {/* Fixed decorative background (does not affect layout/scroll) */}
+      <div className="page-background" aria-hidden="true">
+        <div className="dot-layer" />
+      </div>
 
-      {/* İçerik varsa render edilir */}
-      {children && (
-        <div className="page-content">
-          {children}
-        </div>
-      )}
-    </div>
+      {/* Real page content */}
+      {children}
+    </>
   );
 }
