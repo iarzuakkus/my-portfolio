@@ -1,26 +1,28 @@
-// File: src/App.jsx
+import Header from "./components/layout/Header";
+import Footer from "./components/layout/Footer";
+import About from "./sections/About";
+import Capabilities from "./sections/Capabilities";
+import Contact from "./sections/Contact";
+import Experience from "./sections/Experience";
+import Hero from "./sections/Hero";
+import Work from "./sections/Work";
 
-import Header from "./components/header/Header";
-import Hero from "./components/hero/Hero";
-import About from "./components/about/About";
-
-function App() {
+export default function App() {
   return (
     <>
+      <a className="skip-link" href="#main-content">
+        İçeriğe geç
+      </a>
       <Header />
-
-      {/* SNAP ALANI: Header yüksekliğini düşerek çalışacak */}
-      <main className="snap-scroll">
-        <section id="hero" className="snap-section">
-          <Hero />
-        </section>
-
-        <section id="about" className="snap-section">
-          <About />
-        </section>
+      <main id="main-content">
+        <Hero />
+        <About />
+        <Capabilities />
+        <Experience />
+        <Work />
+        <Contact />
       </main>
+      <Footer />
     </>
   );
 }
-
-export default App;

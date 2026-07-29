@@ -1,0 +1,21 @@
+:root {
+  --ink: #191b36;
+  --ink-soft: #61657a;
+  --paper: #f8f9fd;
+  --paper-deep: #f1f1fb;
+  --surface: #ffffff;
+  --lime: #dff7e8;
+  --violet: #7457e8;
+  --violet-soft: #eeeaff;
+  --coral: #ff9b7b;
+  --blue: #4e8cf6;
+  --green: #64b783;
+  --line: rgba(21, 21, 21, 0.18);
+  --font-display: Georgia, "Times New Roman", serif;
+  --font-body: Inter, "Segoe UI", Arial, sans-serif;
+  --shell: 1380px;
+  --radius-sm: 12px;
+  --radius-md: 24px;
+  --radius-lg: 40px;
+  --shadow: 0 24px 70px rgba(22, 22, 18, 0.12);
+}
