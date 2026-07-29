@@ -101,7 +101,7 @@ export default function Header() {
               }}
             >
               <Icon icon={item.icon} aria-hidden="true" />
-              {item.label}
+              <span className="nav-label">{item.label}</span>
             </a>
           ))}
           <div className="mobile-nav-actions" aria-label="Sosyal bağlantılar">
@@ -127,7 +127,7 @@ export default function Header() {
             </a>
             <a className="mobile-cv-link" href="/resume.pdf" download onClick={closeMenu}>
               <Icon icon="pepicons-pencil:cv" aria-hidden="true" />
-              <strong>CV’mi İndir</strong>
+              <span>CV’mi İndir</span>
             </a>
           </div>
         </nav>

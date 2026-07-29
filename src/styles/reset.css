@@ -6,7 +6,18 @@
 
 html {
   scroll-behavior: smooth;
-  scroll-padding-top: 96px;
+  scroll-padding-top: 0;
+  scroll-snap-type: y mandatory;
+  overscroll-behavior-y: none;
+}
+
+main > section {
+  scroll-snap-align: start;
+  scroll-snap-stop: always;
+}
+
+.site-footer {
+  scroll-snap-align: end;
 }
 
 body,
