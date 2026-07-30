@@ -699,16 +699,24 @@
     height: auto;
     min-height: 100svh;
     padding: 108px 0 30px;
+    overflow: clip;
   }
 
   .section-about > .about-shell {
     height: auto;
+    min-height: calc(100svh - 108px);
     padding: 28px 22px;
+    overflow: visible;
+  }
+
+  .about-horizontal-track {
+    height: auto;
     overflow: visible;
   }
 
   .about-page {
     display: block;
+    height: auto;
   }
 
   .about-intro,
@@ -722,23 +730,30 @@
   }
 
   .about-intro-card::before {
-    display: none;
+    width: 34px;
+    height: 18px;
   }
 
   .about-paragraphs {
     grid-template-columns: 1fr;
-    gap: 16px;
+    gap: 22px;
+    width: min(100%, 680px);
   }
 
   .about-paragraphs p {
-    min-height: auto;
-    padding: 24px 28px;
+    min-height: 138px;
+    padding: 28px 42px;
     text-align: center;
   }
 
-  .about-paragraphs p:first-child,
+  .about-paragraphs p:first-child {
+    border-radius: 45% 55% 48% 52% / 38% 48% 52% 62%;
+    transform: translateX(-10px) rotate(-0.35deg);
+  }
+
   .about-paragraphs p:last-child {
-    transform: none;
+    border-radius: 56% 44% 54% 46% / 48% 60% 40% 52%;
+    transform: translateX(10px) rotate(0.35deg);
   }
 
   .about-records {
@@ -755,40 +770,353 @@
   }
 
   .about-course-grid.has-selection .about-course-card.is-condensed {
-    display: none;
+    display: grid;
   }
 }
 
 @media (max-width: 620px) {
+  .section-about {
+    height: 100svh;
+    min-height: 100svh;
+    padding-top: 92px;
+    padding-bottom: 0;
+    overflow: hidden;
+  }
+
+  .section-about > .about-shell {
+    height: calc(100svh - 92px);
+    min-height: calc(100svh - 92px);
+    padding: 8px 14px 10px;
+    overflow: hidden;
+  }
+
+  .about-horizontal-track {
+    height: 100%;
+    overflow: hidden;
+  }
+
+  .about-page {
+    display: grid;
+    height: 100%;
+    grid-template-rows: minmax(176px, 0.62fr) minmax(0, 1.38fr);
+    gap: 7px;
+    overflow: hidden;
+  }
+
+  .about-intro {
+    display: grid;
+    grid-template-rows: auto minmax(0, 1fr);
+    gap: 5px;
+    overflow: hidden;
+  }
+
   .about-title-group {
     padding-left: 0;
   }
 
   .about-title-group h2 {
-    font-size: clamp(3rem, 15vw, 4.5rem);
+    font-size: clamp(2rem, 10.5vw, 2.75rem);
+    line-height: 0.88;
   }
 
   .about-intro-card {
     grid-template-columns: 1fr;
+    height: 100%;
+    min-height: 0;
+    width: 100%;
+    margin-top: 0;
+    padding: 0 8px;
+  }
+
+  .about-intro-card::before {
+    display: none;
+  }
+
+  .about-paragraphs {
+    display: flex;
+    height: 100%;
+    min-height: 0;
+    flex-direction: column;
+    justify-content: center;
+    gap: 4px;
+    padding: 12px 26px;
+    border: 1px solid rgba(126, 98, 232, 0.32);
+    border-radius: 47% 53% 49% 51% / 39% 47% 53% 61%;
+    background: rgba(247, 245, 255, 0.78);
+    box-shadow:
+      7px 7px 0 rgba(255, 255, 255, 0.68),
+      0 12px 26px rgba(73, 57, 148, 0.07);
+  }
+
+  .about-paragraphs p {
+    min-height: 0;
     padding: 0;
+    border: 0;
+    border-radius: 0;
+    background: transparent;
+    box-shadow: none;
+    font-size: clamp(0.55rem, 2.35vw, 0.64rem);
+    line-height: 1.28;
+    transform: none;
+  }
+
+  .about-paragraphs p:first-child,
+  .about-paragraphs p:last-child {
+    border-radius: 0;
+    transform: none;
+  }
+
+  .about-paragraphs p::before {
+    display: none;
+  }
+
+  .about-records {
+    display: grid;
+    height: 100%;
+    min-height: 0;
+    grid-template-rows: minmax(132px, 0.82fr) minmax(0, 1.18fr);
+    gap: 7px;
+    margin-top: 0;
+    overflow: hidden;
+  }
+
+  .about-record-section {
+    min-height: 0;
+    grid-template-rows: 28px minmax(0, 1fr);
+    gap: 4px;
+    overflow: hidden;
+  }
+
+  .about-record-heading {
+    gap: 8px;
+  }
+
+  .about-record-icon {
+    width: 28px;
+    height: 28px;
+    flex-basis: 28px;
+    border-radius: 9px;
+  }
+
+  .about-record-icon svg {
+    width: 15px;
+    height: 15px;
+  }
+
+  .about-record-heading h3 {
+    font-size: 0.9rem;
+  }
+
+  .about-record-heading p {
+    margin-top: 1px;
+    font-size: 0.48rem;
+  }
+
+  .about-education::before {
+    top: 27px;
+    bottom: 4px;
+    left: 14px;
+  }
+
+  .about-education::after {
+    left: 9px;
+    width: 7px;
+    height: 7px;
+    border-width: 3px;
   }
 
   .about-education-card {
-    grid-template-columns: 1fr;
-    justify-items: center;
-    margin-left: 30px;
-    text-align: center;
+    grid-template-columns: 62px minmax(0, 1fr);
+    gap: 9px;
+    margin-left: 20px;
+    padding: 8px 10px;
+    text-align: left;
+  }
+
+  .about-education-card .about-card-logo {
+    width: 58px;
+    height: 58px;
+    padding: 5px;
+    border-radius: 11px;
+  }
+
+  .about-education-content h4 {
+    font-size: 0.82rem;
+  }
+
+  .about-record-title {
+    margin-top: 3px;
+    font-size: 0.55rem;
+  }
+
+  .about-faculty {
+    margin-top: 2px;
+    font-size: 0.5rem;
   }
 
   .about-education-meta {
-    grid-template-columns: 1fr;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    width: 100%;
+    gap: 4px;
+    margin-top: 0;
+  }
+
+  .about-education-meta > div {
+    padding: 5px 6px;
+    border-radius: 7px;
+  }
+
+  .about-education-meta dt {
+    gap: 2px;
+    font-size: 0.4rem;
+  }
+
+  .about-education-meta dt svg {
+    width: 9px;
+    height: 9px;
+  }
+
+  .about-education-meta dd {
+    margin-top: 2px;
+    font-size: 0.5rem;
   }
 
   .about-course-grid {
-    grid-template-columns: 1fr;
+    display: flex;
+    height: 100%;
+    min-height: 0;
+    flex-direction: column;
+    gap: 5px;
+    overflow: hidden;
+  }
+
+  .about-course-card {
+    grid-template-columns: 42px minmax(0, 1fr);
+    min-height: 0;
+    flex: 1 1 0;
+    gap: 7px;
+    padding: 6px 9px;
+    align-content: center;
+    justify-items: start;
+    overflow: hidden;
+    border-radius: 12px;
+    text-align: left;
+  }
+
+  .about-course-card .about-card-icon,
+  .about-course-card .about-card-logo {
+    width: 38px;
+    height: 38px;
+    margin: 0;
+    grid-row: 1;
+    border-radius: 10px;
+  }
+
+  .about-course-card .about-card-icon svg {
+    width: 20px;
+    height: 20px;
+  }
+
+  .about-course-summary {
+    grid-column: 2;
+    grid-row: 1;
+    align-self: center;
+  }
+
+  .about-course-summary h4 {
+    font-size: 0.61rem;
+    line-height: 1.12;
+  }
+
+  .about-course-card .about-record-title {
+    font-size: 0.5rem;
+  }
+
+  .about-record-period {
+    justify-content: flex-start;
+    margin-top: 3px;
+    font-size: 0.46rem;
+    white-space: normal;
+  }
+
+  .about-record-period svg {
+    width: 11px;
+    height: 11px;
+  }
+
+  .about-course-grid.has-selection .about-course-card.is-expanded {
+    min-height: 0;
+    flex: 1 1 auto;
+    grid-template-columns: 38px minmax(0, 1fr);
+    gap: 7px;
+    padding: 7px 9px;
+  }
+
+  .about-course-grid.has-selection .about-course-card.is-condensed {
+    min-height: 42px;
+    flex: 0 0 42px;
+    grid-template-columns: 34px minmax(0, 1fr);
+    gap: 6px;
+    padding: 4px 7px;
+    opacity: 0.78;
+  }
+
+  .about-course-grid.has-selection .about-course-card.is-condensed .about-card-icon,
+  .about-course-grid.has-selection .about-course-card.is-condensed .about-card-logo {
+    width: 30px;
+    height: 30px;
+    margin: 0;
+  }
+
+  .about-course-grid.has-selection .about-course-card.is-condensed .about-course-summary h4 {
+    font-size: 0.52rem;
+  }
+
+  .about-course-grid.has-selection .about-course-card.is-condensed .about-record-title {
+    margin-top: 3px;
+  }
+
+  .about-course-grid.has-selection .about-course-card.is-condensed .about-record-period {
+    display: none;
   }
 
   .about-course-card.is-expanded .about-course-details {
-    grid-template-columns: 1fr;
+    grid-template-columns: minmax(0, 1fr) minmax(0, 0.9fr);
+    gap: 5px;
+    margin-top: 5px;
+    padding-top: 5px;
+    overflow: hidden;
+  }
+
+  .about-course-details ul {
+    gap: 3px;
+  }
+
+  .about-course-details li,
+  .about-course-note p {
+    font-size: 0.48rem;
+    line-height: 1.22;
+  }
+
+  .about-course-details li {
+    gap: 3px;
+  }
+
+  .about-course-details li svg {
+    width: 10px;
+    height: 10px;
+    flex-basis: 10px;
+  }
+
+  .about-course-note {
+    grid-template-columns: 14px minmax(0, 1fr);
+    gap: 4px;
+    padding: 5px;
+    border-radius: 7px;
+  }
+
+  .about-course-note > svg {
+    width: 12px;
+    height: 12px;
   }
 }
