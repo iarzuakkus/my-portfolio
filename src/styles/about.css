@@ -776,16 +776,16 @@
 
 @media (max-width: 620px) {
   .section-about {
-    height: 100svh;
-    min-height: 100svh;
+    height: 100dvh;
+    min-height: 100dvh;
     padding-top: 92px;
     padding-bottom: 0;
     overflow: hidden;
   }
 
   .section-about > .about-shell {
-    height: calc(100svh - 92px);
-    min-height: calc(100svh - 92px);
+    height: calc(100dvh - 92px);
+    min-height: calc(100dvh - 92px);
     padding: 8px 14px 10px;
     overflow: hidden;
   }
@@ -798,7 +798,7 @@
   .about-page {
     display: grid;
     height: 100%;
-    grid-template-rows: minmax(176px, 0.62fr) minmax(0, 1.38fr);
+    grid-template-rows: minmax(146px, 0.5fr) minmax(0, 1.5fr);
     gap: 7px;
     overflow: hidden;
   }
@@ -815,8 +815,8 @@
   }
 
   .about-title-group h2 {
-    font-size: clamp(2rem, 10.5vw, 2.75rem);
-    line-height: 0.88;
+    font-size: clamp(1.55rem, 8.2vw, 2.05rem);
+    line-height: 0.9;
   }
 
   .about-intro-card {
@@ -839,7 +839,7 @@
     flex-direction: column;
     justify-content: center;
     gap: 4px;
-    padding: 12px 26px;
+    padding: 9px 23px;
     border: 1px solid rgba(126, 98, 232, 0.32);
     border-radius: 47% 53% 49% 51% / 39% 47% 53% 61%;
     background: rgba(247, 245, 255, 0.78);
@@ -855,8 +855,8 @@
     border-radius: 0;
     background: transparent;
     box-shadow: none;
-    font-size: clamp(0.55rem, 2.35vw, 0.64rem);
-    line-height: 1.28;
+    font-size: clamp(0.51rem, 2.2vw, 0.6rem);
+    line-height: 1.24;
     transform: none;
   }
 
@@ -874,7 +874,7 @@
     display: grid;
     height: 100%;
     min-height: 0;
-    grid-template-rows: minmax(132px, 0.82fr) minmax(0, 1.18fr);
+    grid-template-rows: minmax(108px, 0.68fr) minmax(0, 1.32fr);
     gap: 7px;
     margin-top: 0;
     overflow: hidden;
@@ -926,32 +926,32 @@
   }
 
   .about-education-card {
-    grid-template-columns: 62px minmax(0, 1fr);
-    gap: 9px;
-    margin-left: 20px;
-    padding: 8px 10px;
+    grid-template-columns: 51px minmax(0, 1fr);
+    gap: 7px;
+    margin-left: 18px;
+    padding: 6px 8px;
     text-align: left;
   }
 
   .about-education-card .about-card-logo {
-    width: 58px;
-    height: 58px;
-    padding: 5px;
-    border-radius: 11px;
+    width: 47px;
+    height: 47px;
+    padding: 4px;
+    border-radius: 9px;
   }
 
   .about-education-content h4 {
-    font-size: 0.82rem;
+    font-size: 0.7rem;
   }
 
   .about-record-title {
     margin-top: 3px;
-    font-size: 0.55rem;
+    font-size: 0.49rem;
   }
 
   .about-faculty {
     margin-top: 2px;
-    font-size: 0.5rem;
+    font-size: 0.45rem;
   }
 
   .about-education-meta {
@@ -962,13 +962,13 @@
   }
 
   .about-education-meta > div {
-    padding: 5px 6px;
+    padding: 4px 5px;
     border-radius: 7px;
   }
 
   .about-education-meta dt {
     gap: 2px;
-    font-size: 0.4rem;
+    font-size: 0.36rem;
   }
 
   .about-education-meta dt svg {
@@ -978,7 +978,7 @@
 
   .about-education-meta dd {
     margin-top: 2px;
-    font-size: 0.5rem;
+    font-size: 0.46rem;
   }
 
   .about-course-grid {
@@ -1047,9 +1047,31 @@
   .about-course-grid.has-selection .about-course-card.is-expanded {
     min-height: 0;
     flex: 1 1 auto;
-    grid-template-columns: 38px minmax(0, 1fr);
+    grid-template-columns: 34px minmax(0, 1fr);
     gap: 7px;
     padding: 7px 9px;
+  }
+
+  .about-course-grid.has-selection .about-course-card.is-expanded .about-card-icon,
+  .about-course-grid.has-selection .about-course-card.is-expanded .about-card-logo {
+    width: 31px;
+    height: 31px;
+    margin: 0;
+    grid-column: 1;
+    grid-row: 1;
+    align-self: center;
+  }
+
+  .about-course-grid.has-selection .about-course-card.is-expanded .about-card-icon svg {
+    width: 17px;
+    height: 17px;
+  }
+
+  .about-course-grid.has-selection .about-course-card.is-expanded .about-course-summary {
+    grid-column: 2;
+    grid-row: 1;
+    width: 100%;
+    padding-left: 2px;
   }
 
   .about-course-grid.has-selection .about-course-card.is-condensed {
