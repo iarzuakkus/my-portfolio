@@ -38,27 +38,41 @@ export default function Header() {
   const closeMenu = () => setIsOpen(false);
 
   useEffect(() => {
-    const sections = document.querySelectorAll("main section[id]");
-    const observer = new IntersectionObserver(
-      (entries) => {
-        const visibleSection = entries
-          .filter((entry) => entry.isIntersecting)
-          .sort((first, second) => second.intersectionRatio - first.intersectionRatio)[0];
+    const sections = [...document.querySelectorAll("main section[id]")];
+    let animationFrame = 0;
 
-        if (!visibleSection) return;
+    const updateActiveSection = () => {
+      const readingLine =
+        window.scrollY + Math.min(window.innerHeight * 0.34, 260);
+      const currentSection =
+        [...sections]
+          .reverse()
+          .find((section) => section.offsetTop <= readingLine) ?? sections[0];
 
-        const sectionId = visibleSection.target.id;
-        setActiveSection(sectionId);
+      if (!currentSection) return;
+
+      const sectionId = currentSection.id;
+      setActiveSection((current) => {
+        if (current === sectionId) return current;
         window.history.replaceState(null, "", `#${sectionId}`);
-      },
-      {
-        rootMargin: "-28% 0px -52% 0px",
-        threshold: [0, 0.15, 0.35],
-      },
-    );
+        return sectionId;
+      });
+    };
 
-    sections.forEach((section) => observer.observe(section));
-    return () => observer.disconnect();
+    const handleScroll = () => {
+      window.cancelAnimationFrame(animationFrame);
+      animationFrame = window.requestAnimationFrame(updateActiveSection);
+    };
+
+    updateActiveSection();
+    window.addEventListener("scroll", handleScroll, { passive: true });
+    window.addEventListener("resize", handleScroll);
+
+    return () => {
+      window.cancelAnimationFrame(animationFrame);
+      window.removeEventListener("scroll", handleScroll);
+      window.removeEventListener("resize", handleScroll);
+    };
   }, []);
 
   return (
