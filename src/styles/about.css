@@ -776,7 +776,16 @@
 
 @media (max-width: 620px) {
   .about-background-patterns {
+    display: block;
+  }
+
+  .about-pattern {
     display: none;
+  }
+
+  .about-wave-line {
+    display: block;
+    opacity: 0.72;
   }
 
   .section-about {
@@ -802,16 +811,17 @@
   .about-page {
     display: grid;
     height: 100%;
-    grid-template-rows: minmax(158px, 0.56fr) minmax(0, 1.44fr);
-    gap: 7px;
+    grid-template-rows: minmax(168px, 0.6fr) minmax(0, 1.4fr);
+    gap: 12px;
     overflow: hidden;
   }
 
   .about-intro {
     display: grid;
-    grid-template-rows: auto minmax(0, 1fr);
+    grid-template-rows: auto auto;
     gap: 5px;
-    overflow: hidden;
+    align-content: start;
+    overflow: visible;
   }
 
   .about-title-group {
@@ -825,7 +835,7 @@
 
   .about-intro-card {
     grid-template-columns: 1fr;
-    height: 100%;
+    height: auto;
     min-height: 0;
     width: 100%;
     margin-top: 0;
@@ -838,13 +848,13 @@
 
   .about-paragraphs {
     display: flex;
-    height: 100%;
+    height: auto;
     min-height: 0;
     flex-direction: column;
     justify-content: center;
     gap: 4px;
     min-height: 96px;
-    padding: 11px 30px;
+    padding: 17px 30px 7px;
     border: 1px solid rgba(126, 98, 232, 0.32);
     border-radius: 47% 53% 49% 51% / 39% 47% 53% 61%;
     background: rgba(247, 245, 255, 0.78);
@@ -879,17 +889,23 @@
     display: grid;
     height: 100%;
     min-height: 0;
-    grid-template-rows: minmax(108px, 0.68fr) minmax(0, 1.32fr);
-    gap: 7px;
+    grid-template-rows: minmax(112px, 0.7fr) minmax(0, 1.3fr);
+    gap: 13px;
     margin-top: 0;
+    padding-top: 14px;
+    box-sizing: border-box;
     overflow: hidden;
   }
 
   .about-record-section {
     min-height: 0;
-    grid-template-rows: 28px minmax(0, 1fr);
-    gap: 4px;
+    grid-template-rows: 32px minmax(0, 1fr);
+    gap: 8px;
     overflow: hidden;
+  }
+
+  .about-courses {
+    padding-top: 0;
   }
 
   .about-record-heading {
@@ -991,16 +1007,18 @@
     height: 100%;
     min-height: 0;
     flex-direction: column;
-    gap: 5px;
+    gap: 8px;
     justify-content: flex-start;
     overflow: hidden;
-    padding: 2px 1px 1px;
+    padding: 3px 1px 1px;
   }
 
   .about-course-card {
     grid-template-columns: 42px minmax(0, 1fr);
     min-height: 0;
-    flex: 0 0 58px;
+    min-height: 66px;
+    max-height: 74px;
+    flex: 1 1 66px;
     gap: 7px;
     padding: 6px 9px;
     align-content: center;
@@ -1015,7 +1033,7 @@
   }
 
   .about-course-card:first-child {
-    border-top-color: #9f8bf0;
+    border-top: 2px solid #8f78ed;
   }
 
   .about-course-card .about-card-icon,
@@ -1061,6 +1079,7 @@
 
   .about-course-grid.has-selection .about-course-card.is-expanded {
     min-height: 118px;
+    max-height: none;
     flex: 0 0 auto;
     grid-template-columns: 34px minmax(0, 1fr);
     gap: 7px;
@@ -1092,6 +1111,7 @@
 
   .about-course-grid.has-selection .about-course-card.is-condensed {
     min-height: 38px;
+    max-height: 38px;
     flex: 0 0 38px;
     grid-template-columns: 34px minmax(0, 1fr);
     gap: 6px;
@@ -1124,6 +1144,10 @@
     margin-top: 5px;
     padding-top: 5px;
     overflow: hidden;
+  }
+
+  .about-course-grid.has-selection {
+    justify-content: flex-start;
   }
 
   .about-course-details ul {
