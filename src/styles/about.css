@@ -775,6 +775,10 @@
 }
 
 @media (max-width: 620px) {
+  .about-background-patterns {
+    display: none;
+  }
+
   .section-about {
     height: 100dvh;
     min-height: 100dvh;
@@ -798,7 +802,7 @@
   .about-page {
     display: grid;
     height: 100%;
-    grid-template-rows: minmax(146px, 0.5fr) minmax(0, 1.5fr);
+    grid-template-rows: minmax(158px, 0.56fr) minmax(0, 1.44fr);
     gap: 7px;
     overflow: hidden;
   }
@@ -839,7 +843,8 @@
     flex-direction: column;
     justify-content: center;
     gap: 4px;
-    padding: 9px 23px;
+    min-height: 96px;
+    padding: 11px 30px;
     border: 1px solid rgba(126, 98, 232, 0.32);
     border-radius: 47% 53% 49% 51% / 39% 47% 53% 61%;
     background: rgba(247, 245, 255, 0.78);
@@ -855,8 +860,8 @@
     border-radius: 0;
     background: transparent;
     box-shadow: none;
-    font-size: clamp(0.51rem, 2.2vw, 0.6rem);
-    line-height: 1.24;
+    font-size: clamp(0.48rem, 2.05vw, 0.57rem);
+    line-height: 1.2;
     transform: none;
   }
 
@@ -987,20 +992,30 @@
     min-height: 0;
     flex-direction: column;
     gap: 5px;
+    justify-content: flex-start;
     overflow: hidden;
+    padding: 2px 1px 1px;
   }
 
   .about-course-card {
     grid-template-columns: 42px minmax(0, 1fr);
     min-height: 0;
-    flex: 1 1 0;
+    flex: 0 0 58px;
     gap: 7px;
     padding: 6px 9px;
     align-content: center;
     justify-items: start;
     overflow: hidden;
+    border-color: #d8d4ec;
     border-radius: 12px;
+    box-shadow:
+      inset 0 0 0 1px rgba(111, 83, 255, 0.04),
+      0 7px 18px rgba(48, 51, 91, 0.045);
     text-align: left;
+  }
+
+  .about-course-card:first-child {
+    border-top-color: #9f8bf0;
   }
 
   .about-course-card .about-card-icon,
@@ -1045,10 +1060,11 @@
   }
 
   .about-course-grid.has-selection .about-course-card.is-expanded {
-    min-height: 0;
-    flex: 1 1 auto;
+    min-height: 118px;
+    flex: 0 0 auto;
     grid-template-columns: 34px minmax(0, 1fr);
     gap: 7px;
+    align-content: start;
     padding: 7px 9px;
   }
 
@@ -1075,8 +1091,8 @@
   }
 
   .about-course-grid.has-selection .about-course-card.is-condensed {
-    min-height: 42px;
-    flex: 0 0 42px;
+    min-height: 38px;
+    flex: 0 0 38px;
     grid-template-columns: 34px minmax(0, 1fr);
     gap: 6px;
     padding: 4px 7px;
