@@ -1,6 +1,7 @@
 import Header from "./components/layout/Header";
 import Footer from "./components/layout/Footer";
 import About from "./sections/About";
+import Capabilities from "./sections/Capabilities";
 import Contact from "./sections/Contact";
 import Experience from "./sections/Experience";
 import Hero from "./sections/Hero";
@@ -18,6 +19,7 @@ export default function App() {
         <About />
         <Experience />
         <Work />
+        <Capabilities />
         <Contact />
       </main>
       <Footer />

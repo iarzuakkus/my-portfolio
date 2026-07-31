@@ -7,7 +7,7 @@ const navigation = [
   {
     label: "Hakkımda",
     href: "#about",
-    sections: ["about", "capabilities"],
+    sections: ["about"],
     icon: "mage:user",
   },
   {
@@ -21,6 +21,12 @@ const navigation = [
     href: "#work",
     sections: ["work"],
     icon: "griddy-icons:folder-code",
+  },
+  {
+    label: "Yetkinliklerim",
+    href: "#capabilities",
+    sections: ["capabilities"],
+    icon: "mingcute:star-line",
   },
   {
     label: "İletişim",

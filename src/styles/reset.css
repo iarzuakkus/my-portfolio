@@ -20,6 +20,19 @@ main > section {
   scroll-snap-align: end;
 }
 
+@media (max-width: 900px) {
+  html {
+    scroll-snap-type: none;
+    overscroll-behavior-y: auto;
+  }
+
+  main > section,
+  .site-footer {
+    scroll-snap-align: none;
+    scroll-snap-stop: normal;
+  }
+}
+
 body,
 h1,
 h2,

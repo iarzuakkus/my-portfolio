@@ -1,7 +1,5 @@
-import { useRef, useState } from "react";
+import { useState } from "react";
 import { Icon } from "@iconify/react";
-import Capabilities from "./Capabilities";
-import skillsCue from "../assets/icons/skills.svg";
 
 const education = {
   title: "Bilgisayar Mühendisliği",
@@ -88,21 +86,9 @@ function LogoMark({ item }) {
 
 export default function About() {
   const [expandedCourseId, setExpandedCourseId] = useState(null);
-  const trackRef = useRef(null);
 
   const toggleCourse = (courseId) => {
     setExpandedCourseId((current) => (current === courseId ? null : courseId));
-  };
-
-  const goToPage = (pageIndex) => {
-    const track = trackRef.current;
-    if (!track) return;
-
-    track.scrollTo({
-      left: track.clientWidth * pageIndex,
-      behavior: "smooth",
-    });
-    window.history.replaceState(null, "", pageIndex === 0 ? "#about" : "#capabilities");
   };
 
   return (
@@ -117,14 +103,10 @@ export default function About() {
       </div>
 
       <div className="shell about-shell">
-        <div
-          className="about-horizontal-track"
-          ref={trackRef}
+        <article
+          className="about-page about-profile-page"
+          aria-label="Hakkımda ve eğitim bilgilerim"
         >
-          <article
-            className="about-page about-profile-page"
-            aria-label="Hakkımda ve eğitim bilgilerim"
-          >
             <div className="about-intro">
               <div className="about-title-group">
                 <h2>
@@ -133,15 +115,6 @@ export default function About() {
                   Bahsedeyim<span>.</span>
                 </h2>
               </div>
-
-              <button
-                className="about-swipe-cue"
-                type="button"
-                onClick={() => goToPage(1)}
-                aria-label="Yeteneklerim sayfasına geç"
-              >
-                <img src={skillsCue} alt="Yeteneklerim sayfasına geç" />
-              </button>
 
             </div>
 
@@ -264,9 +237,7 @@ export default function About() {
                 </div>
               </section>
             </div>
-          </article>
-          <Capabilities embedded />
-        </div>
+        </article>
       </div>
     </section>
   );
