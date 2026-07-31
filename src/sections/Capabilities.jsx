@@ -48,7 +48,9 @@ export default function Capabilities({ embedded = false }) {
     <div className="skills-shell">
         <div className="skills-intro-grid">
           <div className="skills-copy">
-            <h2>Yetkinliklerim.</h2>
+            <h2>
+              Yetkinliklerim<span>.</span>
+            </h2>
             <p>{capabilityProfile.introduction}</p>
           </div>
 

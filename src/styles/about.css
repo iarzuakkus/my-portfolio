@@ -2225,3 +2225,140 @@
     grid-template-columns: 112px minmax(0, 1fr);
   }
 }
+
+/* Hakkımda / Yetkinlikler: eşit sahne, doğru hizalama ve yatay kaydırma */
+.about-skills-page .skills-copy h2 span {
+  display: inline;
+  color: #7256ec;
+}
+
+@media (min-width: 901px) {
+  .about-horizontal-track {
+    align-items: center;
+    scroll-behavior: smooth;
+    overscroll-behavior-x: contain;
+  }
+
+  .about-profile-page,
+  .about-skills-page {
+    height: 458px;
+    max-height: 100%;
+  }
+
+  .about-profile-page {
+    grid-template-rows: 160px 288px;
+    gap: 10px;
+  }
+
+  .about-profile-page .about-intro,
+  .about-skills-page .skills-intro-grid {
+    align-items: start;
+  }
+
+  .about-profile-page .about-title-group,
+  .about-skills-page .skills-copy {
+    align-self: start;
+    padding-top: 10px;
+  }
+
+  .about-profile-page .about-title-group h2,
+  .about-skills-page .skills-copy h2 {
+    font-size: clamp(3.1rem, 3.7vw, 4rem);
+    line-height: 0.9;
+  }
+
+  .about-profile-page .about-records {
+    height: 288px;
+  }
+
+  .about-profile-page .about-education-card,
+  .about-profile-page .about-course-grid {
+    height: 238px;
+  }
+
+  .about-skills-page .skills-shell {
+    height: 458px;
+  }
+
+  .about-skills-page .skills-card-chevron {
+    display: none !important;
+  }
+}
+
+@media (max-width: 900px) {
+  .about-horizontal-track {
+    display: flex;
+    width: 100%;
+    height: 100%;
+    align-items: stretch;
+    overflow-x: auto !important;
+    overflow-y: hidden !important;
+    scroll-snap-type: x mandatory;
+    scroll-behavior: smooth;
+    overscroll-behavior-x: contain;
+    -webkit-overflow-scrolling: touch;
+    touch-action: pan-x pan-y;
+  }
+
+  .about-page {
+    width: 100%;
+    min-width: 100%;
+    height: 100%;
+    flex: 0 0 100%;
+    overflow-x: hidden;
+    scroll-snap-align: start;
+    scroll-snap-stop: always;
+  }
+
+  .about-profile-page,
+  .about-skills-page {
+    overflow-y: auto;
+  }
+
+  .about-profile-page .about-intro {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) minmax(92px, 29%);
+    gap: 8px;
+    align-items: center;
+  }
+
+  .about-profile-page .about-title-group {
+    justify-content: flex-start;
+    padding-left: 4px;
+    text-align: left;
+  }
+
+  .about-profile-page .about-title-group h2,
+  .about-skills-page .skills-copy h2 {
+    text-align: left;
+  }
+
+  .about-profile-page .about-swipe-cue {
+    display: block;
+    width: 100%;
+    max-width: 125px;
+    margin: 0;
+    justify-self: end;
+  }
+
+  .about-profile-page .about-swipe-cue img {
+    display: block;
+    width: 100%;
+    opacity: 0.34;
+  }
+
+  .about-skills-page .skills-copy {
+    padding-inline: 6px;
+    text-align: left;
+  }
+
+  .about-skills-page .skills-copy > p:last-child {
+    margin-right: 0;
+    margin-left: 0;
+    text-align: left;
+  }
+
+  .about-skills-page .skills-card-chevron {
+    display: block !important;
+  }
+}
