@@ -1213,3 +1213,1015 @@
     height: 12px;
   }
 }
+
+/* Hakkımda ve Yeteneklerim: tek sahnede iki yatay sayfa */
+.section-about > .about-shell {
+  display: grid;
+  grid-template-rows: auto minmax(0, 1fr);
+  gap: 8px;
+}
+
+.about-page-switch {
+  display: flex;
+  z-index: 8;
+  justify-content: flex-end;
+  gap: 6px;
+  padding-right: 8px;
+}
+
+.about-page-switch button {
+  display: inline-flex;
+  gap: 6px;
+  align-items: center;
+  padding: 7px 13px;
+  border: 1px solid transparent;
+  border-radius: 999px;
+  background: transparent;
+  color: #74798c;
+  font-size: 0.72rem;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+.about-page-switch button svg {
+  width: 15px;
+  height: 15px;
+}
+
+.about-page-switch button.is-active {
+  border-color: #d8d0ff;
+  background: #f1eeff;
+  color: #684bec;
+}
+
+.about-horizontal-track {
+  height: auto;
+  min-height: 0;
+}
+
+.about-profile-page {
+  grid-template-rows: 92px minmax(0, 1fr);
+  gap: 12px;
+}
+
+.about-profile-page .about-intro {
+  grid-template-columns: 1fr;
+}
+
+.about-profile-page .about-title-group {
+  align-self: center;
+}
+
+.about-profile-page .about-records {
+  height: 100%;
+}
+
+.about-skills-page {
+  display: block;
+  padding-inline: 8px;
+}
+
+.about-skills-page .skills-shell {
+  width: 100%;
+  height: 100%;
+  padding: 6px 0 2px;
+}
+
+@media (min-width: 901px) {
+  .about-skills-page .skills-shell {
+    grid-template-rows: 150px 24px 160px 86px;
+    gap: 12px;
+    align-content: center;
+  }
+
+  .about-skills-page .skills-intro-grid {
+    grid-template-columns: minmax(300px, 0.82fr) minmax(560px, 1.3fr);
+    gap: clamp(30px, 4vw, 64px);
+  }
+
+  .about-skills-page .skills-copy {
+    max-width: 570px;
+  }
+
+  .about-skills-page .skills-copy h2 {
+    font-size: clamp(2.35rem, 3vw, 3.4rem);
+    line-height: 0.94;
+  }
+
+  .about-skills-page .skills-copy > p:last-child {
+    margin-top: 13px;
+    font-size: clamp(0.72rem, 0.68vw, 0.82rem);
+    line-height: 1.55;
+  }
+
+  .about-skills-page .skills-focus-panel {
+    padding: 13px 18px;
+    border-radius: 16px;
+  }
+
+  .about-skills-page .skills-focus-panel > h3 {
+    font-size: 1rem;
+  }
+
+  .about-skills-page .skills-focus-grid {
+    height: calc(100% - 22px);
+    gap: 8px 28px;
+    align-content: center;
+    margin-top: 4px;
+  }
+
+  .about-skills-page .skills-focus-item {
+    grid-template-columns: 46px 1fr;
+    gap: 12px;
+  }
+
+  .about-skills-page .skills-focus-item .skills-icon {
+    width: 46px;
+    height: 46px;
+    border-radius: 14px;
+    font-size: 1.45rem;
+  }
+
+  .about-skills-page .skills-focus-item h4 {
+    font-size: 0.82rem;
+  }
+
+  .about-skills-page .skills-focus-item p {
+    display: none;
+  }
+
+  .about-skills-page .skills-divider {
+    gap: 18px;
+  }
+
+  .about-skills-page .skills-divider h2 {
+    font-size: 1.15rem;
+  }
+
+  .about-skills-page .skills-tech-grid,
+  .about-skills-page .skills-bottom-grid {
+    height: 100%;
+    min-height: 0;
+    gap: 10px;
+  }
+
+  .about-skills-page .skills-bottom-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .about-skills-page .skills-tech-card,
+  .about-skills-page .skills-info-card {
+    height: 100%;
+    min-height: 0;
+    padding: 10px 13px;
+    overflow: hidden;
+    border-radius: 14px;
+  }
+
+  .about-skills-page .skills-card-heading {
+    gap: 9px;
+  }
+
+  .about-skills-page .skills-card-heading .skills-icon {
+    width: 38px;
+    height: 38px;
+    border-radius: 11px;
+    font-size: 1.18rem;
+  }
+
+  .about-skills-page .skills-card-heading h3 {
+    font-size: 0.76rem;
+    line-height: 1.22;
+  }
+
+  .about-skills-page .skills-chip-list {
+    gap: 4px 7px;
+    margin-top: 7px;
+  }
+
+  .about-skills-page .skills-tech-card .skills-chip-list {
+    grid-template-columns: 1fr;
+  }
+
+  .about-skills-page .skills-chip-list li {
+    min-height: 20px;
+    padding: 3px 6px;
+    font-size: 0.58rem;
+  }
+
+  .about-skills-page .skills-tech-card:first-child .skills-chip-list li:last-child,
+  .about-skills-page .skills-tech-card:nth-child(4) .skills-chip-list li:last-child,
+  .about-skills-page .skills-personal-card .skills-chip-list li:last-child {
+    grid-column: auto;
+  }
+
+  .about-skills-page .skills-combined-card {
+    display: grid;
+    grid-template-columns: minmax(290px, 0.7fr) minmax(0, 1.3fr);
+    gap: 16px;
+    align-items: center;
+  }
+
+  .about-skills-page .skills-combined-card .skills-chip-list {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    margin-top: 0;
+  }
+
+  .about-skills-page .skills-language-card .skills-chip-list li {
+    min-height: 32px;
+  }
+
+  .about-skills-page .skills-approach-list {
+    gap: 3px;
+    margin-top: 7px;
+  }
+
+  .about-skills-page .skills-approach-list li {
+    gap: 6px;
+    font-size: 0.59rem;
+    line-height: 1.25;
+  }
+
+  .about-skills-page .skills-approach-list svg {
+    font-size: 0.85rem;
+  }
+}
+
+@media (max-width: 900px) {
+  .section-about {
+    height: 100svh;
+    min-height: 100svh;
+    overflow: hidden;
+  }
+
+  .section-about > .about-shell {
+    height: calc(100svh - 108px);
+    min-height: 0;
+    overflow: hidden;
+  }
+
+  .about-horizontal-track {
+    display: flex;
+    width: 100%;
+    height: 100%;
+    overflow-x: auto;
+    overflow-y: hidden;
+    scroll-snap-type: x mandatory;
+  }
+
+  .about-page {
+    width: 100%;
+    min-width: 100%;
+    height: 100%;
+    flex: 0 0 100%;
+    scroll-snap-align: start;
+    scroll-snap-stop: always;
+  }
+
+  .about-profile-page {
+    display: grid;
+  }
+
+  .about-profile-page .about-records {
+    grid-template-columns: minmax(260px, 0.8fr) minmax(0, 1.4fr);
+    margin-top: 0;
+  }
+
+  .about-skills-page {
+    display: block;
+    overflow-y: auto;
+    overscroll-behavior: contain;
+  }
+
+  .about-skills-page .skills-shell {
+    height: auto;
+    min-height: 100%;
+  }
+}
+
+@media (max-width: 620px) {
+  .about-page-switch {
+    justify-content: center;
+    padding-right: 0;
+  }
+
+  .about-page-switch button {
+    padding: 6px 11px;
+    font-size: 0.66rem;
+  }
+
+  .about-profile-page .about-records {
+    grid-template-columns: 1fr;
+  }
+
+  .about-profile-page {
+    overflow-y: auto;
+    overscroll-behavior: contain;
+  }
+
+  .about-profile-page .about-title-group h2 {
+    font-size: clamp(2.35rem, 12vw, 3.2rem);
+  }
+}
+
+.about-swipe-cue {
+  display: block;
+  width: min(100%, 360px);
+  padding: 0;
+  border: 0;
+  background: transparent;
+  cursor: pointer;
+}
+
+.about-swipe-cue img {
+  width: 100%;
+  height: auto;
+  opacity: 0.3;
+  filter: invert(45%) sepia(48%) saturate(1560%) hue-rotate(218deg) brightness(103%);
+  transition: opacity 180ms ease, transform 180ms ease;
+}
+
+.about-swipe-cue:hover img,
+.about-swipe-cue:focus-visible img {
+  opacity: 0.46;
+  transform: translateX(7px);
+}
+
+@media (min-width: 901px) {
+  .about-profile-page {
+    grid-template-rows: 112px 300px;
+    gap: 18px;
+    align-content: center;
+  }
+
+  .about-profile-page .about-intro {
+    grid-template-columns: minmax(360px, 0.8fr) minmax(220px, 1.2fr);
+    gap: 30px;
+  }
+
+  .about-profile-page .about-swipe-cue {
+    align-self: center;
+    justify-self: center;
+    margin: -12px 0 -24px;
+  }
+
+  .about-profile-page .about-records {
+    height: 300px;
+  }
+
+  .about-profile-page .about-education-card,
+  .about-profile-page .about-course-grid {
+    height: 250px;
+  }
+
+  .about-profile-page .about-course-card {
+    height: 100%;
+  }
+
+  .about-skills-page .skills-shell {
+    width: min(100%, 1500px);
+    grid-template-rows: 206px 28px 188px 104px;
+    gap: 12px;
+    align-content: start;
+    margin-inline: auto;
+    padding: 10px 8px 0;
+  }
+
+  .about-skills-page .skills-intro-grid {
+    grid-template-columns: minmax(390px, 0.82fr) minmax(620px, 1.18fr);
+    gap: clamp(54px, 5vw, 92px);
+    align-items: start;
+  }
+
+  .about-skills-page .skills-copy {
+    align-self: start;
+    padding: 2px 0 0;
+  }
+
+  .about-skills-page .skills-eyebrow {
+    display: inline-flex;
+    gap: 6px;
+    align-items: center;
+    margin: 0 0 10px;
+    padding: 7px 12px;
+    border-radius: 999px;
+    background: #f0edff;
+    color: #684bec;
+    font-size: 0.68rem;
+    font-style: normal;
+    font-weight: 750;
+  }
+
+  .about-skills-page .skills-eyebrow svg {
+    width: 14px;
+    height: 14px;
+  }
+
+  .about-skills-page .skills-copy h2 {
+    font-family: var(--font-display);
+    font-size: clamp(3.25rem, 4vw, 4.25rem);
+    font-weight: 600;
+    letter-spacing: -0.045em;
+    line-height: 0.9;
+  }
+
+  .about-skills-page .skills-copy > p:last-child {
+    max-width: 520px;
+    margin-top: 16px;
+    font-size: 0.78rem;
+    line-height: 1.55;
+  }
+
+  .about-skills-page .skills-focus-panel {
+    align-self: start;
+    height: 196px;
+    padding: 14px 18px 16px;
+    border-radius: 16px;
+  }
+
+  .about-skills-page .skills-focus-panel > h3 {
+    font-family: var(--font-display);
+    font-size: 1.08rem;
+  }
+
+  .about-skills-page .skills-focus-grid {
+    height: auto;
+    gap: 10px;
+    margin-top: 10px;
+  }
+
+  .about-skills-page .skills-focus-item {
+    min-height: 62px;
+    grid-template-columns: 44px minmax(0, 1fr);
+    gap: 10px;
+    padding: 8px 10px;
+    border: 1px solid #e4e5ef;
+    border-radius: 12px;
+    background: rgba(255, 255, 255, 0.76);
+  }
+
+  .about-skills-page .skills-focus-item .skills-icon {
+    width: 40px;
+    height: 40px;
+    border-radius: 11px;
+    font-size: 1.25rem;
+  }
+
+  .about-skills-page .skills-focus-item h4 {
+    font-size: 0.73rem;
+    line-height: 1.25;
+  }
+
+  .about-skills-page .skills-divider h2 {
+    font-family: var(--font-display);
+    font-size: 1.22rem;
+  }
+
+  .about-skills-page .skills-tech-card {
+    padding: 12px 14px;
+  }
+
+  .about-skills-page .skills-bottom-grid {
+    padding-bottom: 2px;
+  }
+
+  .about-skills-page .skills-combined-card {
+    grid-template-columns: minmax(330px, 0.72fr) minmax(0, 1.28fr);
+    padding-inline: 16px;
+  }
+}
+
+@media (max-width: 900px) {
+  .about-swipe-cue {
+    display: none;
+  }
+}
+
+/* Referans yerleşimi: geçiş butonsuz, üç kartlı alt sıra */
+.about-skills-page .skills-icon--blue {
+  background: #eaf4ff;
+  color: #347cc8;
+}
+
+.section-about > .about-shell {
+  grid-template-rows: minmax(0, 1fr);
+  gap: 0;
+}
+
+@media (min-width: 901px) {
+  .about-skills-page .skills-shell {
+    grid-template-rows: 206px 28px 188px 116px;
+  }
+
+  .about-skills-page .skills-bottom-grid {
+    grid-template-columns: 0.72fr 1.45fr 1.25fr;
+    gap: 12px;
+  }
+
+  .about-skills-page .skills-info-card {
+    display: flex;
+    padding: 12px 14px;
+  }
+
+  .about-skills-page .skills-language-card .skills-chip-list {
+    grid-template-columns: 1fr;
+  }
+
+  .about-skills-page .skills-language-card .skills-chip-list li {
+    min-height: 30px;
+  }
+
+  .about-skills-page .skills-personal-card .skills-chip-list {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+
+  .about-skills-page .skills-personal-card .skills-chip-list li:last-child {
+    grid-column: span 2;
+  }
+
+  .about-skills-page .skills-approach-list {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 7px 16px;
+    margin-top: 10px;
+  }
+
+  .about-skills-page .skills-approach-list li {
+    font-size: 0.61rem;
+  }
+}
+
+/* %100 masaüstü görünümü: tüm yetenek kartları tek ekranda */
+@media (min-width: 901px) {
+  .about-profile-page {
+    grid-template-rows: 130px 280px;
+  }
+
+  .about-profile-page .about-records {
+    height: 280px;
+  }
+
+  .about-profile-page .about-education-card,
+  .about-profile-page .about-course-grid {
+    height: 230px;
+  }
+
+  .about-profile-page .about-swipe-cue {
+    width: min(100%, 320px);
+    margin: 0;
+  }
+
+  .about-skills-page .skills-shell {
+    grid-template-rows: 160px 24px 150px 94px;
+    gap: 10px;
+    align-content: center;
+    padding-block: 0;
+  }
+
+  .about-skills-page .skills-intro-grid {
+    align-items: center;
+  }
+
+  .about-skills-page .skills-copy h2 {
+    font-size: clamp(3.1rem, 3.7vw, 4rem);
+  }
+
+  .about-skills-page .skills-copy > p:last-child {
+    margin-top: 12px;
+    font-size: 0.78rem;
+  }
+
+  .about-skills-page .skills-focus-panel {
+    height: 154px;
+    padding: 10px 14px;
+  }
+
+  .about-skills-page .skills-focus-panel > h3 {
+    font-size: 1.02rem;
+  }
+
+  .about-skills-page .skills-focus-grid {
+    gap: 6px;
+    margin-top: 6px;
+  }
+
+  .about-skills-page .skills-focus-item {
+    min-height: 48px;
+    grid-template-columns: 36px minmax(0, 1fr);
+    gap: 8px;
+    padding: 5px 8px;
+  }
+
+  .about-skills-page .skills-focus-item .skills-icon {
+    width: 34px;
+    height: 34px;
+    border-radius: 9px;
+    font-size: 1.08rem;
+  }
+
+  .about-skills-page .skills-focus-item h4 {
+    font-size: 0.71rem;
+  }
+
+  .about-skills-page .skills-divider h2 {
+    font-size: 1.12rem;
+    padding-inline: 12px;
+    line-height: 1.1;
+  }
+
+  .about-skills-page .skills-divider {
+    gap: 22px;
+    align-items: end;
+  }
+
+  .about-skills-page .skills-divider span {
+    margin-bottom: 2px;
+  }
+
+  .about-skills-page .skills-tech-card,
+  .about-skills-page .skills-info-card {
+    padding: 8px 11px;
+  }
+
+  .about-skills-page .skills-card-heading .skills-icon {
+    width: 34px;
+    height: 34px;
+    border-radius: 10px;
+    font-size: 1.08rem;
+  }
+
+  .about-skills-page .skills-card-heading h3 {
+    font-size: 0.74rem;
+  }
+
+  .about-skills-page .skills-tech-card .skills-chip-list {
+    gap: 3px;
+    margin-top: 6px;
+  }
+
+  .about-skills-page .skills-chip-list li {
+    min-height: 18px;
+    padding: 2px 5px;
+    font-size: 0.6rem;
+  }
+
+  .about-skills-page .skills-language-card .skills-chip-list li {
+    min-height: 27px;
+    font-size: 0.65rem;
+  }
+
+  .about-skills-page .skills-personal-card .skills-chip-list {
+    gap: 3px 7px;
+    margin-top: 6px;
+  }
+
+  .about-skills-page .skills-approach-list {
+    gap: 4px 12px;
+    margin-top: 7px;
+  }
+
+  .about-skills-page .skills-approach-list li {
+    font-size: 0.62rem;
+    line-height: 1.2;
+  }
+}
+
+/* Teknoloji kartları: masaüstünde açık, mobilde açılır-kapanır */
+.skills-card-toggle {
+  display: flex;
+  width: 100%;
+  padding: 0;
+  border: 0;
+  background: transparent;
+  color: inherit;
+  font: inherit;
+  text-align: left;
+}
+
+.skills-card-toggle .skills-card-heading {
+  flex: 1 1 auto;
+}
+
+.skills-card-chevron {
+  display: none;
+}
+
+.skills-card-content {
+  min-height: 0;
+}
+
+/* Telefon ve tablet: tek ekranı önceleyen kompakt Hakkımda / Yetkinlikler düzeni */
+@media (max-width: 900px) {
+  .about-profile-page,
+  .about-skills-page {
+    overflow-y: auto;
+    overscroll-behavior-y: contain;
+    scrollbar-width: none;
+  }
+
+  .about-profile-page::-webkit-scrollbar,
+  .about-skills-page::-webkit-scrollbar {
+    display: none;
+  }
+
+  .about-profile-page {
+    grid-template-rows: auto minmax(0, 1fr);
+    gap: 10px;
+    padding: 8px 4px 12px;
+  }
+
+  .about-profile-page .about-intro {
+    display: block;
+    min-height: 0;
+  }
+
+  .about-profile-page .about-title-group {
+    display: flex;
+    min-height: 0;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+  }
+
+  .about-profile-page .about-title-group h2 {
+    font-size: clamp(2rem, 9.5vw, 2.75rem);
+    line-height: 0.92;
+  }
+
+  .about-profile-page .about-records {
+    height: auto;
+    min-height: 0;
+    grid-template-columns: 1fr;
+    grid-template-rows: minmax(120px, auto) minmax(0, 1fr);
+    gap: 10px;
+    margin-top: 0;
+    padding-top: 0;
+    overflow: visible;
+  }
+
+  .about-profile-page .about-record-section {
+    overflow: visible;
+  }
+
+  .about-skills-page {
+    padding: 6px 4px 12px;
+  }
+
+  .about-skills-page .skills-shell {
+    display: grid;
+    width: 100%;
+    height: auto;
+    min-height: 100%;
+    grid-template-rows: auto auto auto auto;
+    gap: 8px;
+    align-content: start;
+    padding: 4px 2px 10px;
+  }
+
+  .about-skills-page .skills-intro-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 8px;
+  }
+
+  .about-skills-page .skills-copy {
+    max-width: 100%;
+    padding-inline: 10px;
+    text-align: center;
+  }
+
+  .about-skills-page .skills-copy h2 {
+    font-family: var(--font-display);
+    font-size: clamp(2.1rem, 10vw, 2.85rem);
+    font-weight: 600;
+    line-height: 0.96;
+  }
+
+  .about-skills-page .skills-copy > p:last-child {
+    max-width: 520px;
+    margin: 8px auto 0;
+    font-size: clamp(0.68rem, 2.65vw, 0.8rem);
+    line-height: 1.4;
+  }
+
+  .about-skills-page .skills-focus-panel {
+    height: auto;
+    padding: 10px;
+    border-radius: 15px;
+  }
+
+  .about-skills-page .skills-focus-panel > h3 {
+    font-family: var(--font-display);
+    font-size: 1rem;
+  }
+
+  .about-skills-page .skills-focus-grid {
+    display: grid;
+    height: auto;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 6px;
+    margin-top: 7px;
+  }
+
+  .about-skills-page .skills-focus-item {
+    min-height: 48px;
+    grid-template-columns: 34px minmax(0, 1fr);
+    gap: 7px;
+    padding: 6px;
+    border: 1px solid #e2e3ee;
+    border-radius: 11px;
+  }
+
+  .about-skills-page .skills-focus-item .skills-icon {
+    width: 32px;
+    height: 32px;
+    border-radius: 9px;
+    font-size: 1rem;
+  }
+
+  .about-skills-page .skills-focus-item h4 {
+    font-size: clamp(0.6rem, 2.35vw, 0.7rem);
+    line-height: 1.18;
+  }
+
+  .about-skills-page .skills-focus-item p {
+    display: none;
+  }
+
+  .about-skills-page .skills-divider {
+    grid-template-columns: minmax(20px, 1fr) auto minmax(20px, 1fr);
+    gap: 10px;
+    align-items: center;
+    min-height: 26px;
+  }
+
+  .about-skills-page .skills-divider h2 {
+    padding-inline: 5px;
+    font-family: var(--font-display);
+    font-size: clamp(0.96rem, 4vw, 1.12rem);
+    white-space: nowrap;
+  }
+
+  .about-skills-page .skills-tech-grid {
+    display: grid;
+    height: auto;
+    grid-template-columns: 1fr;
+    gap: 5px;
+  }
+
+  .about-skills-page .skills-tech-card {
+    height: auto;
+    min-height: 44px;
+    padding: 0;
+    overflow: hidden;
+    border-radius: 12px;
+  }
+
+  .about-skills-page .skills-card-toggle {
+    min-height: 44px;
+    align-items: center;
+    justify-content: space-between;
+    gap: 8px;
+    padding: 5px 9px;
+    cursor: pointer;
+  }
+
+  .about-skills-page .skills-card-toggle .skills-card-heading {
+    display: flex;
+    gap: 8px;
+    align-items: center;
+  }
+
+  .about-skills-page .skills-card-heading .skills-icon {
+    width: 32px;
+    height: 32px;
+    flex: 0 0 32px;
+    border-radius: 9px;
+    font-size: 1rem;
+  }
+
+  .about-skills-page .skills-card-heading h3 {
+    font-size: clamp(0.68rem, 2.7vw, 0.78rem);
+    line-height: 1.2;
+  }
+
+  .about-skills-page .skills-card-chevron {
+    display: block;
+    width: 18px;
+    height: 18px;
+    flex: 0 0 18px;
+    color: #7054e8;
+    transition: transform 180ms ease;
+  }
+
+  .about-skills-page .skills-tech-card.is-expanded .skills-card-chevron {
+    transform: rotate(180deg);
+  }
+
+  .about-skills-page .skills-card-content {
+    max-height: 0;
+    overflow: hidden;
+    opacity: 0;
+    transition: max-height 220ms ease, opacity 160ms ease;
+  }
+
+  .about-skills-page .skills-tech-card.is-expanded .skills-card-content {
+    max-height: 150px;
+    opacity: 1;
+  }
+
+  .about-skills-page .skills-tech-card .skills-chip-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 4px;
+    margin: 0;
+    padding: 0 9px 9px 49px;
+  }
+
+  .about-skills-page .skills-chip-list li {
+    width: auto;
+    min-height: 22px;
+    flex: 1 1 110px;
+    padding: 4px 7px;
+    font-size: clamp(0.56rem, 2.25vw, 0.66rem);
+  }
+
+  .about-skills-page .skills-bottom-grid {
+    display: grid;
+    height: auto;
+    grid-template-columns: 1fr;
+    gap: 5px;
+  }
+
+  .about-skills-page .skills-info-card {
+    height: auto;
+    min-height: 48px;
+    padding: 7px 10px;
+    overflow: visible;
+    border-radius: 12px;
+  }
+
+  .about-skills-page .skills-info-card .skills-card-heading {
+    gap: 8px;
+  }
+
+  .about-skills-page .skills-language-card,
+  .about-skills-page .skills-personal-card,
+  .about-skills-page .skills-approach-card {
+    display: grid;
+    grid-template-columns: 128px minmax(0, 1fr);
+    gap: 8px;
+    align-items: center;
+  }
+
+  .about-skills-page .skills-language-card .skills-chip-list,
+  .about-skills-page .skills-personal-card .skills-chip-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 4px;
+    margin: 0;
+  }
+
+  .about-skills-page .skills-language-card .skills-chip-list li,
+  .about-skills-page .skills-personal-card .skills-chip-list li {
+    min-height: 22px;
+    flex: 1 1 92px;
+  }
+
+  .about-skills-page .skills-personal-card .skills-chip-list li:last-child {
+    grid-column: auto;
+  }
+
+  .about-skills-page .skills-approach-list {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 4px 8px;
+    margin: 0;
+  }
+
+  .about-skills-page .skills-approach-list li {
+    gap: 4px;
+    font-size: clamp(0.53rem, 2.1vw, 0.62rem);
+    line-height: 1.2;
+  }
+}
+
+@media (max-width: 420px) {
+  .about-skills-page .skills-copy h2 {
+    font-size: clamp(1.85rem, 9.2vw, 2.35rem);
+  }
+
+  .about-skills-page .skills-focus-item {
+    grid-template-columns: 30px minmax(0, 1fr);
+  }
+
+  .about-skills-page .skills-focus-item .skills-icon {
+    width: 29px;
+    height: 29px;
+  }
+
+  .about-skills-page .skills-language-card,
+  .about-skills-page .skills-personal-card,
+  .about-skills-page .skills-approach-card {
+    grid-template-columns: 112px minmax(0, 1fr);
+  }
+}

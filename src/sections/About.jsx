@@ -1,6 +1,7 @@
-import { useState } from "react";
+import { useRef, useState } from "react";
 import { Icon } from "@iconify/react";
-import { portfolio } from "../data/portfolioData";
+import Capabilities from "./Capabilities";
+import skillsCue from "../assets/icons/skills.svg";
 
 const education = {
   title: "Bilgisayar Mühendisliği",
@@ -87,9 +88,21 @@ function LogoMark({ item }) {
 
 export default function About() {
   const [expandedCourseId, setExpandedCourseId] = useState(null);
+  const trackRef = useRef(null);
 
   const toggleCourse = (courseId) => {
     setExpandedCourseId((current) => (current === courseId ? null : courseId));
+  };
+
+  const goToPage = (pageIndex) => {
+    const track = trackRef.current;
+    if (!track) return;
+
+    track.scrollTo({
+      left: track.clientWidth * pageIndex,
+      behavior: "smooth",
+    });
+    window.history.replaceState(null, "", pageIndex === 0 ? "#about" : "#capabilities");
   };
 
   return (
@@ -104,8 +117,14 @@ export default function About() {
       </div>
 
       <div className="shell about-shell">
-        <div className="about-horizontal-track">
-          <article className="about-page" aria-label="Hakkımda ve eğitim bilgilerim">
+        <div
+          className="about-horizontal-track"
+          ref={trackRef}
+        >
+          <article
+            className="about-page about-profile-page"
+            aria-label="Hakkımda ve eğitim bilgilerim"
+          >
             <div className="about-intro">
               <div className="about-title-group">
                 <h2>
@@ -115,13 +134,15 @@ export default function About() {
                 </h2>
               </div>
 
-              <div className="about-intro-card">
-                <div className="about-paragraphs">
-                  {portfolio.about.map((paragraph) => (
-                    <p key={paragraph}>{paragraph}</p>
-                  ))}
-                </div>
-              </div>
+              <button
+                className="about-swipe-cue"
+                type="button"
+                onClick={() => goToPage(1)}
+                aria-label="Yeteneklerim sayfasına geç"
+              >
+                <img src={skillsCue} alt="Yeteneklerim sayfasına geç" />
+              </button>
+
             </div>
 
             <div className="about-records">
@@ -244,6 +265,7 @@ export default function About() {
               </section>
             </div>
           </article>
+          <Capabilities embedded />
         </div>
       </div>
     </section>

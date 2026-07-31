@@ -1,3 +1,91 @@
+export const capabilityProfile = {
+  introduction:
+    "Yapay zekâ, veri ve yazılım mühendisliğini gerçek problemlere uygulanabilir ürünlerde birleştiriyorum.",
+  focusAreas: [
+    {
+      title: "Yazılım & API Mühendisliği",
+      description: "Ölçeklenebilir servis ve uygulama mimarileri.",
+      icon: "tabler:code",
+      tone: "violet",
+    },
+    {
+      title: "Uygulamalı Yapay Zekâ & RAG",
+      description: "Bilgiyi ürüne dönüştüren yapay zekâ sistemleri.",
+      icon: "iconoir:brain",
+      tone: "violet",
+    },
+    {
+      title: "Veri & Akıllı Sistemler",
+      description: "Veri odaklı karar ve otomasyon çözümleri.",
+      icon: "basil:user-solid",
+      tone: "coral",
+    },
+    {
+      title: "Ürün Odaklılık & AR-GE",
+      description: "Araştırmadan çalışan prototipe uzanan yaklaşım.",
+      icon: "akar-icons:statistic-up",
+      tone: "mint",
+    },
+  ],
+  technologyGroups: [
+    {
+      title: "Backend & API",
+      icon: "tabler:code",
+      tone: "violet",
+      skills: [
+        "Python & .NET 8",
+        "FastAPI & REST API",
+        "EF Core & Veritabanı Mimarisi",
+      ],
+    },
+    {
+      title: "Yapay Zekâ & NLP",
+      icon: "eos-icons:ai",
+      tone: "violet",
+      skills: [
+        "LLM & RAG Mimarileri",
+        "Semantik Arama & Embedding",
+        "Makine & Derin Öğrenme",
+      ],
+    },
+    {
+      title: "Veri & Veritabanı",
+      icon: "mdi:database",
+      tone: "mint",
+      skills: [
+        "SQL & Vektör Veritabanları",
+        "Web Scraping (Veri Kazıma)",
+        "Feature Engineering & Preprocessing",
+      ],
+    },
+    {
+      title: "Sistem, Araçlar & Robotik",
+      icon: "ri:tools-fill",
+      tone: "coral",
+      skills: [
+        "Docker & Konteynerleştirme",
+        "Git & GitHub",
+        "Arduino & Otonom Sistem Prototipleme",
+        "Power BI & Veri Görselleştirme",
+      ],
+    },
+  ],
+  languages: ["İngilizce – B1"],
+  personalSkills: [
+    "Problem Çözme",
+    "Analitik Düşünme",
+    "Takım Çalışması",
+    "İletişim",
+    "Zaman Yönetimi",
+  ],
+  workingApproach: [
+    "Hızlı öğrenirim",
+    "Sürekli gelişime açığım",
+    "Kullanıcı odaklı düşünürüm",
+    "Pratik ve sürdürülebilir çözümler üretirim",
+  ],
+};
+
 export const portfolio = {
   person: {
     name: "İ. Arzu Akkuş",
