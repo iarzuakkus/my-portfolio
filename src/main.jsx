@@ -8,6 +8,7 @@ import "./styles/header.css";
 import "./styles/hero.css";
 import "./styles/pages.css";
 import "./styles/about.css";
+import "./styles/experience.css";
 import "./styles/capabilities.css";
 
 ReactDOM.createRoot(document.getElementById("root")).render(
