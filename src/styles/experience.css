@@ -199,13 +199,15 @@
 }
 
 .experience-toggle-label {
-  display: inline-flex;
-  gap: 8px;
+  display: grid;
+  width: 36px;
+  height: 36px;
   align-items: center;
+  justify-content: center;
+  border: 1px solid #ded8ff;
+  border-radius: 10px;
+  background: #f5f2ff;
   color: #6550d8;
-  font-size: 0.74rem;
-  font-weight: 700;
-  white-space: nowrap;
 }
 
 .experience-toggle-label svg {
@@ -383,8 +385,8 @@
   }
 
   .experience-toggle-label {
-    width: 28px;
-    font-size: 0;
+    width: 32px;
+    height: 32px;
   }
 
   .experience-card-details,

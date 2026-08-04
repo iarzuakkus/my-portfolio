@@ -31,8 +31,10 @@ export default function ExperienceCard({ item, expanded, onToggle }) {
           </span>
         </span>
 
-        <span className="experience-toggle-label">
-          {expanded ? "Detayı kapat" : "Detayı aç"}
+        <span
+          className="experience-toggle-label"
+          aria-label={expanded ? "Detayı kapat" : "Detayı aç"}
+        >
           <Icon icon="tabler:chevron-down" aria-hidden="true" />
         </span>
       </button>
