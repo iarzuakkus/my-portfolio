@@ -59,16 +59,25 @@ export default function Work() {
                 <h3>{selectedProject.title}</h3>
                 <p>{selectedProject.description}</p>
                 <span className="featured-project-category">{selectedProject.category}</span>
-                <ul>
-                  {selectedProject.tags.map((tag) => (
-                    <li key={tag}>{tag}</li>
-                  ))}
-                </ul>
-                {selectedProject.github && (
-                  <a href={selectedProject.github} target="_blank" rel="noreferrer">
-                    GitHub'da incele
-                  </a>
-                )}
+                <div className="featured-project-meta">
+                  <ul>
+                    {selectedProject.tags.map((tag) => (
+                      <li key={tag}>{tag}</li>
+                    ))}
+                  </ul>
+                  {selectedProject.github && (
+                    <a
+                      className="featured-project-github"
+                      href={selectedProject.github}
+                      target="_blank"
+                      rel="noreferrer"
+                      aria-label={`${selectedProject.title} GitHub deposunu aç`}
+                      title="GitHub deposunu aç"
+                    >
+                      <Icon icon="mdi:github" aria-hidden="true" />
+                    </a>
+                  )}
+                </div>
               </div>
               <ProjectMedia project={selectedProject} />
             </article>

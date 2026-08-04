@@ -54,6 +54,11 @@
   font-weight: 400;
 }
 
+.brand-mark svg {
+  width: 1.75rem;
+  height: 1.75rem;
+}
+
 .primary-nav {
   gap: 42px;
   margin-left: auto;

@@ -56,17 +56,26 @@
   line-height: 1.1;
 }
 
-.hero-hello::before {
+.hero-hello-mark {
   position: absolute;
   top: -5px;
   left: -30px;
+  display: grid;
+  width: 25px;
+  height: 25px;
+  place-items: center;
   color: #ff7f5d;
-  content: "✳";
-  font-family: var(--font-body);
-  font-size: 1.55rem;
-  font-style: normal;
-  font-weight: 300;
-  opacity: 1;
+}
+
+.hero-hello-mark svg {
+  position: absolute;
+  width: 1.15rem;
+  height: 1.15rem;
+}
+
+.hero-hello-mark svg:last-child {
+  opacity: 0.78;
+  transform: rotate(45deg);
 }
 
 .hero h1 {
@@ -622,4 +631,3 @@
     border-right: 0;
     animation: none;
   }}
-

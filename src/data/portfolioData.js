@@ -99,7 +99,6 @@ export const portfolio = {
   },
   navigation: [
     { label: "Hakkımda", href: "#about" },
-    { label: "Yetkinlikler", href: "#capabilities" },
     { label: "Deneyim", href: "#experience" },
     { label: "Çalışmalar", href: "#work" },
     { label: "İletişim", href: "#contact" },

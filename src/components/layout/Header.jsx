@@ -23,12 +23,6 @@ const navigation = [
     icon: "griddy-icons:folder-code",
   },
   {
-    label: "Yetkinliklerim",
-    href: "#capabilities",
-    sections: ["capabilities"],
-    icon: "mingcute:star-line",
-  },
-  {
     label: "İletişim",
     href: "#contact",
     sections: ["contact"],
@@ -86,7 +80,7 @@ export default function Header() {
       <div className="shell header-inner">
         <a className="brand" href="#top" onClick={closeMenu}>
           <span className="brand-mark" aria-hidden="true">
-            ✳
+            <Icon icon="hugeicons:flower" />
           </span>
           <span>{portfolio.person.shortName}</span>
         </a>

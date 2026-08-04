@@ -3,6 +3,7 @@ import { Icon } from "@iconify/react";
 import DesignShowcaseCarousel from "./design-showcase/DesignShowcaseCarousel";
 import ProjectGallery from "./ProjectGallery";
 import ProjectImage from "./ProjectImage";
+import ProjectTextShowcase from "./ProjectTextShowcase";
 
 export default function ProjectMedia({ project, compact = false }) {
   if (!project.media) {
@@ -14,13 +15,7 @@ export default function ProjectMedia({ project, compact = false }) {
       );
     }
 
-    return (
-      <div className="project-media project-media--text-only">
-        <Icon icon={project.icon} aria-hidden="true" />
-        <strong>Görselsiz proje</strong>
-        <span>Proje açıklaması ve kaynak kod bağlantısıyla sunuluyor.</span>
-      </div>
-    );
+    return <ProjectTextShowcase project={project} />;
   }
 
   if (project.media.variant === "design-orbit") {

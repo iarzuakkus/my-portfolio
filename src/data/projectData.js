@@ -11,11 +11,12 @@ export const projects = [
     title: "Warehouse Optimizer",
     category: "Optimizasyon Uygulaması",
     description:
-      "Depo, raf, lokasyon ve koli verilerini etkileşimli 3D haritada görselleştiren; kapasite takibi, sipariş yönetimi, stok tahsisi ve ürün yerleşimi optimizasyonu sağlayan bir uygulama geliştirdim. Simülasyon senaryolarıyla forklift ve transpalet hareketlerini adım adım izlenebilir hâle getirdim.",
-    tags: ["Python", "Streamlit", "Pandas", "Matplotlib"],
+      "Depo verilerini 3B haritada görselleştiren; kapasite, stok, sipariş ve ürün yerleşimini optimizasyon algoritmalarıyla yöneten PostgreSQL tabanlı bir uygulama. Graf yapılarıyla forklift ve transpalet hareketlerini simüle eder.",
+    tags: ["Python", "PostgreSQL", "Optimizasyon Algoritmaları", "Graf Yapıları", "Docker"],
     icon: "mdi:warehouse",
     compactUseIcon: true,
     tone: "violet",
+    github: "https://github.com/iarzuakkus/warehouse-slotting-optimizer",
     media: {
       cover: "/projects/warehouse-optimizer/01.webp",
       gallery: [
@@ -32,10 +33,11 @@ export const projects = [
     category: "Yapay Zekâ & RAG",
     description:
       "Web içeriklerini analiz ederek kişisel bilgi hafızasına kaydeden, kaynaklara dayalı soruları yanıtlayan ve otomatik notlar oluşturan Adaptive RAG tabanlı Chrome eklentisi.",
-    tags: ["Python", "RAG", "LLM", "Chrome Extension"],
+    tags: ["Python", "LLM & RAG Mimarileri", "Semantik Arama & Embedding", "Chrome Extension"],
     icon: "eos-icons:ai",
     badgeLogo: "/projects/memorai/logo.svg",
     tone: "berry",
+    github: "https://github.com/iarzuakkus/adaptive-rag-project",
     media: {
       cardCover: "/projects/memorai/logo.svg",
       cover: "/projects/memorai/1.png",
@@ -57,6 +59,7 @@ export const projects = [
     icon: "tabler:map-2",
     compactUseIcon: true,
     tone: "coral",
+    github: "https://github.com/iarzuakkus/BasarSoft-Backend",
     media: {
       cover: "/projects/harita-uygulamasi/1.png",
       gallery: [
@@ -73,7 +76,7 @@ export const projects = [
     category: "Robotik Prototip",
     description:
       "Arduino ile çevresindeki engelleri algılayıp yön değiştiren otonom araç prototipi. Yarışmada 77 takım arasından ikinci oldu.",
-    tags: ["Arduino", "Sensörler", "C++", "Prototipleme"],
+    tags: ["Arduino", "Bluetooth Kontrol", "Sensör Sistemleri", "Otonom Sistemler", "Prototipleme"],
     icon: "mdi:car-connected",
     compactUseIcon: true,
     tone: "mint",
@@ -93,7 +96,7 @@ export const projects = [
     category: "Görsel Tasarım",
     description:
       "Etkinlik afişleri, özel gün içerikleri, sosyal medya paylaşımları ve ekip materyallerinden oluşan seçili tasarım çalışmaları.",
-    tags: ["Tasarım", "İçerik Üretimi", "Sosyal Medya", "Takım Çalışması"],
+    tags: ["Görsel Tasarım", "İçerik Üretimi", "Sosyal Medya", "Liderlik", "Takım Yönetimi"],
     icon: "mdi:paint-outline",
     tone: "rose",
     media: {
@@ -128,7 +131,21 @@ export const projects = [
     tags: ["Python", "Web Scraping", "Automation"],
     icon: "mdi:database-search",
     tone: "blue",
-    github: "https://github.com/iarzuakkus",
+    github: "https://github.com/iarzuakkus/data-mining",
+    showcase: {
+      title: "GitHub'daki Diğer Çalışmalarım",
+      description:
+        "Sales Prediction, Netflix Öneri Sistemi ve farklı veri bilimi çalışmalarımın kaynak kodlarına GitHub hesabımdan ulaşabilirsiniz.",
+      href: "https://github.com/iarzuakkus",
+      tags: [
+        "Tahmine Dayalı Analitik",
+        "Tavsiye Sistemleri",
+        "İstatistiksel Modelleme",
+        "Keşifsel Veri Analizi",
+        "Model Değerlendirme",
+        "Veri Görselleştirme",
+      ],
+    },
     media: null,
   },
 ];

@@ -110,9 +110,9 @@ export default function About() {
             <div className="about-intro">
               <div className="about-title-group">
                 <h2>
-                  Kendimden
+                  Akademik
                   <br />
-                  Bahsedeyim<span>.</span>
+                  Yolculuğum<span>.</span>
                 </h2>
               </div>
 
@@ -142,17 +142,17 @@ export default function About() {
                   <dl className="about-education-meta">
                     <div>
                       <dt>
-                        <Icon icon="lets-icons:date-today" aria-hidden="true" />
-                        Eğitim
+                        <Icon icon="fa7-solid:graduation-cap" aria-hidden="true" />
+                        Mezuniyet
                       </dt>
                       <dd>{education.date}</dd>
                     </div>
                     <div>
                       <dt>
-                        <Icon icon="fa7-solid:graduation-cap" aria-hidden="true" />
-                        Mezuniyet
+                        <Icon icon="ph:globe-simple-bold" aria-hidden="true" />
+                        Dil
                       </dt>
-                      <dd>{education.graduation}</dd>
+                      <dd>İngilizce – B1</dd>
                     </div>
                     <div>
                       <dt>

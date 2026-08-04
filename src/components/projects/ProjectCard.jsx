@@ -11,15 +11,9 @@ export default function ProjectCard({ project, selected, onSelect }) {
         </span>
       </button>
 
-      {project.github ? (
-        <a className="project-card-action" href={project.github} target="_blank" rel="noreferrer">
-          GitHub'da incele
-        </a>
-      ) : (
-        <button className="project-card-action" type="button" onClick={onSelect}>
-          Detayları gör
-        </button>
-      )}
+      <button className="project-card-action" type="button" onClick={onSelect}>
+        Detayları gör
+      </button>
     </article>
   );
 }

@@ -19,7 +19,13 @@ export default function Hero() {
 
         <div className="hero-grid">
           <div className="hero-copy">
-            <p className="hero-hello">Merhaba,</p>
+            <p className="hero-hello">
+              <span className="hero-hello-mark" aria-hidden="true">
+                <Icon icon="bitcoin-icons:cross-filled" />
+                <Icon icon="bitcoin-icons:cross-filled" />
+              </span>
+              Merhaba,
+            </p>
             <h1>Ben Arzu</h1>
             <p className="hero-role">
               <span className="hero-role-icon" aria-hidden="true">
