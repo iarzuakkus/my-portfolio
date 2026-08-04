@@ -13,6 +13,7 @@ import "./styles/experience.css";
 import "./styles/projects.css";
 import "./components/projects/design-showcase/design-showcase.css";
 import "./styles/capabilities.css";
+import "./styles/contact.css";
 
 ReactDOM.createRoot(document.getElementById("root")).render(
   <React.StrictMode>

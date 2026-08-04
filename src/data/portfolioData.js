@@ -103,6 +103,10 @@ export const portfolio = {
     { label: "Çalışmalar", href: "#work" },
     { label: "İletişim", href: "#contact" },
   ],
+  contact: {
+    email: "ilaydaarzuakkus@gmail.com",
+    linkedin: "https://www.linkedin.com/in/i-arzu-akkus/",
+  },
   socialLinks: [
     {
       label: "GitHub",
