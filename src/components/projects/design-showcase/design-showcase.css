@@ -11,7 +11,7 @@
     radial-gradient(circle at 50% 44%, rgba(255, 255, 255, 0.96), transparent 48%),
     linear-gradient(125deg, var(--project-accent-soft), #fff 54%, #fff5f8);
   outline: none;
-  touch-action: pan-y;
+  touch-action: pan-y pinch-zoom;
   user-select: none;
 }
 
@@ -33,7 +33,7 @@
   transform: translateX(var(--drag-shift));
   transition: transform 220ms ease;
   cursor: grab;
-  touch-action: pan-y;
+  touch-action: pan-y pinch-zoom;
 }
 
 .design-carousel-track.is-dragging {

@@ -22,15 +22,24 @@ main > section {
 
 @media (max-width: 900px) {
   html {
-    scroll-snap-type: none;
+    scroll-snap-type: y mandatory;
     overscroll-behavior-y: auto;
   }
 
-  main > section,
-  .site-footer {
-    scroll-snap-align: none;
-    scroll-snap-stop: normal;
+  main > section {
+    scroll-snap-align: start;
+    scroll-snap-stop: always;
   }
+}
+
+html.is-viewport-zoomed {
+  scroll-behavior: auto;
+  scroll-snap-type: none;
+}
+
+html.is-viewport-zoomed main > section,
+html.is-viewport-zoomed .site-footer {
+  scroll-snap-stop: normal;
 }
 
 body,
