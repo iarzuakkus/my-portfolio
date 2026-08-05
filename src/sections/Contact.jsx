@@ -1,17 +1,45 @@
+import { useState } from "react";
 import { Icon } from "@iconify/react";
 import { portfolio } from "../data/portfolioData";
 
 export default function Contact() {
-  const handleSubmit = (event) => {
-    event.preventDefault();
-    const formData = new FormData(event.currentTarget);
-    const name = formData.get("name");
-    const email = formData.get("email");
-    const subject = formData.get("subject");
-    const message = formData.get("message");
-    const body = [`Gönderen: ${name}`, `E-posta: ${email}`, "", message].join("\n");
+  const [formStatus, setFormStatus] = useState({ type: "idle", message: "" });
 
-    window.location.href = `mailto:${portfolio.contact.email}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+  const handleSubmit = async (event) => {
+    event.preventDefault();
+    const form = event.currentTarget;
+    const formData = new FormData(event.currentTarget);
+    const payload = Object.fromEntries(formData.entries());
+
+    setFormStatus({ type: "sending", message: "Mesajınız gönderiliyor…" });
+
+    try {
+      const request = await fetch("/.netlify/functions/send-contact-email", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(payload),
+      });
+      const responseText = await request.text();
+      let result = {};
+
+      try {
+        result = responseText ? JSON.parse(responseText) : {};
+      } catch {
+        throw new Error(
+          "E-posta servisine ulaşılamadı. Formu Netlify Dev adresinden açın.",
+        );
+      }
+
+      if (!request.ok) throw new Error(result.message || "Mesaj gönderilemedi.");
+
+      form.reset();
+      setFormStatus({ type: "success", message: result.message });
+    } catch (error) {
+      setFormStatus({
+        type: "error",
+        message: error.message || "Mesaj gönderilemedi. Lütfen tekrar deneyin.",
+      });
+    }
   };
 
   return (
@@ -76,10 +104,26 @@ export default function Contact() {
             <textarea name="message" placeholder="Mesajınız" required />
           </label>
 
-          <button type="submit">
-            Mesaj Gönder
+          <button type="submit" disabled={formStatus.type === "sending"}>
+            {formStatus.type === "sending" ? "Gönderiliyor…" : "Mesaj Gönder"}
             <Icon icon="material-symbols:send-outline-rounded" aria-hidden="true" />
           </button>
+
+          {formStatus.message && (
+            <p className={`contact-form-status is-${formStatus.type}`} role="status" aria-live="polite">
+              <Icon
+                icon={
+                  formStatus.type === "success"
+                    ? "material-symbols:check-circle-outline-rounded"
+                    : formStatus.type === "error"
+                      ? "material-symbols:error-outline-rounded"
+                      : "svg-spinners:3-dots-fade"
+                }
+                aria-hidden="true"
+              />
+              {formStatus.message}
+            </p>
+          )}
 
           <small className="contact-privacy">
             <Icon icon="material-symbols:lock-outline" aria-hidden="true" />

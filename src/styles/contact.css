@@ -216,6 +216,40 @@
   outline-offset: 3px;
 }
 
+.contact-form button:disabled {
+  opacity: 0.68;
+  cursor: wait;
+  transform: none;
+}
+
+.contact-form-status {
+  display: inline-flex;
+  width: max-content;
+  max-width: 100%;
+  align-items: center;
+  gap: 7px;
+  margin: 0;
+  padding: 7px 10px;
+  border-radius: 9px;
+  font-size: 0.65rem;
+  font-weight: 700;
+}
+
+.contact-form-status.is-sending {
+  background: #f1eeff;
+  color: #6848e9;
+}
+
+.contact-form-status.is-success {
+  background: #e8f8f5;
+  color: #0c8d7c;
+}
+
+.contact-form-status.is-error {
+  background: #fff0eb;
+  color: #d9573b;
+}
+
 .contact-privacy {
   display: inline-flex;
   align-items: center;
