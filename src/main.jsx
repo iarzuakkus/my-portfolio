@@ -9,6 +9,7 @@ import "./styles/header.css";
 import "./styles/hero.css";
 import "./styles/pages.css";
 import "./styles/about.css";
+import "./styles/about-courses.css";
 import "./styles/experience.css";
 import "./styles/projects.css";
 import "./components/projects/design-showcase/design-showcase.css";

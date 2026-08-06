@@ -1,0 +1,1326 @@
+/* Sektörel eğitim kartları kendi sınıf alanını kullanır; about.css ile çakışmaz. */
+.section-about .sector-course-grid {
+  display: flex;
+  width: 100%;
+  height: 100%;
+  min-width: 0;
+  min-height: 0;
+  gap: 10px;
+  overflow: hidden;
+}
+
+.section-about .sector-course-card {
+  --course-accent: #6f53f5;
+  --course-soft: #f4f1ff;
+  --course-border: #d7ceff;
+  display: flex;
+  min-width: 0;
+  min-height: 0;
+  flex: 1 1 0;
+  flex-direction: column;
+  overflow: hidden;
+  border: 1px solid var(--course-border);
+  border-radius: 17px;
+  background: linear-gradient(
+    145deg,
+    color-mix(in srgb, var(--course-soft) 48%, #fff) 0%,
+    #fff 52%,
+    #fff 100%
+  );
+  box-shadow: 0 9px 24px rgba(45, 39, 95, 0.055);
+  color: #171b39;
+  transition:
+    flex 260ms ease,
+    border-color 220ms ease,
+    box-shadow 220ms ease;
+}
+
+.section-about .sector-course-card.is-turquoise {
+  --course-accent: #16a693;
+  --course-soft: #eaf9f6;
+  --course-border: #c9ece6;
+}
+
+.section-about .sector-course-card.is-coral {
+  --course-accent: #c58a00;
+  --course-soft: #fff8d9;
+  --course-border: #f2d46d;
+}
+
+.section-about .sector-course-card.is-expanded {
+  flex: 2.5 1 0;
+  border-color: var(--course-accent);
+  box-shadow: 0 12px 28px color-mix(in srgb, var(--course-accent) 12%, transparent);
+}
+
+.section-about .sector-course-card.is-expanded .sector-course-toggle {
+  grid-template-columns: 72px minmax(0, 1fr) 18px;
+  align-items: start;
+  gap: 16px;
+  padding: 14px 16px 11px;
+}
+
+.section-about .sector-course-card.is-expanded .sector-course-mark {
+  width: 72px;
+  height: 72px;
+  border-radius: 18px;
+}
+
+.section-about .sector-course-card.is-expanded .sector-course-mark > svg {
+  width: 40px;
+  height: 40px;
+}
+
+.section-about .sector-course-card.is-expanded .sector-course-heading {
+  gap: 6px;
+  padding-left: 16px;
+  border-left: 1px solid var(--course-border);
+}
+
+.section-about .sector-course-card.is-condensed {
+  flex: 0.7 1 0;
+}
+
+.section-about .sector-course-toggle {
+  display: grid;
+  width: 100%;
+  min-width: 0;
+  grid-template-columns: 58px minmax(0, 1fr) 18px;
+  align-items: center;
+  gap: 13px;
+  padding: 13px 15px;
+  border: 0;
+  background: transparent;
+  color: inherit;
+  text-align: left;
+  cursor: pointer;
+}
+
+.section-about .sector-course-toggle:focus-visible {
+  outline: 2px solid var(--course-accent);
+  outline-offset: -3px;
+}
+
+.section-about .sector-course-mark {
+  display: grid;
+  width: 58px;
+  height: 58px;
+  place-items: center;
+  overflow: hidden;
+  border: 1px solid var(--course-border);
+  border-radius: 16px;
+  background: var(--course-soft);
+  color: var(--course-accent);
+}
+
+.section-about .sector-course-mark > svg {
+  width: 31px;
+  height: 31px;
+}
+
+.section-about .sector-course-mark img {
+  width: 45px;
+  height: 45px;
+  object-fit: contain;
+}
+
+.section-about .sector-course-mark > span {
+  color: var(--course-accent);
+  font-size: 0.58rem;
+  font-weight: 750;
+}
+
+.section-about .sector-course-heading {
+  display: grid;
+  min-width: 0;
+  gap: 6px;
+}
+
+.section-about .sector-course-heading > strong {
+  display: block;
+  min-width: 0;
+  overflow: hidden;
+  font-family: var(--font-body);
+  font-size: clamp(0.76rem, 0.88vw, 0.9rem);
+  font-weight: 750;
+  line-height: 1.18;
+  text-overflow: ellipsis;
+}
+
+.section-about .sector-course-facts {
+  display: flex;
+  min-width: 0;
+  align-items: center;
+  gap: 8px;
+  color: var(--course-accent);
+  font-size: 0.66rem;
+  font-weight: 700;
+}
+
+.section-about .sector-course-provider,
+.section-about .sector-course-date {
+  display: inline-flex;
+  min-width: 0;
+  align-items: center;
+  gap: 5px;
+  white-space: nowrap;
+}
+
+.section-about .sector-course-facts svg {
+  width: 14px;
+  height: 14px;
+  flex: 0 0 auto;
+}
+
+.section-about .sector-course-chevron {
+  width: 17px;
+  height: 17px;
+  color: var(--course-accent);
+  transition: transform 220ms ease;
+}
+
+.section-about .sector-course-card.is-expanded .sector-course-chevron {
+  transform: rotate(180deg);
+}
+
+.section-about .sector-course-details {
+  display: grid;
+  min-height: 0;
+  max-height: 0;
+  grid-template-rows: minmax(0, 1fr) auto;
+  padding: 0 15px;
+  overflow: hidden;
+  border-top: 1px solid transparent;
+  opacity: 0;
+  transition:
+    max-height 260ms ease,
+    padding 260ms ease,
+    opacity 180ms ease,
+    border-color 200ms ease;
+}
+
+.section-about .sector-course-card.is-expanded .sector-course-details {
+  flex: 1 1 auto;
+  max-height: 220px;
+  padding: 10px 15px 12px;
+  border-color: var(--course-border);
+  opacity: 1;
+  visibility: visible;
+}
+
+.section-about .sector-course-main {
+  display: grid;
+  min-width: 0;
+  min-height: 0;
+  grid-template-columns: minmax(0, 1fr);
+  gap: 0;
+  align-items: start;
+}
+
+.section-about .sector-course-description {
+  display: block;
+  margin: 0;
+  color: #30364d;
+  font-size: 0.66rem;
+  line-height: 1.42;
+}
+
+.section-about .sector-course-skills {
+  display: flex;
+  min-width: 0;
+  align-content: flex-start;
+  flex-wrap: wrap;
+  gap: 6px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.section-about .sector-course-skills-inline {
+  display: flex;
+  min-width: 0;
+  align-items: center;
+  align-content: flex-start;
+  flex-wrap: wrap;
+  gap: 5px;
+}
+
+.section-about .sector-course-skills li,
+.section-about .sector-course-skills-inline > span {
+  display: inline-flex;
+  min-width: 0;
+  align-items: center;
+  gap: 5px;
+  padding: 5px 8px;
+  border: 1px solid var(--course-border);
+  border-radius: 999px;
+  background: color-mix(in srgb, var(--course-soft) 72%, white);
+  color: var(--course-accent);
+  font-size: 0.58rem;
+  font-weight: 700;
+  line-height: 1;
+  white-space: nowrap;
+}
+
+.section-about .sector-course-skills svg,
+.section-about .sector-course-skills-inline svg {
+  width: 13px;
+  height: 13px;
+  flex: 0 0 auto;
+}
+
+.section-about .sector-course-outcome {
+  display: grid;
+  min-width: 0;
+  grid-template-columns: 30px minmax(0, 1fr) auto;
+  align-items: center;
+  gap: 9px;
+  margin-top: 8px;
+  padding: 7px 9px;
+  border: 1px solid var(--course-border);
+  border-radius: 11px;
+  background: color-mix(in srgb, var(--course-soft) 60%, white);
+}
+
+.section-about .sector-course-outcome > svg {
+  width: 25px;
+  height: 25px;
+  color: var(--course-accent);
+}
+
+.section-about .sector-course-outcome > span {
+  display: grid;
+  min-width: 0;
+  gap: 1px;
+}
+
+.section-about .sector-course-outcome strong {
+  color: var(--course-accent);
+  font-size: 0.62rem;
+}
+
+.section-about .sector-course-outcome small {
+  overflow: hidden;
+  color: #4d5267;
+  font-size: 0.54rem;
+  line-height: 1.25;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.section-about .sector-course-project-link {
+  display: grid;
+  width: 27px;
+  height: 27px;
+  align-self: center;
+  justify-self: end;
+  place-items: center;
+  border: 1px solid var(--course-border);
+  border-radius: 8px;
+  background: #fff;
+  color: var(--course-accent);
+  cursor: pointer;
+}
+
+.section-about .sector-course-project-link svg {
+  width: 15px;
+  height: 15px;
+}
+
+.section-about .sector-course-card.is-condensed .sector-course-toggle {
+  height: 100%;
+  grid-template-columns: 40px minmax(0, 1fr);
+  grid-template-rows: auto;
+  gap: 8px;
+  padding: 8px;
+}
+
+.section-about .sector-course-card.is-condensed .sector-course-mark {
+  width: 40px;
+  height: 40px;
+  border-radius: 11px;
+}
+
+.section-about .sector-course-card.is-condensed .sector-course-mark > svg {
+  width: 22px;
+  height: 22px;
+}
+
+.section-about .sector-course-card.is-condensed .sector-course-mark img {
+  width: 32px;
+  height: 32px;
+}
+
+.section-about .sector-course-card.is-condensed .sector-course-heading {
+  gap: 4px;
+}
+
+.section-about .sector-course-card.is-condensed .sector-course-heading > strong {
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
+  line-clamp: 2;
+  font-family: var(--font-body);
+  font-size: 0.62rem;
+}
+
+.section-about .sector-course-card.is-condensed .sector-course-facts {
+  display: block;
+  overflow: hidden;
+  font-size: 0.5rem;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.section-about .sector-course-card.is-condensed .sector-course-date,
+.section-about .sector-course-card.is-condensed .sector-course-facts > span[aria-hidden],
+.section-about .sector-course-card.is-condensed .sector-course-chevron {
+  display: none;
+}
+
+@media (min-width: 1181px) {
+  .section-about .about-courses > .about-record-heading h3 {
+    font-family: var(--font-display);
+    font-weight: 700;
+  }
+
+  .section-about .about-profile-page {
+    height: 500px;
+    grid-template-rows: 120px 336px;
+    gap: 26px;
+    align-content: center;
+  }
+
+  .section-about .about-profile-page .about-records {
+    height: 336px;
+  }
+
+  .section-about .about-record-section {
+    min-height: 0;
+  }
+
+  .section-about .about-profile-page .about-education-card,
+  .section-about .sector-course-grid {
+    height: 286px;
+  }
+
+  .section-about .sector-course-card.is-expanded .sector-course-toggle {
+    padding: 13px 17px 10px;
+  }
+
+  .section-about .sector-course-card.is-expanded .sector-course-mark {
+    width: 70px;
+    height: 70px;
+  }
+
+  .section-about .sector-course-card.is-expanded .sector-course-heading > strong {
+    font-size: clamp(0.88rem, 0.98vw, 1rem);
+  }
+
+  .section-about .sector-course-card.is-expanded .sector-course-description {
+    max-width: 68ch;
+    font-size: 0.68rem;
+    line-height: 1.4;
+  }
+
+  .section-about .sector-course-card:not(.is-expanded) .sector-course-toggle {
+    display: grid;
+    height: 100%;
+    grid-template-columns: 1fr;
+    grid-template-rows: auto auto;
+    align-content: center;
+    justify-items: center;
+    gap: 17px;
+    padding: 15px 10px;
+    text-align: center;
+  }
+
+  .section-about .sector-course-card:not(.is-expanded) .sector-course-mark,
+  .section-about .sector-course-card.is-condensed .sector-course-mark {
+    width: 62px;
+    height: 62px;
+    border-radius: 15px;
+  }
+
+  .section-about .sector-course-card:not(.is-expanded) .sector-course-mark > svg,
+  .section-about .sector-course-card.is-condensed .sector-course-mark > svg {
+    width: 33px;
+    height: 33px;
+  }
+
+  .section-about .sector-course-card:not(.is-expanded) .sector-course-mark img,
+  .section-about .sector-course-card.is-condensed .sector-course-mark img {
+    width: 49px;
+    height: 49px;
+  }
+
+  .section-about .sector-course-card:not(.is-expanded) .sector-course-heading,
+  .section-about .sector-course-card.is-condensed .sector-course-heading {
+    display: grid;
+    width: 100%;
+    justify-items: center;
+    gap: 10px;
+  }
+
+  .section-about .sector-course-card:not(.is-expanded) .sector-course-heading > strong,
+  .section-about .sector-course-card.is-condensed .sector-course-heading > strong {
+    display: -webkit-box;
+    max-width: 100%;
+    overflow: hidden;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 2;
+    line-clamp: 2;
+    font-family: var(--font-body);
+    font-size: 0.72rem;
+    font-weight: 650;
+    line-height: 1.22;
+    text-align: center;
+    white-space: normal;
+  }
+
+  .section-about .sector-course-card:not(.is-expanded) .sector-course-facts,
+  .section-about .sector-course-card.is-condensed .sector-course-facts {
+    display: grid;
+    justify-items: center;
+    gap: 7px;
+    overflow: visible;
+    font-size: 0.59rem;
+    white-space: normal;
+  }
+
+  .section-about .sector-course-card:not(.is-expanded) .sector-course-facts > span[aria-hidden],
+  .section-about .sector-course-card.is-condensed .sector-course-facts > span[aria-hidden] {
+    display: none;
+  }
+
+  .section-about .sector-course-card:not(.is-expanded) .sector-course-provider,
+  .section-about .sector-course-card:not(.is-expanded) .sector-course-date,
+  .section-about .sector-course-card.is-condensed .sector-course-provider,
+  .section-about .sector-course-card.is-condensed .sector-course-date {
+    display: inline-flex;
+  }
+
+  .section-about .sector-course-card:not(.is-expanded) .sector-course-chevron,
+  .section-about .sector-course-card.is-condensed .sector-course-chevron {
+    display: none;
+  }
+
+  .section-about .sector-course-main {
+    overflow: hidden;
+  }
+
+  .section-about .sector-course-description {
+    overflow: hidden;
+  }
+}
+
+/* Telefon ve tablet bu eski yatay kart düzenini kullanmaz. */
+@media (min-width: 901px) and (max-width: 900px) {
+  .section-about .sector-course-grid {
+    display: grid;
+    height: 100%;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: clamp(9px, 1.5vw, 13px);
+    align-items: stretch;
+  }
+
+  .section-about .sector-course-card:not(.is-expanded) .sector-course-toggle {
+    position: relative;
+    height: 100%;
+    grid-template-columns: 1fr;
+    grid-template-rows: auto auto;
+    align-content: center;
+    justify-items: center;
+    gap: clamp(12px, 1.9dvh, 18px);
+    padding: clamp(14px, 2.1dvh, 21px) 12px;
+    text-align: center;
+  }
+
+  .section-about .sector-course-mark {
+    width: clamp(56px, 8vw, 72px);
+    height: clamp(56px, 8vw, 72px);
+    border-radius: 17px;
+  }
+
+  .section-about .sector-course-mark > svg {
+    width: clamp(31px, 4vw, 39px);
+    height: clamp(31px, 4vw, 39px);
+  }
+
+  .section-about .sector-course-heading {
+    width: 100%;
+    align-content: center;
+    justify-items: center;
+    gap: 8px;
+  }
+
+  .section-about .sector-course-heading > strong {
+    display: block;
+    max-width: 22ch;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    font-size: clamp(0.76rem, 1.55vw, 0.92rem);
+    font-weight: 600;
+    line-height: 1.25;
+  }
+
+  .section-about .sector-course-facts {
+    display: grid;
+    width: 100%;
+    grid-template-columns: 1fr;
+    justify-items: center;
+    gap: 5px;
+    font-size: clamp(0.61rem, 1.2vw, 0.71rem);
+  }
+
+  .section-about .sector-course-facts > span[aria-hidden] {
+    display: none;
+  }
+
+  .section-about .sector-course-chevron {
+    position: absolute;
+    top: 11px;
+    right: 11px;
+  }
+
+  .section-about .sector-course-grid.has-selection-at-1 {
+    grid-template-columns: minmax(0, 2.15fr) repeat(2, minmax(112px, 0.58fr));
+  }
+
+  .section-about .sector-course-grid.has-selection-at-2 {
+    grid-template-columns: minmax(112px, 0.58fr) minmax(0, 2.15fr) minmax(112px, 0.58fr);
+  }
+
+  .section-about .sector-course-grid.has-selection-at-3 {
+    grid-template-columns: repeat(2, minmax(112px, 0.58fr)) minmax(0, 2.15fr);
+  }
+
+  .section-about .sector-course-card.is-expanded .sector-course-toggle {
+    height: auto;
+    grid-template-columns: 54px minmax(0, 1fr) 16px;
+    grid-template-rows: auto;
+    justify-items: stretch;
+    gap: 11px;
+    min-height: 68px;
+    padding: 9px 12px;
+    text-align: left;
+  }
+
+  .section-about .sector-course-card.is-expanded {
+    height: 100%;
+    align-self: stretch;
+  }
+
+  .section-about .sector-course-card.is-expanded .sector-course-details {
+    display: grid;
+    flex: 1 1 auto;
+    min-height: 0;
+    max-height: none;
+    grid-template-rows: minmax(0, 1fr) auto;
+    align-content: stretch;
+    padding: 9px 12px 11px;
+    overflow: hidden;
+  }
+
+  .section-about .sector-course-card.is-condensed .sector-course-toggle {
+    grid-template-columns: 1fr;
+    grid-template-rows: auto auto;
+    align-content: center;
+    justify-items: center;
+    gap: 8px;
+    padding: 9px 7px;
+    text-align: center;
+  }
+
+  .section-about .sector-course-card.is-condensed .sector-course-heading {
+    justify-items: center;
+    gap: 5px;
+  }
+
+  .section-about .sector-course-card.is-condensed .sector-course-heading > strong {
+    max-width: 100%;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    font-size: clamp(0.6rem, 1.25vw, 0.7rem);
+    font-weight: 600;
+  }
+
+  .section-about .sector-course-card.is-condensed .sector-course-facts {
+    display: grid;
+    justify-items: center;
+    gap: 3px;
+    overflow: visible;
+    white-space: normal;
+  }
+
+  .section-about .sector-course-card.is-condensed .sector-course-date,
+  .section-about .sector-course-card.is-condensed .sector-course-provider {
+    display: inline-flex;
+    max-width: 100%;
+  }
+
+  .section-about .sector-course-card.is-expanded .sector-course-mark {
+    width: 54px;
+    height: 54px;
+  }
+
+  .section-about .sector-course-card.is-expanded .sector-course-heading {
+    justify-items: start;
+    gap: 5px;
+  }
+
+  .section-about .sector-course-card.is-expanded .sector-course-facts {
+    display: flex;
+    justify-content: flex-start;
+    gap: 7px;
+  }
+
+  .section-about .sector-course-card.is-expanded .sector-course-chevron {
+    position: static;
+  }
+
+  .section-about .sector-course-main {
+    grid-template-columns: minmax(0, 1fr) minmax(0, 0.95fr);
+    gap: 10px;
+    align-content: center;
+  }
+
+  .section-about .sector-course-description {
+    display: -webkit-box;
+    overflow: hidden;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 5;
+    line-clamp: 5;
+    font-size: clamp(0.61rem, 1.15vw, 0.69rem);
+    line-height: 1.38;
+  }
+
+  .section-about .sector-course-outcome small {
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 2;
+    line-clamp: 2;
+    white-space: normal;
+  }
+}
+
+@media (min-width: 901px) and (max-width: 900px) {
+  .section-about .sector-course-grid {
+    --tablet-course-gap: clamp(10px, 1.5vw, 14px);
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    grid-template-rows: repeat(2, minmax(0, 1fr));
+    gap: var(--tablet-course-gap);
+  }
+
+  .section-about .sector-course-grid:not([class*="has-selection-at-"])
+    > .sector-course-card:nth-child(3) {
+    grid-column: 1 / -1;
+    width: calc((100% - var(--tablet-course-gap)) / 2);
+    justify-self: center;
+  }
+
+  .section-about .sector-course-grid.has-selection-at-1,
+  .section-about .sector-course-grid.has-selection-at-2,
+  .section-about .sector-course-grid.has-selection-at-3 {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    grid-template-rows: minmax(0, 1fr) 54px;
+    align-content: stretch;
+  }
+
+  .section-about .sector-course-grid[class*="has-selection-at-"]
+    > .sector-course-card.is-expanded {
+    grid-column: 1 / -1;
+    grid-row: 1;
+    min-width: 0;
+  }
+
+  .section-about .sector-course-grid[class*="has-selection-at-"]
+    > .sector-course-card.is-condensed {
+    grid-row: 2;
+  }
+
+  .section-about .sector-course-card:not(.is-expanded) .sector-course-mark {
+    width: clamp(60px, 8.2vw, 74px);
+    height: clamp(60px, 8.2vw, 74px);
+  }
+
+  .section-about .sector-course-card:not(.is-expanded) .sector-course-mark > svg {
+    width: clamp(33px, 4.2vw, 40px);
+    height: clamp(33px, 4.2vw, 40px);
+  }
+
+  .section-about .sector-course-card:not(.is-expanded) .sector-course-mark img {
+    width: clamp(48px, 6.2vw, 58px);
+    height: clamp(48px, 6.2vw, 58px);
+  }
+
+  .section-about .sector-course-card:not(.is-expanded) .sector-course-heading > strong {
+    max-width: 26ch;
+    font-size: clamp(0.78rem, 1.55vw, 0.94rem);
+  }
+
+  .section-about .sector-course-card:not(.is-expanded) .sector-course-facts {
+    font-size: clamp(0.63rem, 1.15vw, 0.73rem);
+  }
+
+  .section-about .sector-course-card.is-condensed .sector-course-toggle {
+    grid-template-columns: 38px minmax(0, 1fr) 16px;
+    grid-template-rows: 1fr;
+    align-content: center;
+    justify-items: stretch;
+    gap: 9px;
+    padding: 5px 10px;
+    text-align: left;
+  }
+
+  .section-about .sector-course-card.is-condensed .sector-course-mark {
+    width: 38px;
+    height: 38px;
+    border-radius: 10px;
+  }
+
+  .section-about .sector-course-card.is-condensed .sector-course-mark > svg {
+    width: 21px;
+    height: 21px;
+  }
+
+  .section-about .sector-course-card.is-condensed .sector-course-mark img {
+    width: 30px;
+    height: 30px;
+  }
+
+  .section-about .sector-course-card.is-condensed .sector-course-heading {
+    width: 100%;
+    align-content: center;
+    justify-items: start;
+    gap: 2px;
+  }
+
+  .section-about .sector-course-card.is-condensed .sector-course-heading > strong {
+    max-width: 100%;
+    font-size: clamp(0.66rem, 1.25vw, 0.76rem);
+    line-height: 1.15;
+    text-align: left;
+  }
+
+  .section-about .sector-course-card.is-condensed .sector-course-facts {
+    display: flex;
+    width: 100%;
+    justify-content: flex-start;
+    justify-items: start;
+    gap: 7px;
+    font-size: clamp(0.52rem, 1vw, 0.61rem);
+  }
+
+  .section-about .sector-course-card.is-condensed .sector-course-chevron {
+    position: static;
+    display: grid;
+    align-self: center;
+  }
+
+  .section-about .sector-course-card.is-expanded .sector-course-toggle {
+    min-height: 58px;
+    padding-block: 7px;
+  }
+
+  .section-about .sector-course-card.is-expanded .sector-course-mark {
+    width: 48px;
+    height: 48px;
+  }
+
+  .section-about .sector-course-card.is-expanded .sector-course-details {
+    padding: 7px 11px 9px;
+  }
+
+  .section-about .sector-course-card.is-expanded .sector-course-main {
+    gap: 9px;
+  }
+
+  .section-about .sector-course-card.is-expanded .sector-course-description {
+    -webkit-line-clamp: 4;
+    line-clamp: 4;
+  }
+}
+
+@media (min-width: 901px) and (max-width: 900px) {
+  .section-about .sector-course-grid,
+  .section-about .sector-course-grid.has-selection-at-1,
+  .section-about .sector-course-grid.has-selection-at-2,
+  .section-about .sector-course-grid.has-selection-at-3 {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .section-about .sector-course-grid:not([class*="has-selection-at-"]) {
+    grid-template-rows: repeat(3, minmax(0, 1fr));
+    gap: clamp(8px, 1.15dvh, 11px);
+  }
+
+  .section-about .sector-course-grid:not([class*="has-selection-at-"])
+    > .sector-course-card:nth-child(3) {
+    width: 100%;
+    grid-column: 1;
+    justify-self: stretch;
+  }
+
+  .section-about .sector-course-grid.has-selection-at-1 {
+    grid-template-rows: minmax(0, 1fr) 50px 50px;
+  }
+
+  .section-about .sector-course-grid.has-selection-at-2 {
+    grid-template-rows: 50px minmax(0, 1fr) 50px;
+  }
+
+  .section-about .sector-course-grid.has-selection-at-3 {
+    grid-template-rows: 50px 50px minmax(0, 1fr);
+  }
+
+  .section-about .sector-course-grid[class*="has-selection-at-"]
+    > .sector-course-card:nth-child(1) {
+    grid-column: 1;
+    grid-row: 1;
+  }
+
+  .section-about .sector-course-grid[class*="has-selection-at-"]
+    > .sector-course-card:nth-child(2) {
+    grid-column: 1;
+    grid-row: 2;
+  }
+
+  .section-about .sector-course-grid[class*="has-selection-at-"]
+    > .sector-course-card:nth-child(3) {
+    grid-column: 1;
+    grid-row: 3;
+  }
+
+  .section-about .sector-course-card,
+  .section-about .sector-course-card.is-condensed,
+  .section-about .sector-course-card.is-expanded {
+    width: 100%;
+    height: 100%;
+    min-height: 0;
+    grid-column: 1;
+  }
+
+  .section-about .sector-course-card:not(.is-expanded) .sector-course-toggle {
+    grid-template-columns: 54px minmax(0, 1fr) 16px;
+    grid-template-rows: 1fr;
+    align-content: center;
+    justify-items: stretch;
+    gap: 12px;
+    padding: 9px 13px;
+    text-align: left;
+  }
+
+  .section-about .sector-course-card:not(.is-expanded) .sector-course-mark {
+    width: 54px;
+    height: 54px;
+    justify-self: start;
+    border-radius: 13px;
+  }
+
+  .section-about .sector-course-card:not(.is-expanded) .sector-course-mark > svg {
+    width: 29px;
+    height: 29px;
+  }
+
+  .section-about .sector-course-card:not(.is-expanded) .sector-course-mark img {
+    width: 42px;
+    height: 42px;
+  }
+
+  .section-about .sector-course-card:not(.is-expanded) .sector-course-heading {
+    align-content: center;
+    justify-items: start;
+    gap: 4px;
+  }
+
+  .section-about .sector-course-card:not(.is-expanded) .sector-course-heading > strong {
+    display: -webkit-box;
+    max-width: 100%;
+    overflow: hidden;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 2;
+    line-clamp: 2;
+    font-size: clamp(0.77rem, 1.65vw, 0.94rem);
+    line-height: 1.16;
+    text-align: left;
+    white-space: normal;
+  }
+
+  .section-about .sector-course-card:not(.is-expanded) .sector-course-facts {
+    display: flex;
+    width: 100%;
+    justify-content: flex-start;
+    justify-items: start;
+    gap: 8px;
+    font-size: clamp(0.61rem, 1.2vw, 0.72rem);
+  }
+
+  .section-about .sector-course-card:not(.is-expanded) .sector-course-chevron {
+    position: static;
+    align-self: center;
+  }
+
+  .section-about .sector-course-card.is-condensed .sector-course-toggle {
+    grid-template-columns: 38px minmax(0, 1fr) 14px;
+    gap: 9px;
+    padding: 5px 10px;
+  }
+
+  .section-about .sector-course-card.is-condensed .sector-course-mark {
+    width: 38px;
+    height: 38px;
+  }
+
+  .section-about .sector-course-card.is-condensed .sector-course-heading > strong {
+    font-size: clamp(0.66rem, 1.25vw, 0.76rem);
+    white-space: nowrap;
+  }
+}
+
+@media (max-width: 1180px) {
+  .section-about .about-education-card {
+    min-height: 0;
+    grid-template-columns: 68px minmax(0, 1fr);
+    grid-template-rows: minmax(0, 1fr) auto;
+    gap: 12px 13px;
+    margin-left: 21px;
+    padding: 14px;
+  }
+
+  .section-about .about-education-card .about-card-logo {
+    width: 66px;
+    height: 66px;
+    padding: 6px;
+    border-radius: 15px;
+  }
+
+  .section-about .about-education-content h4 {
+    font-size: clamp(0.8rem, 3.25vw, 0.96rem);
+    line-height: 1.12;
+  }
+
+  .section-about .about-education-content .about-record-title,
+  .section-about .about-education-content .about-faculty {
+    margin-top: 3px;
+    font-size: clamp(0.54rem, 2.15vw, 0.66rem);
+  }
+
+  .section-about .about-education-meta {
+    gap: 6px;
+    margin-top: 2px;
+  }
+
+  .section-about .about-education-meta > div {
+    padding: 6px 7px;
+  }
+
+  .section-about .about-education-meta dt {
+    font-size: clamp(0.43rem, 1.65vw, 0.52rem);
+  }
+
+  .section-about .about-education-meta dd {
+    font-size: clamp(0.58rem, 2.15vw, 0.68rem);
+  }
+
+  .section-about .sector-course-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: repeat(3, minmax(0, 1fr));
+    align-content: stretch;
+    gap: clamp(9px, 1.35dvh, 12px);
+    transition: grid-template-rows 260ms ease;
+  }
+
+  .section-about .sector-course-grid.has-selection-at-1 {
+    grid-template-columns: 1fr;
+    grid-template-rows: minmax(0, 1fr) 46px 46px;
+    align-content: stretch;
+  }
+
+  .section-about .sector-course-grid.has-selection-at-2 {
+    grid-template-columns: 1fr;
+    grid-template-rows: 46px minmax(0, 1fr) 46px;
+    align-content: stretch;
+  }
+
+  .section-about .sector-course-grid.has-selection-at-3 {
+    grid-template-columns: 1fr;
+    grid-template-rows: 46px 46px minmax(0, 1fr);
+    align-content: stretch;
+  }
+
+  .section-about .sector-course-card,
+  .section-about .sector-course-card.is-condensed {
+    width: 100%;
+    height: 100%;
+    min-height: 0;
+    flex: none;
+    border-radius: 11px;
+  }
+
+  .section-about .sector-course-card.is-expanded {
+    width: 100%;
+    height: 100%;
+    min-height: 0;
+    flex: none;
+    border-radius: 11px;
+  }
+
+  .section-about .sector-course-card:not(.is-expanded) .sector-course-toggle {
+    height: 100%;
+    grid-template-columns: 60px minmax(0, 1fr) 16px;
+    grid-template-rows: minmax(0, 1fr);
+    justify-items: stretch;
+    align-items: center;
+    align-content: center;
+    gap: 12px;
+    padding: 12px 13px;
+    text-align: left;
+  }
+
+  .section-about .sector-course-card:not(.is-expanded) .sector-course-mark,
+  .section-about .sector-course-card.is-condensed .sector-course-mark {
+    width: 60px;
+    height: 60px;
+    justify-self: start;
+    border-radius: 15px;
+  }
+
+  .section-about .sector-course-card:not(.is-expanded) .sector-course-mark > svg,
+  .section-about .sector-course-card.is-condensed .sector-course-mark > svg {
+    width: 32px;
+    height: 32px;
+  }
+
+  .section-about .sector-course-card:not(.is-expanded) .sector-course-mark img,
+  .section-about .sector-course-card.is-condensed .sector-course-mark img {
+    width: 38px;
+    height: 38px;
+  }
+
+  .section-about .sector-course-card:not(.is-expanded) .sector-course-heading {
+    justify-items: start;
+    align-content: center;
+    gap: 4px;
+  }
+
+  .section-about .sector-course-card:not(.is-expanded) .sector-course-heading > strong,
+  .section-about .sector-course-card.is-condensed .sector-course-heading > strong {
+    display: -webkit-box;
+    overflow: hidden;
+    max-width: 100%;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 2;
+    line-clamp: 2;
+    white-space: normal;
+    font-family: var(--font-body);
+    font-size: clamp(0.75rem, 2.9vw, 0.86rem);
+    font-weight: 600;
+    line-height: 1.18;
+  }
+
+  .section-about .sector-course-card:not(.is-expanded) .sector-course-facts {
+    display: grid;
+    grid-template-columns: 1fr;
+    justify-items: start;
+    gap: 3px;
+    font-size: clamp(0.58rem, 2.15vw, 0.66rem);
+  }
+
+  .section-about .sector-course-card:not(.is-expanded) .sector-course-facts > span[aria-hidden] {
+    display: none;
+  }
+
+  .section-about .sector-course-card:not(.is-expanded) .sector-course-provider,
+  .section-about .sector-course-card:not(.is-expanded) .sector-course-date {
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+
+  .section-about .sector-course-card:not(.is-expanded) .sector-course-facts svg {
+    width: 12px;
+    height: 12px;
+  }
+
+  .section-about .sector-course-card:not(.is-expanded) .sector-course-chevron {
+    position: static;
+    width: 15px;
+    height: 15px;
+  }
+
+  .section-about .sector-course-card.is-condensed .sector-course-toggle {
+    grid-template-columns: 36px minmax(0, 1fr) 12px;
+    grid-template-rows: 1fr;
+    gap: 8px;
+    padding: 5px 8px;
+    text-align: left;
+  }
+
+  .section-about .sector-course-card.is-condensed .sector-course-mark {
+    width: 36px;
+    height: 36px;
+    border-radius: 9px;
+  }
+
+  .section-about .sector-course-card.is-condensed .sector-course-mark > svg {
+    width: 19px;
+    height: 19px;
+  }
+
+  .section-about .sector-course-card.is-condensed .sector-course-heading {
+    display: grid;
+    min-width: 0;
+    justify-items: start;
+    align-content: center;
+    gap: 1px;
+  }
+
+  .section-about .sector-course-card.is-condensed .sector-course-heading > strong {
+    max-width: 100%;
+    white-space: nowrap;
+    font-size: clamp(0.6rem, 2.25vw, 0.68rem);
+    font-weight: 590;
+  }
+
+  .section-about .sector-course-card.is-condensed .sector-course-provider {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  }
+
+  .section-about .sector-course-card.is-condensed .sector-course-date {
+    display: none;
+  }
+
+  .section-about .sector-course-card.is-condensed .sector-course-chevron {
+    display: block;
+  }
+
+  .section-about .sector-course-card.is-expanded .sector-course-toggle {
+    height: auto;
+    min-height: 96px;
+    grid-template-columns: 60px minmax(0, 1fr) 14px;
+    align-items: start;
+    gap: 12px;
+    padding: 11px 12px 10px;
+  }
+
+  .section-about .sector-course-card.is-expanded .sector-course-mark {
+    width: 60px;
+    height: 60px;
+    border-radius: 14px;
+  }
+
+  .section-about .sector-course-card.is-expanded .sector-course-mark > svg {
+    width: 33px;
+    height: 33px;
+  }
+
+  .section-about .sector-course-card.is-expanded .sector-course-heading {
+    gap: 5px;
+    padding-left: 12px;
+  }
+
+  .section-about .sector-course-card.is-expanded .sector-course-skills-inline {
+    gap: 3px;
+  }
+
+  .section-about .sector-course-card.is-expanded .sector-course-skills-inline > span {
+    gap: 3px;
+    padding: 3px 6px;
+    font-size: clamp(0.48rem, 1.7vw, 0.55rem);
+  }
+
+  .section-about .sector-course-card.is-expanded .sector-course-skills-inline svg {
+    width: 9px;
+    height: 9px;
+  }
+
+  .section-about .sector-course-card.is-expanded .sector-course-heading > strong {
+    font-size: clamp(0.74rem, 2.75vw, 0.86rem);
+    line-height: 1.2;
+  }
+
+  .section-about .sector-course-card.is-expanded .sector-course-facts {
+    gap: 7px;
+    font-size: clamp(0.56rem, 2vw, 0.64rem);
+  }
+
+  .section-about .sector-course-card.is-expanded .sector-course-description {
+    display: -webkit-box;
+    overflow: hidden;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 5;
+    line-clamp: 5;
+    font-size: clamp(0.57rem, 2vw, 0.64rem);
+    font-weight: 500;
+    line-height: 1.38;
+  }
+
+  .section-about .sector-course-card.is-expanded .sector-course-details {
+    display: grid;
+    flex: 1 1 auto;
+    min-height: 0;
+    max-height: none;
+    grid-template-rows: auto auto;
+    align-content: stretch;
+    padding: 7px 9px 9px;
+    overflow: hidden;
+    visibility: visible;
+  }
+
+  .section-about .sector-course-main {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 0;
+    align-content: center;
+  }
+
+  .section-about .sector-course-skills {
+    gap: 3px;
+  }
+
+  .section-about .sector-course-skills li {
+    gap: 3px;
+    padding: 3px 6px;
+    font-size: clamp(0.48rem, 1.7vw, 0.55rem);
+  }
+
+  .section-about .sector-course-skills svg {
+    width: 9px;
+    height: 9px;
+  }
+
+  .section-about .sector-course-outcome {
+    grid-template-columns: 21px minmax(0, 1fr) 26px;
+    align-items: center;
+    gap: 6px;
+    margin-top: 7px;
+    padding: 5px 7px;
+    border-radius: 8px;
+  }
+
+  .section-about .sector-course-outcome > svg {
+    width: 16px;
+    height: 16px;
+  }
+
+  .section-about .sector-course-outcome strong {
+    font-size: 0.53rem;
+  }
+
+  .section-about .sector-course-outcome small {
+    font-size: 0.46rem;
+    line-height: 1.2;
+  }
+
+  .section-about .sector-course-project-link {
+    width: 24px;
+    height: 24px;
+    align-self: center;
+    justify-self: end;
+    border-radius: 7px;
+  }
+}

@@ -15,8 +15,19 @@ export default function Work() {
       if (window.location.hash === "#work") setSelectedId(null);
     };
 
+    const selectProject = (event) => {
+      const projectId = event.detail?.id;
+      if (projects.some((project) => project.id === projectId)) {
+        setSelectedId(projectId);
+      }
+    };
+
     window.addEventListener("hashchange", resetProjectSelection);
-    return () => window.removeEventListener("hashchange", resetProjectSelection);
+    window.addEventListener("portfolio:select-project", selectProject);
+    return () => {
+      window.removeEventListener("hashchange", resetProjectSelection);
+      window.removeEventListener("portfolio:select-project", selectProject);
+    };
   }, []);
 
   return (

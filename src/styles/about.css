@@ -101,8 +101,6 @@
   grid-template-rows: 190px 300px;
   gap: clamp(18px, 2vh, 24px);
   align-content: start;
-  scroll-snap-align: start;
-  scroll-snap-stop: always;
 }
 
 .about-intro {
@@ -583,7 +581,7 @@
   }
 }
 
-@media (max-width: 1180px) {
+@media (min-width: 1181px) and (max-width: 1180px) {
   .about-intro {
     grid-template-columns: 0.75fr 1.25fr;
     gap: 28px;
@@ -595,7 +593,7 @@
   }
 }
 
-@media (max-width: 900px) {
+@media (min-width: 1181px) and (max-width: 1180px) {
   .section-about {
     height: auto;
     min-height: 100svh;
@@ -638,7 +636,7 @@
   }
 }
 
-@media (max-width: 620px) {
+@media (min-width: 1181px) and (max-width: 1180px) {
   .about-background-patterns {
     display: block;
   }
@@ -1021,224 +1019,6 @@
   }
 }
 
-/* Mobile and tablet viewport contract */
-@media (max-width: 900px) {
-  .section-about {
-    height: 100dvh;
-    min-height: 100dvh;
-    padding: 94px 0 12px;
-    overflow: hidden;
-  }
-
-  .section-about > .about-shell {
-    height: calc(100dvh - 106px);
-    min-height: 0;
-    padding: 12px 14px;
-    overflow: hidden;
-  }
-
-  .section-about .about-profile-page {
-    height: 100%;
-    grid-template-rows: auto minmax(0, 1fr);
-    gap: 10px;
-    overflow: hidden;
-  }
-
-  .section-about .about-profile-page .about-intro {
-    padding: 0;
-  }
-
-  .section-about .about-profile-page .about-title-group h2 {
-    font-size: var(--type-page-title);
-  }
-
-  .section-about .about-profile-page .about-records {
-    height: 100%;
-    grid-template-columns: minmax(220px, 0.9fr) minmax(0, 1.4fr);
-    grid-template-rows: minmax(0, 1fr);
-    gap: 12px;
-    overflow: hidden;
-  }
-
-  .section-about .about-record-section {
-    height: 100%;
-    grid-template-rows: 34px minmax(0, 1fr);
-    gap: 7px;
-    overflow: hidden;
-  }
-
-  .about-record-heading h3 {
-    font-size: var(--type-section-title);
-  }
-
-  .about-record-heading p,
-  .about-faculty,
-  .about-record-period {
-    font-size: var(--type-caption);
-  }
-
-  .about-education-card,
-  .section-about .about-course-grid {
-    height: 100%;
-    min-height: 0;
-  }
-
-  .about-education-card {
-    grid-template-columns: 66px minmax(0, 1fr);
-    gap: 10px;
-    margin-left: 26px;
-    padding: 10px;
-  }
-
-  .about-card-logo {
-    width: 62px;
-    height: 62px;
-  }
-
-  .about-education-content h4,
-  .about-course-summary h4 {
-    font-size: var(--type-card-title);
-  }
-
-  .about-course-card {
-    padding: 9px 8px;
-  }
-
-  .about-card-icon,
-  .about-course-card .about-card-logo {
-    width: 44px;
-    height: 44px;
-    margin-bottom: 6px;
-  }
-}
-
-@media (max-width: 620px) {
-  .section-about {
-    padding: 86px 0 8px;
-  }
-
-  .section-about > .about-shell {
-    height: calc(100dvh - 94px);
-    padding: 10px 8px;
-  }
-
-  .section-about .about-profile-page {
-    gap: 7px;
-  }
-
-  .section-about .about-profile-page .about-records {
-    grid-template-columns: 1fr;
-    grid-template-rows: minmax(125px, 0.42fr) minmax(0, 0.58fr);
-    gap: 7px;
-  }
-
-  .section-about .about-record-section {
-    grid-template-rows: 29px minmax(0, 1fr);
-    gap: 4px;
-  }
-
-  .about-record-icon {
-    width: 28px;
-    height: 28px;
-    flex-basis: 28px;
-    border-radius: 9px;
-  }
-
-  .about-record-icon svg {
-    width: 15px;
-    height: 15px;
-  }
-
-  .about-record-heading {
-    gap: 7px;
-  }
-
-  .about-record-heading p {
-    margin-top: 1px;
-  }
-
-  .about-education-card {
-    min-height: 0;
-    grid-template-columns: 48px minmax(0, 1fr);
-    gap: 7px;
-    margin-left: 20px;
-    padding: 7px 8px;
-  }
-
-  .about-card-logo {
-    width: 46px;
-    height: 46px;
-    padding: 4px;
-  }
-
-  .about-education-meta {
-    gap: 4px;
-    margin-top: 0;
-  }
-
-  .about-education-meta > div {
-    padding: 4px 5px;
-  }
-
-  .about-education-meta dt,
-  .about-education-meta dd,
-  .about-record-title,
-  .about-faculty {
-    font-size: var(--type-caption);
-  }
-
-  .section-about .about-course-grid {
-    grid-template-columns: 1fr;
-    grid-template-rows: repeat(3, minmax(0, 1fr));
-    gap: 5px;
-  }
-
-  .section-about .about-course-card {
-    display: grid;
-    min-height: 0;
-    grid-template-columns: 36px minmax(0, 1fr);
-    gap: 7px;
-    align-content: center;
-    justify-items: start;
-    padding: 5px 7px;
-    text-align: left;
-  }
-
-  .about-card-icon,
-  .about-course-card .about-card-logo {
-    width: 34px;
-    height: 34px;
-    margin: 0;
-    border-radius: 9px;
-  }
-
-  .about-card-icon svg {
-    width: 18px;
-    height: 18px;
-  }
-
-  .about-record-period {
-    justify-content: flex-start;
-    margin-top: 3px;
-  }
-
-  .about-course-card.is-expanded {
-    grid-template-columns: 34px minmax(0, 1fr);
-  }
-
-  .about-course-card.is-expanded .about-course-details {
-    grid-template-columns: 1fr 1fr;
-    gap: 5px;
-    margin-top: 4px;
-    padding-top: 4px;
-  }
-
-  .about-course-details li,
-  .about-course-note p {
-    font-size: clamp(0.4rem, 1.8vw, 0.52rem);
-  }
-}
-
 .section-about .about-profile-page {
   width: 100%;
   min-width: 0;
@@ -1251,12 +1031,16 @@
   grid-template-columns: 1fr;
 }
 
-@media (min-width: 901px) {
+@media (min-width: 1181px) {
+  .section-about > .about-shell {
+    display: grid;
+    height: 100%;
+    min-height: 0;
+    align-items: center;
+  }
+
   .section-about .about-profile-page {
-    height: 458px;
-    grid-template-rows: 130px 280px;
-    gap: 10px;
-    margin-block: auto;
+    margin-block: 0;
   }
 
   .section-about .about-profile-page .about-title-group {
@@ -1273,135 +1057,27 @@
   }
 }
 
-@media (max-width: 900px) {
-  .section-about {
-    height: auto;
-    min-height: 100svh;
-    padding: 100px 0 28px;
-    overflow: visible;
-  }
-
-  .section-about > .about-shell {
-    height: auto;
-    min-height: calc(100svh - 128px);
-    padding: 20px 20px 30px;
-  }
-
-  .section-about .about-profile-page {
-    display: grid;
-    height: auto;
-    min-height: 0;
-    grid-template-rows: auto auto;
-    gap: 24px;
-    padding: 0;
-    overflow: visible;
-    touch-action: auto;
-  }
-
-  .section-about .about-profile-page .about-intro {
-    display: block;
-    height: auto;
-    padding: 10px 0 0;
-  }
-
-  .section-about .about-profile-page .about-title-group {
-    display: block;
-    padding: 0;
-    text-align: left;
-  }
-
-  .section-about .about-profile-page .about-records {
-    display: grid;
-    width: 100%;
-    height: auto;
-    min-height: 0;
-    grid-template-columns: 1fr;
-    grid-template-rows: auto auto;
-    gap: 20px;
-    overflow: visible;
-  }
-
-  .section-about .about-record-section,
-  .section-about .about-course-grid {
-    height: auto;
-    min-height: 0;
-    overflow: visible;
-  }
-}
-
-@media (max-width: 620px) {
-  .section-about {
-    padding-top: 92px;
-    padding-bottom: 24px;
-  }
-
-  .section-about > .about-shell {
-    min-height: calc(100svh - 116px);
-    padding: 22px 16px 30px;
-  }
-
-  .section-about .about-profile-page {
-    gap: 26px;
-  }
-
-  .section-about .about-profile-page .about-intro {
-    padding-top: 12px;
-  }
-
-  .section-about .about-profile-page .about-title-group h2 {
-    font-size: clamp(2.25rem, 11vw, 3rem);
-    line-height: 0.9;
-  }
-
-  .section-about .about-profile-page .about-records {
-    gap: 18px;
-  }
-
-  .section-about .about-record-section {
-    display: grid;
-    grid-template-rows: auto auto;
-    gap: 10px;
-  }
-
-  .section-about .about-education-card {
-    min-height: 132px;
-  }
-
-  .section-about .about-course-grid {
-    display: grid;
-    grid-template-columns: 1fr;
-    gap: 9px;
-    padding-bottom: 2px;
-  }
-
-  .section-about .about-course-card {
-    min-height: 68px;
-    max-height: none;
-    height: auto;
-    flex: none;
-  }
-}
-
-/* Final viewport sizing: kept last so legacy responsive rules cannot override it. */
-@media (max-width: 900px) {
+/* Canonical tablet and phone viewport contract. */
+@media (min-width: 1181px) and (max-width: 1180px) {
   .section-about {
     height: 100dvh;
     min-height: 100dvh;
-    padding: 94px 0 12px;
+    padding: 92px 0 12px;
     overflow: hidden;
   }
 
   .section-about > .about-shell {
-    height: calc(100dvh - 106px);
+    height: calc(100dvh - 104px);
     min-height: 0;
-    padding: 12px 14px;
+    padding: clamp(12px, 1.8dvh, 18px) clamp(14px, 2.4vw, 24px);
     overflow: hidden;
   }
 
   .section-about .about-profile-page {
     height: 100%;
-    grid-template-rows: auto minmax(0, 1fr);
-    gap: 10px;
+    grid-template-rows: clamp(88px, 12.5dvh, 116px) minmax(0, 1fr);
+    gap: clamp(19px, 2.8dvh, 28px);
+    align-content: center;
     overflow: hidden;
   }
 
@@ -1410,21 +1086,21 @@
   }
 
   .section-about .about-profile-page .about-title-group h2 {
-    font-size: var(--type-page-title);
+    font-size: clamp(2.65rem, 7.4vw, 4.4rem);
   }
 
   .section-about .about-profile-page .about-records {
     height: 100%;
-    grid-template-columns: minmax(220px, 0.9fr) minmax(0, 1.4fr);
-    grid-template-rows: minmax(0, 1fr);
-    gap: 12px;
+    grid-template-columns: 1fr;
+    grid-template-rows: minmax(136px, 0.29fr) minmax(0, 0.71fr);
+    gap: clamp(13px, 1.8dvh, 18px);
     overflow: hidden;
   }
 
   .section-about .about-record-section {
     height: 100%;
-    grid-template-rows: 34px minmax(0, 1fr);
-    gap: 7px;
+    grid-template-rows: 38px minmax(0, 1fr);
+    gap: 9px;
     overflow: hidden;
   }
 
@@ -1434,20 +1110,96 @@
     min-height: 0;
     overflow: hidden;
   }
+
+  .section-about .about-education-card {
+    margin-left: 28px;
+  }
 }
 
-@media (max-width: 620px) {
-  .section-about {
-    padding: 86px 0 8px;
-  }
-
+/* Telefon ve tablet aynı yerleşim sözleşmesini kullanır. */
+@media (min-width: 901px) and (max-width: 900px) {
   .section-about > .about-shell {
-    height: calc(100dvh - 94px);
-    padding: 10px 8px;
+    padding-block: clamp(9px, 1.35dvh, 14px);
   }
 
   .section-about .about-profile-page {
-    gap: 7px;
+    grid-template-rows: clamp(72px, 10.5dvh, 96px) minmax(0, 1fr);
+    gap: clamp(12px, 1.8dvh, 18px);
+  }
+
+  .section-about .about-profile-page .about-title-group h2 {
+    font-size: clamp(2.5rem, 6.8vw, 4rem);
+  }
+
+  .section-about .about-profile-page .about-records {
+    grid-template-rows: minmax(0, 0.31fr) minmax(0, 0.69fr);
+    gap: clamp(10px, 1.45dvh, 14px);
+  }
+
+  .section-about .about-record-section {
+    grid-template-rows: 34px minmax(0, 1fr);
+    gap: 8px;
+  }
+
+  .section-about .about-record-icon {
+    width: 34px;
+    height: 34px;
+    flex-basis: 34px;
+  }
+
+  .section-about .about-record-icon svg {
+    width: 18px;
+    height: 18px;
+  }
+
+  .section-about .about-education-card {
+    grid-template-columns: clamp(68px, 9vw, 84px) minmax(0, 1fr);
+    gap: clamp(11px, 1.8vw, 17px);
+    margin-left: 25px;
+    padding: clamp(10px, 1.5dvh, 14px) clamp(12px, 2vw, 17px);
+  }
+
+  .section-about .about-education-card .about-card-logo {
+    width: clamp(66px, 8.5vw, 80px);
+    height: clamp(66px, 8.5vw, 80px);
+    padding: 6px;
+  }
+
+  .section-about .about-education-content h4 {
+    font-size: clamp(0.92rem, 2vw, 1.16rem);
+  }
+
+  .section-about .about-education-meta {
+    gap: clamp(6px, 1vw, 9px);
+    margin-top: 1px;
+  }
+
+  .section-about .about-education-meta > div {
+    padding: clamp(6px, 0.9dvh, 9px) clamp(7px, 1.2vw, 10px);
+  }
+}
+
+@media (max-width: 1180px) {
+  .section-about {
+    height: 100dvh;
+    min-height: 100dvh;
+    padding: 82px 0 8px;
+    overflow: hidden;
+  }
+
+  .section-about > .about-shell {
+    height: calc(100dvh - 90px);
+    min-height: 0;
+    padding: clamp(9px, 1.4dvh, 13px) clamp(10px, 3.4vw, 16px);
+    overflow: hidden;
+  }
+
+  .section-about .about-profile-page {
+    height: 100%;
+    grid-template-rows: clamp(76px, 10.5dvh, 92px) minmax(0, 1fr);
+    gap: clamp(14px, 2dvh, 19px);
+    align-content: center;
+    overflow: hidden;
   }
 
   .section-about .about-profile-page .about-intro {
@@ -1455,21 +1207,21 @@
   }
 
   .section-about .about-profile-page .about-title-group h2 {
-    font-size: var(--type-page-title);
+    font-size: clamp(2.15rem, 10.5vw, 3rem);
   }
 
   .section-about .about-profile-page .about-records {
     height: 100%;
     grid-template-columns: 1fr;
-    grid-template-rows: minmax(125px, 0.42fr) minmax(0, 0.58fr);
-    gap: 7px;
+    grid-template-rows: minmax(185px, 0.34fr) minmax(0, 0.66fr);
+    gap: clamp(15px, 2.1dvh, 20px);
     overflow: hidden;
   }
 
   .section-about .about-record-section {
     height: 100%;
-    grid-template-rows: 29px minmax(0, 1fr);
-    gap: 4px;
+    grid-template-rows: 31px minmax(0, 1fr);
+    gap: 7px;
     overflow: hidden;
   }
 
@@ -1477,12 +1229,22 @@
     height: 100%;
     grid-template-columns: 1fr;
     grid-template-rows: repeat(3, minmax(0, 1fr));
-    gap: 5px;
+    gap: 6px;
     overflow: hidden;
   }
 
   .section-about .about-course-card {
     height: 100%;
     min-height: 0;
+  }
+
+  .section-about .about-pattern-dots-top,
+  .section-about .about-pattern-dots-bottom,
+  .section-about .about-pattern-spiral {
+    display: none;
+  }
+
+  .section-about .about-wave-line {
+    opacity: 0.45;
   }
 }

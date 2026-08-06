@@ -26,6 +26,11 @@ main > section {
     overscroll-behavior-y: auto;
   }
 
+  body,
+  main {
+    touch-action: pan-y pinch-zoom;
+  }
+
   main > section {
     scroll-snap-align: start;
     scroll-snap-stop: always;
