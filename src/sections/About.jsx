@@ -39,7 +39,10 @@ export default function About() {
     .join(" ");
 
   return (
-    <section className="section section-about" id="about">
+    <section
+      className={`section section-about${expandedCourseId ? " has-expanded-course" : ""}`}
+      id="about"
+    >
       <div className="about-background-patterns" aria-hidden="true">
         <Icon className="about-pattern about-pattern-dots-top" icon="pajamas:dot-grid" />
         <Icon className="about-pattern about-pattern-spiral" icon="iconoir:spiral" />

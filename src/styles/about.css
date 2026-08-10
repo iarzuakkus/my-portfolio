@@ -1,7 +1,9 @@
 .section-about {
-  height: 100svh;
-  min-height: 100svh;
-  padding: 110px 0 18px;
+  --about-content-start: 110px;
+  --about-content-end: 18px;
+  height: 100dvh;
+  min-height: 0;
+  padding: var(--about-content-start) 0 var(--about-content-end);
   background:
     radial-gradient(circle at 8% 88%, rgba(111, 79, 239, 0.08), transparent 18%),
     linear-gradient(180deg, #fafaff, #f6f6fc);
@@ -81,11 +83,12 @@
 }
 
 .section-about > .about-shell {
-  display: block;
-  height: auto;
+  display: grid;
+  height: calc(100dvh - var(--about-content-start) - var(--about-content-end));
   min-height: 0;
   padding: clamp(18px, 2vh, 24px) clamp(28px, 2.6vw, 44px);
-  overflow: visible;
+  align-items: center;
+  overflow: hidden;
   border: 0;
   border-radius: 0;
   background: transparent;
@@ -581,444 +584,6 @@
   }
 }
 
-@media (min-width: 1181px) and (max-width: 1180px) {
-  .about-intro {
-    grid-template-columns: 0.75fr 1.25fr;
-    gap: 28px;
-  }
-
-  .about-records {
-    grid-template-columns: minmax(320px, 0.72fr) minmax(0, 1.58fr);
-    gap: 22px;
-  }
-}
-
-@media (min-width: 1181px) and (max-width: 1180px) {
-  .section-about {
-    height: auto;
-    min-height: 100svh;
-    padding: 108px 0 30px;
-    overflow: clip;
-  }
-
-  .section-about > .about-shell {
-    height: auto;
-    min-height: calc(100svh - 108px);
-    padding: 28px 22px;
-    overflow: visible;
-  }
-
-  .about-page {
-    display: block;
-    height: auto;
-  }
-
-  .about-intro,
-.about-records {
-    grid-template-columns: 1fr;
-  }
-
-  .about-records {
-    margin-top: 40px;
-  }
-
-  .about-course-grid {
-    display: grid;
-    grid-template-columns: repeat(2, minmax(0, 1fr));
-  }
-
-  .about-course-grid.has-selection .about-course-card.is-expanded {
-    grid-column: 1 / -1;
-  }
-
-  .about-course-grid.has-selection .about-course-card.is-condensed {
-    display: grid;
-  }
-}
-
-@media (min-width: 1181px) and (max-width: 1180px) {
-  .about-background-patterns {
-    display: block;
-  }
-
-  .about-pattern {
-    display: none;
-  }
-
-  .about-wave-line {
-    display: block;
-    opacity: 0.72;
-  }
-
-  .section-about {
-    height: 100dvh;
-    min-height: 100dvh;
-    padding-top: 92px;
-    padding-bottom: 0;
-    overflow: hidden;
-  }
-
-  .section-about > .about-shell {
-    height: calc(100dvh - 92px);
-    min-height: calc(100dvh - 92px);
-    padding: 8px 14px 10px;
-    overflow: hidden;
-  }
-
-  .about-page {
-    display: grid;
-    height: 100%;
-    grid-template-rows: clamp(218px, 30dvh, 242px) minmax(0, 1fr);
-    gap: 12px;
-    overflow: hidden;
-  }
-
-  .about-intro {
-    display: grid;
-    grid-template-rows: auto auto;
-    gap: 5px;
-    align-content: start;
-    overflow: visible;
-  }
-
-  .about-title-group {
-    padding-left: 0;
-  }
-
-  .about-title-group h2 {
-    font-size: clamp(1.55rem, 8.2vw, 2.05rem);
-    line-height: 0.9;
-  }
-
-  .about-records {
-    display: grid;
-    height: 100%;
-    min-height: 0;
-    grid-template-rows: minmax(112px, 0.7fr) minmax(0, 1.3fr);
-    gap: 13px;
-    margin-top: 0;
-    padding-top: 10px;
-    box-sizing: border-box;
-    overflow: hidden;
-  }
-
-  .about-record-section {
-    min-height: 0;
-    grid-template-rows: 32px minmax(0, 1fr);
-    gap: 8px;
-    overflow: hidden;
-  }
-
-  .about-courses {
-    padding-top: 0;
-  }
-
-  .about-record-heading {
-    gap: 8px;
-  }
-
-  .about-record-icon {
-    width: 28px;
-    height: 28px;
-    flex-basis: 28px;
-    border-radius: 9px;
-  }
-
-  .about-record-icon svg {
-    width: 15px;
-    height: 15px;
-  }
-
-  .about-record-heading h3 {
-    font-size: 0.9rem;
-  }
-
-  .about-record-heading p {
-    margin-top: 1px;
-    font-size: 0.48rem;
-  }
-
-  .about-education::before {
-    top: 27px;
-    bottom: 4px;
-    left: 14px;
-  }
-
-  .about-education::after {
-    left: 9px;
-    width: 7px;
-    height: 7px;
-    border-width: 3px;
-  }
-
-  .about-education-card {
-    grid-template-columns: 51px minmax(0, 1fr);
-    gap: 7px;
-    margin-left: 18px;
-    padding: 6px 8px;
-    text-align: left;
-  }
-
-  .about-education-card .about-card-logo {
-    width: 47px;
-    height: 47px;
-    padding: 4px;
-    border-radius: 9px;
-  }
-
-  .about-education-content h4 {
-    font-size: 0.7rem;
-  }
-
-  .about-record-title {
-    margin-top: 3px;
-    font-size: 0.49rem;
-  }
-
-  .about-faculty {
-    margin-top: 2px;
-    font-size: 0.45rem;
-  }
-
-  .about-education-meta {
-    grid-template-columns: repeat(3, minmax(0, 1fr));
-    width: 100%;
-    gap: 4px;
-    margin-top: 0;
-  }
-
-  .about-education-meta > div {
-    padding: 4px 5px;
-    border-radius: 7px;
-  }
-
-  .about-education-meta dt {
-    gap: 2px;
-    font-size: 0.36rem;
-  }
-
-  .about-education-meta dt svg {
-    width: 9px;
-    height: 9px;
-  }
-
-  .about-education-meta dd {
-    margin-top: 2px;
-    font-size: 0.46rem;
-  }
-
-  .about-course-grid {
-    display: flex;
-    height: 100%;
-    min-height: 0;
-    flex-direction: column;
-    gap: 8px;
-    justify-content: flex-start;
-    overflow: hidden;
-    padding: 3px 1px 1px;
-  }
-
-  .about-course-card {
-    grid-template-columns: 36px minmax(0, 1fr);
-    min-height: 0;
-    min-height: 66px;
-    max-height: 74px;
-    flex: 1 1 66px;
-    gap: 4px;
-    padding: 6px 9px;
-    align-content: center;
-    align-items: center;
-    justify-items: start;
-    overflow: hidden;
-    border-color: #d8d4ec;
-    border-radius: 12px;
-    box-shadow:
-      inset 0 0 0 1px rgba(111, 83, 255, 0.04),
-      0 7px 18px rgba(48, 51, 91, 0.045);
-    text-align: left;
-  }
-
-  .about-course-card:first-child {
-    border: 1px solid #d8d4ec;
-  }
-
-  .about-course-card .about-card-icon,
-.about-course-card .about-card-logo {
-    width: 34px;
-    height: 34px;
-    margin: 0;
-    grid-row: 1;
-    border-radius: 10px;
-    place-self: center;
-  }
-
-  .about-course-card .about-card-icon svg {
-    width: 18px;
-    height: 18px;
-  }
-
-  .about-course-summary {
-    display: grid;
-    grid-column: 2;
-    grid-row: 1;
-    width: 100%;
-    min-height: 38px;
-    gap: 2px;
-    align-content: center;
-    align-self: center;
-  }
-
-  .about-course-summary h4 {
-    font-size: 0.61rem;
-    line-height: 1.1;
-  }
-
-  .about-course-card .about-record-title {
-    margin-top: 0;
-    font-size: 0.5rem;
-    line-height: 1.15;
-  }
-
-  .about-record-period {
-    justify-content: flex-start;
-    margin-top: 0;
-    font-size: 0.46rem;
-    line-height: 1.15;
-    white-space: normal;
-  }
-
-  .about-record-period svg {
-    width: 11px;
-    height: 11px;
-  }
-
-  .about-course-grid.has-selection .about-course-card.is-expanded {
-    min-height: 118px;
-    max-height: none;
-    flex: 0 0 auto;
-    grid-template-columns: 34px minmax(0, 1fr);
-    gap: 7px;
-    align-content: start;
-    padding: 7px 9px;
-  }
-
-  .about-course-grid.has-selection .about-course-card.is-expanded .about-card-icon,
-.about-course-grid.has-selection .about-course-card.is-expanded .about-card-logo {
-    width: 31px;
-    height: 31px;
-    margin: 0;
-    grid-column: 1;
-    grid-row: 1;
-    align-self: center;
-  }
-
-  .about-course-grid.has-selection .about-course-card.is-expanded .about-card-icon svg {
-    width: 17px;
-    height: 17px;
-  }
-
-  .about-course-grid.has-selection .about-course-card.is-expanded .about-course-summary {
-    grid-column: 2;
-    grid-row: 1;
-    width: 100%;
-    padding-left: 2px;
-  }
-
-  .about-course-grid.has-selection .about-course-card.is-condensed {
-    min-height: 38px;
-    max-height: 38px;
-    flex: 0 0 38px;
-    grid-template-columns: 34px minmax(0, 1fr);
-    gap: 6px;
-    padding: 4px 7px;
-    opacity: 0.78;
-    align-content: center;
-    align-items: center;
-    justify-items: center;
-  }
-
-  .about-course-grid.has-selection .about-course-card.is-condensed .about-card-icon,
-.about-course-grid.has-selection .about-course-card.is-condensed .about-card-logo {
-    width: 30px;
-    height: 30px;
-    margin: 0;
-    place-self: center;
-  }
-
-  .about-course-grid.has-selection .about-course-card.is-condensed .about-course-summary {
-    display: flex;
-    width: 100%;
-    min-width: 0;
-    gap: 7px;
-    align-items: center;
-  }
-
-  .about-course-grid.has-selection .about-course-card.is-condensed .about-course-summary h4 {
-    min-width: 0;
-    flex: 1 1 auto;
-    font-size: 0.52rem;
-    overflow: hidden;
-    text-overflow: ellipsis;
-    white-space: nowrap;
-  }
-
-  .about-course-grid.has-selection .about-course-card.is-condensed .about-record-title {
-    flex: 0 0 auto;
-    margin-top: 0;
-    overflow: hidden;
-    text-overflow: ellipsis;
-    white-space: nowrap;
-  }
-
-  .about-course-grid.has-selection .about-course-card.is-condensed .about-record-period {
-    display: none;
-  }
-
-  .about-course-card.is-expanded .about-course-details {
-    grid-template-columns: minmax(0, 1fr) minmax(0, 0.9fr);
-    gap: 5px;
-    margin-top: 5px;
-    padding-top: 5px;
-    overflow: hidden;
-  }
-
-  .about-course-grid.has-selection {
-    justify-content: flex-start;
-  }
-
-  .about-course-details ul {
-    gap: 3px;
-  }
-
-  .about-course-details li,
-.about-course-note p {
-    font-size: 0.48rem;
-    line-height: 1.22;
-  }
-
-  .about-course-details li {
-    gap: 3px;
-  }
-
-  .about-course-details li svg {
-    width: 10px;
-    height: 10px;
-    flex-basis: 10px;
-  }
-
-  .about-course-note {
-    grid-template-columns: 14px minmax(0, 1fr);
-    gap: 4px;
-    padding: 5px;
-    border-radius: 7px;
-  }
-
-  .about-course-note > svg {
-    width: 12px;
-    height: 12px;
-  }
-}
-
 .section-about .about-profile-page {
   width: 100%;
   min-width: 0;
@@ -1031,7 +596,8 @@
   grid-template-columns: 1fr;
 }
 
-@media (min-width: 1181px) {
+/* Wide desktop: keep the original horizontal presentation at 16:9 and wider. */
+@media (min-aspect-ratio: 16 / 9) {
   .section-about > .about-shell {
     display: grid;
     height: 100%;
@@ -1057,148 +623,36 @@
   }
 }
 
-/* Canonical tablet and phone viewport contract. */
-@media (min-width: 1181px) and (max-width: 1180px) {
+/*
+ * Balanced and intermediate screens: the university remains on the left while
+ * the sector courses use a readable vertical column on the right. 1777/1000
+ * leaves exact 16:9 screens in the wide-desktop rule above.
+ */
+@media (max-aspect-ratio: 1777 / 1000) {
   .section-about {
+    --about-content-start: 82px;
+    --about-content-end: 8px;
     height: 100dvh;
-    min-height: 100dvh;
-    padding: 92px 0 12px;
-    overflow: hidden;
-  }
-
-  .section-about > .about-shell {
-    height: calc(100dvh - 104px);
     min-height: 0;
-    padding: clamp(12px, 1.8dvh, 18px) clamp(14px, 2.4vw, 24px);
-    overflow: hidden;
-  }
-
-  .section-about .about-profile-page {
-    height: 100%;
-    grid-template-rows: clamp(88px, 12.5dvh, 116px) minmax(0, 1fr);
-    gap: clamp(19px, 2.8dvh, 28px);
-    align-content: center;
-    overflow: hidden;
-  }
-
-  .section-about .about-profile-page .about-intro {
-    padding: 0;
-  }
-
-  .section-about .about-profile-page .about-title-group h2 {
-    font-size: clamp(2.65rem, 7.4vw, 4.4rem);
-  }
-
-  .section-about .about-profile-page .about-records {
-    height: 100%;
-    grid-template-columns: 1fr;
-    grid-template-rows: minmax(136px, 0.29fr) minmax(0, 0.71fr);
-    gap: clamp(13px, 1.8dvh, 18px);
-    overflow: hidden;
-  }
-
-  .section-about .about-record-section {
-    height: 100%;
-    grid-template-rows: 38px minmax(0, 1fr);
-    gap: 9px;
-    overflow: hidden;
-  }
-
-  .section-about .about-course-grid,
-  .section-about .about-education-card {
-    height: 100%;
-    min-height: 0;
-    overflow: hidden;
-  }
-
-  .section-about .about-education-card {
-    margin-left: 28px;
-  }
-}
-
-/* Telefon ve tablet aynı yerleşim sözleşmesini kullanır. */
-@media (min-width: 901px) and (max-width: 900px) {
-  .section-about > .about-shell {
-    padding-block: clamp(9px, 1.35dvh, 14px);
-  }
-
-  .section-about .about-profile-page {
-    grid-template-rows: clamp(72px, 10.5dvh, 96px) minmax(0, 1fr);
-    gap: clamp(12px, 1.8dvh, 18px);
-  }
-
-  .section-about .about-profile-page .about-title-group h2 {
-    font-size: clamp(2.5rem, 6.8vw, 4rem);
-  }
-
-  .section-about .about-profile-page .about-records {
-    grid-template-rows: minmax(0, 0.31fr) minmax(0, 0.69fr);
-    gap: clamp(10px, 1.45dvh, 14px);
-  }
-
-  .section-about .about-record-section {
-    grid-template-rows: 34px minmax(0, 1fr);
-    gap: 8px;
-  }
-
-  .section-about .about-record-icon {
-    width: 34px;
-    height: 34px;
-    flex-basis: 34px;
-  }
-
-  .section-about .about-record-icon svg {
-    width: 18px;
-    height: 18px;
-  }
-
-  .section-about .about-education-card {
-    grid-template-columns: clamp(68px, 9vw, 84px) minmax(0, 1fr);
-    gap: clamp(11px, 1.8vw, 17px);
-    margin-left: 25px;
-    padding: clamp(10px, 1.5dvh, 14px) clamp(12px, 2vw, 17px);
-  }
-
-  .section-about .about-education-card .about-card-logo {
-    width: clamp(66px, 8.5vw, 80px);
-    height: clamp(66px, 8.5vw, 80px);
-    padding: 6px;
-  }
-
-  .section-about .about-education-content h4 {
-    font-size: clamp(0.92rem, 2vw, 1.16rem);
-  }
-
-  .section-about .about-education-meta {
-    gap: clamp(6px, 1vw, 9px);
-    margin-top: 1px;
-  }
-
-  .section-about .about-education-meta > div {
-    padding: clamp(6px, 0.9dvh, 9px) clamp(7px, 1.2vw, 10px);
-  }
-}
-
-@media (max-width: 1180px) {
-  .section-about {
-    height: 100dvh;
-    min-height: 100dvh;
-    padding: 82px 0 8px;
+    padding: var(--about-content-start) 0 var(--about-content-end);
     overflow: hidden;
   }
 
   .section-about > .about-shell {
-    height: calc(100dvh - 90px);
+    height: calc(100dvh - var(--about-content-start) - var(--about-content-end));
     min-height: 0;
     padding: clamp(9px, 1.4dvh, 13px) clamp(10px, 3.4vw, 16px);
+    display: grid;
+    align-items: stretch;
     overflow: hidden;
   }
 
   .section-about .about-profile-page {
     height: 100%;
-    grid-template-rows: clamp(76px, 10.5dvh, 92px) minmax(0, 1fr);
-    gap: clamp(14px, 2dvh, 19px);
-    align-content: center;
+    min-height: 0;
+    grid-template-rows: clamp(86px, 13dvh, 108px) minmax(0, 1fr);
+    gap: clamp(13px, 1.8dvh, 18px);
+    align-content: stretch;
     overflow: hidden;
   }
 
@@ -1207,14 +661,14 @@
   }
 
   .section-about .about-profile-page .about-title-group h2 {
-    font-size: clamp(2.15rem, 10.5vw, 3rem);
+    font-size: clamp(2rem, 9.6vw, 3rem);
   }
 
   .section-about .about-profile-page .about-records {
     height: 100%;
-    grid-template-columns: 1fr;
-    grid-template-rows: minmax(185px, 0.34fr) minmax(0, 0.66fr);
-    gap: clamp(15px, 2.1dvh, 20px);
+    grid-template-columns: minmax(0, 0.92fr) minmax(0, 1.08fr);
+    grid-template-rows: minmax(0, 1fr);
+    gap: clamp(14px, 2.2vw, 24px);
     overflow: hidden;
   }
 
@@ -1238,6 +692,40 @@
     min-height: 0;
   }
 
+  .section-about.has-expanded-course {
+    height: 100dvh;
+    overflow: hidden;
+  }
+
+  .section-about.has-expanded-course > .about-shell {
+    height: calc(100dvh - var(--about-content-start) - var(--about-content-end));
+    min-height: 0;
+    overflow: hidden;
+  }
+
+  .section-about.has-expanded-course .about-profile-page {
+    height: 100%;
+    min-height: 0;
+    grid-template-rows: clamp(76px, 11dvh, 92px) minmax(0, 1fr);
+    gap: clamp(10px, 1.5dvh, 15px);
+    overflow: hidden;
+  }
+
+  .section-about.has-expanded-course .about-profile-page .about-records {
+    height: 100%;
+    grid-template-columns: minmax(0, 0.92fr) minmax(0, 1.08fr);
+    grid-template-rows: minmax(0, 1fr);
+    gap: clamp(10px, 1.5dvh, 15px);
+    overflow: hidden;
+  }
+
+  .section-about.has-expanded-course .about-record-section,
+  .section-about.has-expanded-course .about-course-grid {
+    height: 100%;
+    min-height: 0;
+    overflow: hidden;
+  }
+
   .section-about .about-pattern-dots-top,
   .section-about .about-pattern-dots-bottom,
   .section-about .about-pattern-spiral {
@@ -1246,5 +734,29 @@
 
   .section-about .about-wave-line {
     opacity: 0.45;
+  }
+}
+
+/* Tall portrait: switch both record groups to one column. */
+@media (max-aspect-ratio: 749 / 1000) {
+  .section-about {
+    --about-content-start: clamp(72px, 10dvh, 82px);
+    --about-content-end: clamp(6px, 1dvh, 10px);
+  }
+
+  .section-about .about-profile-page {
+    grid-template-rows: clamp(76px, 10.5dvh, 94px) minmax(0, 1fr);
+    gap: clamp(11px, 1.6dvh, 16px);
+  }
+
+  .section-about .about-profile-page .about-records {
+    grid-template-columns: minmax(0, 1fr);
+    grid-template-rows: minmax(0, 0.39fr) minmax(0, 0.61fr);
+    gap: clamp(11px, 1.6dvh, 16px);
+  }
+
+  .section-about.has-expanded-course .about-profile-page .about-records {
+    grid-template-columns: minmax(0, 1fr);
+    grid-template-rows: minmax(112px, 0.32fr) minmax(0, 0.68fr);
   }
 }

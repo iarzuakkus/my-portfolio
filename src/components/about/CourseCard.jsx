@@ -112,7 +112,7 @@ export default function CourseCard({ course, expanded, condensed, onToggle }) {
               aria-label={course.projectLabel}
               title={course.projectLabel}
             >
-              <Icon icon="solar:arrow-right-linear" aria-hidden="true" />
+              <Icon icon="lucide:arrow-right" aria-hidden="true" />
             </button>
           )}
         </div>
