@@ -34,15 +34,17 @@ export default function ProjectWelcome() {
         <span className="project-welcome-node node-3" aria-hidden="true" />
         <span className="project-welcome-node node-4" aria-hidden="true" />
 
-        {welcomeTopics.map((topic) => (
-          <span
-            className={`project-welcome-topic topic-${topic.position} is-${topic.tone}`}
-            key={topic.label}
-          >
-            <Icon icon={topic.icon} aria-hidden="true" />
-            <small>{topic.label}</small>
-          </span>
-        ))}
+        <div className="project-welcome-topics">
+          {welcomeTopics.map((topic) => (
+            <span
+              className={`project-welcome-topic topic-${topic.position} is-${topic.tone}`}
+              key={topic.label}
+            >
+              <Icon icon={topic.icon} aria-hidden="true" />
+              <small>{topic.label}</small>
+            </span>
+          ))}
+        </div>
       </div>
     </article>
   );

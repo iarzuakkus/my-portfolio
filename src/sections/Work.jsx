@@ -9,6 +9,7 @@ import { projects } from "../data/projectData";
 export default function Work() {
   const [selectedId, setSelectedId] = useState(null);
   const selectedProject = projects.find((project) => project.id === selectedId) ?? null;
+  const showProjectOverview = () => setSelectedId(null);
 
   useEffect(() => {
     const resetProjectSelection = () => {
@@ -35,7 +36,14 @@ export default function Work() {
       <div className="shell projects-shell">
         <header className="projects-mobile-heading">
           <h2>
-            Projelerim<span>.</span>
+            <button
+              className="projects-heading-reset"
+              type="button"
+              onClick={showProjectOverview}
+              aria-label="Projelerin başlangıç görünümünü göster"
+            >
+              Projelerim<span>.</span>
+            </button>
           </h2>
           <p>Yazılım, veri, yapay zekâ ve tasarım alanlarında ürettiğim çalışmaları burada bulabilirsin.</p>
         </header>
@@ -43,7 +51,14 @@ export default function Work() {
         <div className="projects-intro-grid">
           <header className="projects-heading">
             <h2>
-              Projelerim<span>.</span>
+              <button
+                className="projects-heading-reset"
+                type="button"
+                onClick={showProjectOverview}
+                aria-label="Projelerin başlangıç görünümünü göster"
+              >
+                Projelerim<span>.</span>
+              </button>
             </h2>
             <p>
               Yazılım, veri, yapay zekâ ve tasarım alanlarında ürettiğim çalışmaları burada
