@@ -12,6 +12,7 @@ export const experienceItems = [
     tags: [".NET 8", "EF Core", "PostGIS", "OpenLayers"],
     actionLabel: "İlgili projeyi gör",
     actionHref: "#work",
+    projectId: "harita-uygulamasi",
   },
   {
     id: "cocrm",
@@ -26,6 +27,7 @@ export const experienceItems = [
     tags: ["Python", "Web Scraping", "Data Mining", "Automation"],
     actionLabel: "Projeye git",
     actionHref: "#work",
+    projectId: "veri-kazima",
   },
   {
     id: "design-team",
@@ -40,5 +42,6 @@ export const experienceItems = [
     tags: ["Tasarım", "İçerik Üretimi", "Takım Çalışması", "Yaratıcılık"],
     actionLabel: "Detayları incele",
     actionHref: "#work",
+    projectId: "tasarim-calismalari",
   },
 ];
