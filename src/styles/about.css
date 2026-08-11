@@ -596,8 +596,8 @@
   grid-template-columns: 1fr;
 }
 
-/* Wide desktop: keep the original horizontal presentation at 16:9 and wider. */
-@media (min-aspect-ratio: 16 / 9) {
+/* Desktop: preserve the horizontal presentation from 4:3 upward. */
+@media (min-aspect-ratio: 4 / 3) and (min-width: 1200px) {
   .section-about > .about-shell {
     display: grid;
     height: 100%;
@@ -606,6 +606,10 @@
   }
 
   .section-about .about-profile-page {
+    height: min(440px, 100%);
+    grid-template-rows: auto minmax(0, 1fr);
+    gap: clamp(18px, 2.4dvh, 26px);
+    align-content: center;
     margin-block: 0;
   }
 
@@ -614,21 +618,16 @@
   }
 
   .section-about .about-profile-page .about-records {
-    height: 280px;
+    height: 100%;
   }
 
-  .section-about .about-profile-page .about-education-card,
-  .section-about .about-profile-page .about-course-grid {
-    height: 230px;
+  .section-about .about-profile-page .about-education-card {
+    height: auto;
   }
 }
 
-/*
- * Balanced and intermediate screens: the university remains on the left while
- * the sector courses use a readable vertical column on the right. 1777/1000
- * leaves exact 16:9 screens in the wide-desktop rule above.
- */
-@media (max-aspect-ratio: 1777 / 1000) {
+/* Shared compact frame for tablet and phone ratios below 4:3. */
+@media (aspect-ratio < 4 / 3), (width < 1200px) {
   .section-about {
     --about-content-start: 82px;
     --about-content-end: 8px;
@@ -650,9 +649,10 @@
   .section-about .about-profile-page {
     height: 100%;
     min-height: 0;
-    grid-template-rows: clamp(86px, 13dvh, 108px) minmax(0, 1fr);
-    gap: clamp(13px, 1.8dvh, 18px);
-    align-content: stretch;
+    grid-template-rows: auto auto;
+    gap: clamp(15px, 2.2dvh, 21px);
+    align-content: center;
+    padding-block: clamp(12px, 2dvh, 20px);
     overflow: hidden;
   }
 
@@ -665,18 +665,20 @@
   }
 
   .section-about .about-profile-page .about-records {
-    height: 100%;
+    height: auto;
     grid-template-columns: minmax(0, 0.92fr) minmax(0, 1.08fr);
-    grid-template-rows: minmax(0, 1fr);
+    grid-template-rows: auto;
     gap: clamp(14px, 2.2vw, 24px);
-    overflow: hidden;
+    align-items: end;
+    overflow: visible;
   }
 
   .section-about .about-record-section {
-    height: 100%;
-    grid-template-rows: 31px minmax(0, 1fr);
+    height: auto;
+    grid-template-rows: auto auto;
     gap: 7px;
-    overflow: hidden;
+    align-self: end;
+    overflow: visible;
   }
 
   .section-about .about-course-grid {
@@ -693,37 +695,42 @@
   }
 
   .section-about.has-expanded-course {
-    height: 100dvh;
-    overflow: hidden;
+    height: auto;
+    min-height: 100dvh;
+    overflow-x: hidden;
+    overflow-y: visible;
   }
 
   .section-about.has-expanded-course > .about-shell {
-    height: calc(100dvh - var(--about-content-start) - var(--about-content-end));
-    min-height: 0;
-    overflow: hidden;
+    height: auto;
+    min-height: calc(100dvh - var(--about-content-start) - var(--about-content-end));
+    overflow: visible;
   }
 
   .section-about.has-expanded-course .about-profile-page {
-    height: 100%;
-    min-height: 0;
-    grid-template-rows: clamp(76px, 11dvh, 92px) minmax(0, 1fr);
-    gap: clamp(10px, 1.5dvh, 15px);
-    overflow: hidden;
+    height: auto;
+    min-height: calc(100dvh - var(--about-content-start) - var(--about-content-end));
+    grid-template-rows: auto auto;
+    gap: clamp(15px, 2.2dvh, 21px);
+    align-content: center;
+    overflow: visible;
   }
 
   .section-about.has-expanded-course .about-profile-page .about-records {
-    height: 100%;
+    height: auto;
     grid-template-columns: minmax(0, 0.92fr) minmax(0, 1.08fr);
-    grid-template-rows: minmax(0, 1fr);
+    grid-template-rows: auto;
     gap: clamp(10px, 1.5dvh, 15px);
-    overflow: hidden;
+    align-items: end;
+    overflow: visible;
   }
 
   .section-about.has-expanded-course .about-record-section,
   .section-about.has-expanded-course .about-course-grid {
-    height: 100%;
+    height: auto;
     min-height: 0;
-    overflow: hidden;
+    align-self: end;
+    overflow: visible;
   }
 
   .section-about .about-pattern-dots-top,
@@ -737,26 +744,73 @@
   }
 }
 
-/* Tall portrait: switch both record groups to one column. */
-@media (max-aspect-ratio: 749 / 1000) {
+/* Phone: below 3:4, switch both record groups to one column. */
+@media (aspect-ratio < 3 / 4) {
   .section-about {
     --about-content-start: clamp(72px, 10dvh, 82px);
     --about-content-end: clamp(6px, 1dvh, 10px);
   }
 
-  .section-about .about-profile-page {
-    grid-template-rows: clamp(76px, 10.5dvh, 94px) minmax(0, 1fr);
+  .section-about .about-profile-page,
+  .section-about.has-expanded-course .about-profile-page {
+    grid-template-rows: auto auto;
     gap: clamp(11px, 1.6dvh, 16px);
+    align-content: start;
+    padding-block: 0;
+    overflow: visible;
   }
 
   .section-about .about-profile-page .about-records {
     grid-template-columns: minmax(0, 1fr);
-    grid-template-rows: minmax(0, 0.39fr) minmax(0, 0.61fr);
+    grid-template-rows: auto auto;
     gap: clamp(11px, 1.6dvh, 16px);
+    align-items: stretch;
+    overflow: visible;
+  }
+
+  .section-about .about-record-section,
+  .section-about.has-expanded-course .about-record-section {
+    align-self: stretch;
+  }
+
+  .section-about:not(.has-expanded-course) .about-profile-page {
+    grid-template-rows: auto minmax(0, 1fr);
+    align-content: stretch;
+    overflow: hidden;
+  }
+
+  .section-about:not(.has-expanded-course) .about-profile-page .about-records {
+    height: 100%;
+    grid-template-rows: minmax(0, 0.38fr) minmax(0, 0.62fr);
+    align-items: stretch;
+    overflow: hidden;
+  }
+
+  .section-about:not(.has-expanded-course) .about-record-section {
+    height: 100%;
+    grid-template-rows: auto minmax(0, 1fr);
+    overflow: hidden;
+  }
+
+  .section-about:not(.has-expanded-course) .about-education-card {
+    height: 100%;
   }
 
   .section-about.has-expanded-course .about-profile-page .about-records {
+    height: 100%;
     grid-template-columns: minmax(0, 1fr);
-    grid-template-rows: minmax(112px, 0.32fr) minmax(0, 0.68fr);
+    grid-template-rows: auto minmax(0, 1fr);
+    align-items: stretch;
+  }
+
+  .section-about.has-expanded-course .about-profile-page {
+    grid-template-rows: auto minmax(0, 1fr);
+    align-content: stretch;
+  }
+
+  .section-about.has-expanded-course .about-courses {
+    height: 100%;
+    grid-template-rows: auto minmax(0, 1fr);
+    align-self: stretch;
   }
 }
