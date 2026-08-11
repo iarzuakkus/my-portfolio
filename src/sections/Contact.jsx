@@ -1,6 +1,5 @@
 import { useState } from "react";
 import { Icon } from "@iconify/react";
-import { portfolio } from "../data/portfolioData";
 
 export default function Contact() {
   const [formStatus, setFormStatus] = useState({ type: "idle", message: "" });
@@ -55,31 +54,6 @@ export default function Contact() {
             Yeni projeler, iş birlikleri veya sorularınız için benimle iletişime
             geçebilirsiniz.
           </p>
-
-          <div className="contact-accent-line" aria-hidden="true" />
-
-          <div className="contact-links">
-            <a href={`mailto:${portfolio.contact.email}`}>
-              <span aria-hidden="true">
-                <Icon icon="material-symbols:mail-outline-rounded" />
-              </span>
-              <span>
-                <strong>E-posta</strong>
-                <small>{portfolio.contact.email}</small>
-              </span>
-            </a>
-
-            <a href={portfolio.contact.linkedin} target="_blank" rel="noreferrer">
-              <span className="is-linkedin" aria-hidden="true">
-                <Icon icon="ri:linkedin-fill" />
-              </span>
-              <span>
-                <strong>LinkedIn</strong>
-                <small>Profesyonel profilimi görüntüle</small>
-              </span>
-              <Icon className="contact-link-arrow" icon="fi:rr-arrow-small-right" aria-hidden="true" />
-            </a>
-          </div>
         </div>
 
         <form className="contact-form" onSubmit={handleSubmit}>

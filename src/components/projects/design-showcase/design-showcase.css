@@ -275,6 +275,10 @@
     max-height: calc(100% - 12px);
   }
 
+  .design-carousel-item--portrait {
+    height: min(94%, 210px);
+  }
+
   .design-carousel-item[data-offset="-3"],
   .design-carousel-item[data-offset="3"] { display: none; }
 
@@ -312,6 +316,10 @@
     min-height: 0;
   }
 
+  .design-carousel-stage {
+    --design-side-shift: clamp(58px, 22vw, 82px);
+  }
+
   .design-carousel-item {
     width: auto;
     max-width: 190px;
@@ -323,6 +331,18 @@
   .design-carousel-item--landscape {
     width: auto;
     max-width: 190px;
+  }
+
+  .design-carousel-item--portrait {
+    height: min(94%, 190px);
+    max-width: 52%;
+  }
+
+  .design-carousel-item[data-offset="-1"],
+  .design-carousel-item[data-offset="1"] {
+    width: auto;
+    height: min(82%, 172px);
+    max-width: none;
   }
 
   .project-design-showcase .design-carousel-item > img {
@@ -338,11 +358,11 @@
   .design-carousel-item[data-offset="3"] { display: none; }
 
   .design-carousel-item[data-offset="-1"] {
-    transform: translate(-50%, -50%) translateX(-49%) translateZ(-70px) rotateY(22deg) scale(0.74);
+    transform: translate(-50%, -50%) translateX(calc(0px - var(--design-side-shift))) translateZ(-70px) rotateY(22deg) scale(0.74);
   }
 
   .design-carousel-item[data-offset="1"] {
-    transform: translate(-50%, -50%) translateX(49%) translateZ(-70px) rotateY(-22deg) scale(0.74);
+    transform: translate(-50%, -50%) translateX(var(--design-side-shift)) translateZ(-70px) rotateY(-22deg) scale(0.74);
   }
 
   .design-carousel-controls button:first-child { left: 6px; }

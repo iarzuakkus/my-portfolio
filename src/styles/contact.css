@@ -50,80 +50,6 @@
   line-height: 1.7;
 }
 
-.contact-accent-line {
-  width: 46px;
-  height: 2px;
-  margin: 24px 0;
-  border-radius: 999px;
-  background: #7356eb;
-}
-
-.contact-links {
-  display: grid;
-  gap: 12px;
-}
-
-.contact-links > a {
-  display: grid;
-  max-width: 350px;
-  grid-template-columns: 42px minmax(0, 1fr) auto;
-  gap: 12px;
-  align-items: center;
-  padding: 8px;
-  border-radius: 13px;
-  color: #252b47;
-  transition: background 160ms ease, transform 160ms ease;
-}
-
-.contact-links > a:hover,
-.contact-links > a:focus-visible {
-  background: rgba(255, 255, 255, 0.72);
-  transform: translateX(3px);
-}
-
-.contact-links > a:focus-visible {
-  outline: 2px solid #7356eb;
-  outline-offset: 2px;
-}
-
-.contact-links > a > span:first-child {
-  display: grid;
-  width: 42px;
-  height: 42px;
-  place-items: center;
-  border-radius: 11px;
-  background: #f0edff;
-  color: #7356eb;
-  font-size: 1.05rem;
-}
-
-.contact-links > a > span:first-child.is-linkedin {
-  background: #eaf6ff;
-  color: #1377aa;
-}
-
-.contact-links strong,
-.contact-links small {
-  display: block;
-}
-
-.contact-links strong {
-  margin-bottom: 3px;
-  font-size: 0.72rem;
-}
-
-.contact-links small {
-  overflow: hidden;
-  color: #697086;
-  font-size: 0.65rem;
-  text-overflow: ellipsis;
-  white-space: nowrap;
-}
-
-.contact-link-arrow {
-  color: #7356eb;
-}
-
 .contact-form {
   display: grid;
   min-width: 0;
@@ -258,99 +184,26 @@
   font-size: 0.58rem;
 }
 
-@media (max-width: 900px) {
+/* Tablet: preserve the split composition below 4:3. */
+@media (aspect-ratio < 4 / 3) {
   .site-footer {
     display: none;
   }
 
   .section-contact {
     height: auto;
-    min-height: 100svh;
-    padding: 100px 0 24px;
+    min-height: 100dvh;
+    padding: 94px 0 12px;
     overflow: visible;
   }
 
   .section-contact > .contact-shell {
     height: auto;
-    grid-template-columns: 1fr;
-    gap: 30px;
-    padding: 32px 24px 44px;
+    min-height: calc(100dvh - 106px);
+    grid-template-columns: minmax(190px, 0.65fr) minmax(0, 1.35fr);
+    gap: clamp(18px, 4vw, 42px);
+    padding: clamp(16px, 3vw, 30px);
     overflow: visible;
-  }
-
-  .contact-copy {
-    display: grid;
-    grid-template-columns: minmax(0, 0.8fr) minmax(260px, 1.2fr);
-    gap: 28px;
-    align-items: end;
-  }
-
-  .contact-copy > p,
-  .contact-accent-line {
-    grid-column: 1;
-  }
-
-  .contact-links {
-    grid-column: 2;
-    grid-row: 1 / span 3;
-  }
-}
-
-@media (max-width: 620px) {
-  .section-contact {
-    padding: 86px 0 14px;
-  }
-
-  .section-contact > .contact-shell {
-    gap: 24px;
-    padding: 26px 16px 36px;
-  }
-
-  .contact-copy {
-    display: block;
-  }
-
-  .section-contact .contact-copy h2 {
-    font-size: clamp(2.7rem, 14vw, 4rem);
-  }
-
-  .contact-copy > p {
-    margin-top: 16px;
-  }
-
-  .contact-accent-line {
-    margin: 18px 0;
-  }
-
-  .contact-form-row {
-    grid-template-columns: 1fr;
-  }
-
-  .contact-form textarea {
-    min-height: 130px;
-  }
-
-  .contact-form button {
-    width: 100%;
-  }
-}
-
-/* Mobile and tablet viewport contract */
-@media (max-width: 900px) {
-  .section-contact {
-    height: 100dvh;
-    min-height: 100dvh;
-    padding: 94px 0 12px;
-    overflow: hidden;
-  }
-
-  .section-contact > .contact-shell {
-    height: calc(100dvh - 106px);
-    min-height: 0;
-    grid-template-columns: minmax(220px, 0.72fr) minmax(0, 1.28fr);
-    gap: 20px;
-    padding: 18px;
-    overflow: hidden;
   }
 
   .contact-copy {
@@ -367,14 +220,6 @@
     line-height: 1.45;
   }
 
-  .contact-accent-line {
-    margin: 13px 0;
-  }
-
-  .contact-links {
-    gap: 6px;
-  }
-
   .contact-form {
     gap: 9px;
   }
@@ -389,80 +234,73 @@
   }
 }
 
-@media (max-width: 620px) {
+/* Phone: title and form share one fluid viewport below 3:4. */
+@media (aspect-ratio < 3 / 4) {
   .section-contact {
+    height: auto;
+    min-height: 100dvh;
     padding: 86px 0 8px;
+    overflow: visible;
   }
 
   .section-contact > .contact-shell {
-    height: calc(100dvh - 94px);
+    height: auto;
+    min-height: calc(100dvh - 94px);
     grid-template-columns: 1fr;
-    grid-template-rows: auto minmax(0, 1fr);
-    gap: 8px;
-    padding: 10px 8px;
+    grid-template-rows: auto auto;
+    gap: clamp(12px, 2.4dvh, 20px);
+    align-content: center;
+    align-items: stretch;
+    padding: clamp(10px, 2.2vw, 16px);
+    overflow: visible;
+  }
+
+  .section-contact .contact-copy h2 {
+    font-size: clamp(2.2rem, min(12vw, 7dvh), 3.15rem);
   }
 
   .contact-copy > p {
-    margin-top: 5px;
-  }
-
-  .contact-accent-line {
-    width: 34px;
-    margin: 7px 0;
-  }
-
-  .contact-links {
-    grid-template-columns: repeat(2, minmax(0, 1fr));
-    gap: 5px;
-  }
-
-  .contact-links > a {
-    grid-template-columns: 30px minmax(0, 1fr);
-    gap: 6px;
-    padding: 4px;
-  }
-
-  .contact-links > a > span:first-child {
-    width: 30px;
-    height: 30px;
-    border-radius: 8px;
-    font-size: 0.82rem;
-  }
-
-  .contact-links strong,
-  .contact-links small {
-    font-size: var(--type-caption);
-  }
-
-  .contact-link-arrow {
-    display: none;
+    max-width: 34rem;
+    margin-top: 6px;
+    line-height: 1.4;
   }
 
   .contact-form {
-    align-content: start;
-    gap: 6px;
+    display: flex;
+    height: auto;
+    min-height: 0;
+    flex-direction: column;
+    justify-content: flex-start;
+    gap: clamp(6px, 1.15dvh, 10px);
   }
 
   .contact-form-row {
     grid-template-columns: repeat(2, minmax(0, 1fr));
-    gap: 6px;
+    gap: clamp(6px, 1.8vw, 10px);
   }
 
   .contact-form input {
-    height: 36px;
+    height: clamp(36px, 5.2dvh, 42px);
     padding-inline: 10px;
     font-size: var(--type-body);
   }
 
+  .contact-message-field {
+    min-height: 0;
+    flex: none;
+  }
+
   .contact-form textarea {
-    min-height: 82px;
+    height: clamp(96px, 18dvh, 130px);
+    min-height: 96px;
     padding: 10px;
     font-size: var(--type-body);
+    resize: none;
   }
 
   .contact-form button {
     width: max-content;
-    min-height: 36px;
+    min-height: clamp(36px, 5.2dvh, 42px);
     padding-inline: 15px;
   }
 
