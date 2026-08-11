@@ -1053,3 +1053,32 @@
     font-size: clamp(0.5rem, min(2.2vw, 1.4dvh), 0.67rem);
   }
 }
+
+/* Short phones: keep closed courses readable instead of sharing a fixed remainder. */
+@media (aspect-ratio < 3 / 4) and (height < 720px) {
+  .section-about .sector-course-grid,
+  .section-about:not(.has-expanded-course) .sector-course-grid,
+  .section-about.has-expanded-course .sector-course-grid {
+    height: auto;
+    grid-template-rows: repeat(3, auto);
+    gap: 8px;
+    align-self: start;
+    align-content: start;
+    overflow: visible;
+  }
+
+  .section-about .sector-course-card,
+  .section-about:not(.has-expanded-course) .sector-course-card {
+    height: auto;
+    min-height: 78px;
+  }
+
+  .section-about:not(.has-expanded-course) .sector-course-card .sector-course-toggle {
+    height: auto;
+    min-height: 78px;
+  }
+
+  .section-about.has-expanded-course .sector-course-card.is-expanded {
+    height: auto;
+  }
+}
