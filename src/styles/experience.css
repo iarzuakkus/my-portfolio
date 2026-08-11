@@ -411,6 +411,19 @@
     padding-left: 58px;
   }
 
+  .section-experience.has-expanded .experience-timeline {
+    align-content: start;
+    padding-block: 2px;
+    overflow-x: hidden;
+    overflow-y: auto;
+    overscroll-behavior: contain;
+    scrollbar-width: none;
+  }
+
+  .section-experience.has-expanded .experience-timeline::-webkit-scrollbar {
+    display: none;
+  }
+
   .experience-card {
     width: 100%;
     height: auto;
@@ -532,6 +545,7 @@
   .experience-card-details,
   .experience-card.is-expanded .experience-card-details {
     grid-template-columns: minmax(0, 1fr);
+    grid-template-rows: auto auto;
     gap: 14px;
   }
 
@@ -550,6 +564,8 @@
   .experience-card-details a {
     width: max-content;
     max-width: 100%;
+    align-self: start;
+    justify-self: start;
     padding: 7px 10px;
     font-size: clamp(0.6rem, min(2.45vw, 1.25dvh), 0.72rem);
   }
@@ -578,5 +594,31 @@
   .experience-projects-link strong {
     grid-column: 2;
     font-size: clamp(0.68rem, min(2.8vw, 1.4dvh), 0.8rem);
+  }
+}
+
+/* Short phones: let the composition grow instead of clipping expanded cards. */
+@media (aspect-ratio < 3 / 4) and (height < 720px) {
+  .section-experience,
+  .section-experience.has-expanded {
+    height: auto;
+    min-height: 100dvh;
+    overflow: visible;
+  }
+
+  .section-experience > .experience-shell,
+  .section-experience.has-expanded > .experience-shell {
+    height: auto;
+    min-height: calc(100dvh - 94px);
+    grid-template-rows: auto auto auto;
+    align-content: start;
+    overflow: visible;
+  }
+
+  .experience-timeline,
+  .section-experience.has-expanded .experience-timeline {
+    height: auto;
+    align-content: start;
+    overflow: visible;
   }
 }
