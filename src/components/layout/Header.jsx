@@ -139,15 +139,27 @@ export default function Header() {
               <span>GitHub</span>
               <Icon className="mobile-external-icon" icon="fluent:arrow-up-right-16-regular" />
             </a>
-            <a className="mobile-cv-link" href="/resume.pdf" download onClick={closeMenu}>
+            <a
+              className="mobile-cv-link"
+              href="/Ilayda-Arzu-Akkus-CV.pdf"
+              target="_blank"
+              rel="noreferrer"
+              onClick={closeMenu}
+            >
               <Icon icon="pepicons-pencil:cv" aria-hidden="true" />
-              <span>CV’mi İndir</span>
+              <span>CV’mi Görüntüle</span>
             </a>
           </div>
         </nav>
 
         <div className="header-actions" aria-label="Hızlı bağlantılar">
-          <a className="download-link" href="/resume.pdf" download aria-label="CV indir">
+          <a
+            className="download-link"
+            href="/Ilayda-Arzu-Akkus-CV.pdf"
+            target="_blank"
+            rel="noreferrer"
+            aria-label="CV görüntüle"
+          >
             <Icon icon="pepicons-pencil:cv" aria-hidden="true" />
           </a>
           <a

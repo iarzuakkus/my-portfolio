@@ -45,7 +45,7 @@ export default function Hero() {
                 </span>
                 <strong>Projelerime Göz At</strong>
               </a>
-              <a className="hero-button hero-button-secondary" href="/resume.pdf" download>
+              <a className="hero-button hero-button-secondary" href="/Ilayda-Arzu-Akkus-CV.pdf" download>
                 <span className="hero-button-icon hero-button-leading" aria-hidden="true">
                   <Icon icon="material-symbols:download-rounded" />
                 </span>

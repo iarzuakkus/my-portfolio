@@ -8,13 +8,21 @@ export default function ProjectTextShowcase({ project }) {
   return (
     <aside className="project-github-showcase" aria-label={showcase.title}>
       <div className="project-github-showcase-heading">
-        <span aria-hidden="true">
-          <Icon icon="mdi:github" />
-        </span>
-        <div>
-          <small>DAHA FAZLA PROJE</small>
-          <h4>{showcase.title}</h4>
-        </div>
+        <a
+          className="project-github-showcase-title-link"
+          href={showcase.href}
+          target="_blank"
+          rel="noreferrer"
+          aria-label={`${showcase.title} için GitHub hesabımı incele`}
+        >
+          <span aria-hidden="true">
+            <Icon icon="mdi:github" />
+          </span>
+          <div>
+            <small>DAHA FAZLA PROJE</small>
+            <h4>{showcase.title}</h4>
+          </div>
+        </a>
       </div>
 
       <p>{showcase.description}</p>
@@ -24,16 +32,6 @@ export default function ProjectTextShowcase({ project }) {
           <li key={tag}>{tag}</li>
         ))}
       </ul>
-
-      <a
-        href={showcase.href}
-        target="_blank"
-        rel="noreferrer"
-        aria-label="GitHub hesabımı incele"
-        title="GitHub hesabımı incele"
-      >
-        <Icon icon="mdi:github" aria-hidden="true" />
-      </a>
     </aside>
   );
 }
