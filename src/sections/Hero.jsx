@@ -4,8 +4,11 @@ import { portfolio } from "../data/portfolioData";
 import { useLanguage } from "../i18n/LanguageContext";
 
 export default function Hero() {
-  const { t, localize } = useLanguage();
+  const { language, t, localize } = useLanguage();
   const { person } = localize(portfolio);
+  const cvHref = language === "en"
+    ? "/Ilayda_Arzu_Akkus_CV_EN.pdf"
+    : "/Ilayda-Arzu-Akkus-CV.pdf";
 
   return (
     <section className="hero" id="top">
@@ -45,7 +48,7 @@ export default function Hero() {
                 </span>
                 <strong>{t("Projelerime Göz At")}</strong>
               </a>
-              <a className="hero-button hero-button-secondary" href="/Ilayda-Arzu-Akkus-CV.pdf" download>
+              <a className="hero-button hero-button-secondary" href={cvHref} download>
                 <span className="hero-button-icon hero-button-leading" aria-hidden="true">
                   <Icon icon="material-symbols:download-rounded" />
                 </span>

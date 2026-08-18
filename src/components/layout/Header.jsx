@@ -38,6 +38,9 @@ const navigation = [
 export default function Header() {
   const { language, setLanguage, t, localize } = useLanguage();
   const localizedPortfolio = localize(portfolio);
+  const cvHref = language === "en"
+    ? "/Ilayda_Arzu_Akkus_CV_EN.pdf"
+    : "/Ilayda-Arzu-Akkus-CV.pdf";
   const [isOpen, setIsOpen] = useState(false);
   const [activeSection, setActiveSection] = useState(
     window.location.hash.slice(1) || "top",
@@ -148,7 +151,7 @@ export default function Header() {
             </a>
             <a
               className="mobile-cv-link"
-              href="/Ilayda-Arzu-Akkus-CV.pdf"
+              href={cvHref}
               target="_blank"
               rel="noreferrer"
               onClick={closeMenu}
@@ -176,7 +179,7 @@ export default function Header() {
         <div className="header-actions" aria-label={t("Hızlı bağlantılar")}>
           <a
             className="download-link"
-            href="/Ilayda-Arzu-Akkus-CV.pdf"
+            href={cvHref}
             target="_blank"
             rel="noreferrer"
             aria-label={t("CV görüntüle")}
