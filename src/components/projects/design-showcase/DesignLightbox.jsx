@@ -2,8 +2,10 @@
 import { useEffect, useRef } from "react";
 import { Icon } from "@iconify/react";
 import { createPortal } from "react-dom";
+import { useLanguage } from "../../../i18n/LanguageContext";
 
 export default function DesignLightbox({ item, position, count, onClose, onPrevious, onNext }) {
+  const { t } = useLanguage();
   const dialogRef = useRef(null);
   const closeRef = useRef(null);
 
@@ -42,14 +44,14 @@ export default function DesignLightbox({ item, position, count, onClose, onPrevi
   return createPortal(
     <div className="design-lightbox" role="presentation" onMouseDown={(event) => event.target === event.currentTarget && onClose()}>
       <div ref={dialogRef} className="design-lightbox-dialog" role="dialog" aria-modal="true" aria-label={item.title}>
-        <button ref={closeRef} className="design-lightbox-close" type="button" aria-label="Galeriyi kapat" onClick={onClose}>
+        <button ref={closeRef} className="design-lightbox-close" type="button" aria-label={t("Galeriyi kapat")} onClick={onClose}>
           <Icon icon="material-symbols:close-rounded" aria-hidden="true" />
         </button>
-        <button className="design-lightbox-arrow is-left" type="button" aria-label="Önceki tasarım" onClick={onPrevious}>
+        <button className="design-lightbox-arrow is-left" type="button" aria-label={t("Önceki tasarım")} onClick={onPrevious}>
           <Icon icon="lucide:chevron-left" aria-hidden="true" />
         </button>
         <img src={item.src} alt={`${item.title}, ${item.category}`} />
-        <button className="design-lightbox-arrow is-right" type="button" aria-label="Sonraki tasarım" onClick={onNext}>
+        <button className="design-lightbox-arrow is-right" type="button" aria-label={t("Sonraki tasarım")} onClick={onNext}>
           <Icon icon="lucide:chevron-right" aria-hidden="true" />
         </button>
         <footer>

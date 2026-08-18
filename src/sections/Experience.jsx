@@ -1,8 +1,11 @@
 import { useState } from "react";
 import ExperienceCard from "../components/experience/ExperienceCard";
 import { experienceItems } from "../data/experienceData";
+import { useLanguage } from "../i18n/LanguageContext";
 
 export default function Experience() {
+  const { t, localize } = useLanguage();
+  const localizedExperienceItems = localize(experienceItems);
   const [expandedId, setExpandedId] = useState(null);
 
   return (
@@ -13,16 +16,15 @@ export default function Experience() {
       <div className="shell experience-shell">
         <header className="experience-heading">
           <h2>
-          Deneyim<span>.</span>
+          {t("Deneyim.").replace(".", "")}<span>.</span>
           </h2>
           <p>
-            Yazılım, veri ve tasarım alanlarında edindiğim deneyimleri gerçek problemlere
-            dokunan çalışmalara dönüştürüyorum.
+            {t("Yazılım, veri ve tasarım alanlarında edindiğim deneyimleri gerçek problemlere dokunan çalışmalara dönüştürüyorum.")}
           </p>
         </header>
 
         <div className="experience-timeline">
-          {experienceItems.map((item) => (
+          {localizedExperienceItems.map((item) => (
             <ExperienceCard
               item={item}
               expanded={expandedId === item.id}
@@ -36,8 +38,8 @@ export default function Experience() {
 
         <a className="experience-projects-link" href="#work">
           <IconText />
-          <span>Bu deneyimlerden doğan çalışmaları Projelerim sayfasında inceleyebilirsin.</span>
-          <strong>Projelerime git →</strong>
+          <span>{t("Bu deneyimlerden doğan çalışmaları Projelerim sayfasında inceleyebilirsin.")}</span>
+          <strong>{t("Projelerime git →")}</strong>
         </a>
       </div>
     </section>

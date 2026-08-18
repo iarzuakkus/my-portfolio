@@ -1,6 +1,8 @@
 import ProjectMedia from "./ProjectMedia";
+import { useLanguage } from "../../i18n/LanguageContext";
 
 export default function ProjectCard({ project, selected, onSelect }) {
+  const { t } = useLanguage();
   return (
     <article className={`project-card is-${project.tone}${selected ? " is-selected" : ""}`}>
       <button type="button" className="project-card-select" onClick={onSelect}>
@@ -12,7 +14,7 @@ export default function ProjectCard({ project, selected, onSelect }) {
       </button>
 
       <button className="project-card-action" type="button" onClick={onSelect}>
-        Detayları gör
+        {t("Detayları gör")}
       </button>
     </article>
   );

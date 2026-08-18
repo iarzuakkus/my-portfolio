@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { Icon } from "@iconify/react";
+import { useLanguage } from "../../i18n/LanguageContext";
 
 function CourseMark({ course }) {
   const [hasError, setHasError] = useState(false);
@@ -35,6 +36,7 @@ function openProject(projectId) {
 }
 
 export default function CourseCard({ course, expanded, condensed, onToggle }) {
+  const { t } = useLanguage();
   const detailsId = `${course.id}-details`;
 
   return (
@@ -74,7 +76,7 @@ export default function CourseCard({ course, expanded, condensed, onToggle }) {
             <span
               className="sector-course-skills-inline"
               role="list"
-              aria-label={`${course.title} kazanımları`}
+              aria-label={`${course.title} ${t("kazanımları")}`}
             >
               {course.skills.map((skill) => (
                 <span key={skill.label} role="listitem">

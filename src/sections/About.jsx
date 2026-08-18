@@ -2,27 +2,31 @@ import { useState } from "react";
 import { Icon } from "@iconify/react";
 import CourseCard from "../components/about/CourseCard";
 import { academicEducation, sectorEducation } from "../data/aboutEducationData";
+import { useLanguage } from "../i18n/LanguageContext";
 
-function AcademicLogo() {
+function AcademicLogo({ education }) {
   const [hasError, setHasError] = useState(false);
 
   return (
     <span className="about-card-logo is-violet">
       {!hasError && (
         <img
-          src={academicEducation.logo}
-          alt={academicEducation.logoAlt}
+          src={education.logo}
+          alt={education.logoAlt}
           onError={() => setHasError(true)}
         />
       )}
-      {hasError && <span>{academicEducation.fallback}</span>}
+      {hasError && <span>{education.fallback}</span>}
     </span>
   );
 }
 
 export default function About() {
+  const { t, localize } = useLanguage();
+  const localizedAcademicEducation = localize(academicEducation);
+  const localizedSectorEducation = localize(sectorEducation);
   const [expandedCourseId, setExpandedCourseId] = useState(null);
-  const expandedCourseIndex = sectorEducation.findIndex(
+  const expandedCourseIndex = localizedSectorEducation.findIndex(
     (course) => course.id === expandedCourseId,
   );
 
@@ -55,14 +59,14 @@ export default function About() {
       <div className="shell about-shell">
         <article
           className="about-page about-profile-page"
-          aria-label="Hakkımda ve eğitim bilgilerim"
+          aria-label={t("Hakkımda ve eğitim bilgilerim")}
         >
           <div className="about-intro">
             <div className="about-title-group">
               <h2>
-                Akademik
+                {t("Akademik")}
                 <br />
-                Yolculuğum<span>.</span>
+                {t("Yolculuğum")}<span>.</span>
               </h2>
             </div>
           </div>
@@ -74,41 +78,41 @@ export default function About() {
                   <Icon icon="fa7-solid:graduation-cap" />
                 </span>
                 <div>
-                  <h3>Eğitimim</h3>
-                  <p>Akademik yolculuğum.</p>
+                  <h3>{t("Eğitimim")}</h3>
+                  <p>{t("Akademik yolculuğum.")}</p>
                 </div>
               </header>
 
               <article className="about-education-card">
-                <AcademicLogo />
+                <AcademicLogo education={localizedAcademicEducation} />
 
                 <div className="about-education-content">
-                  <h4>{academicEducation.title}</h4>
-                  <p className="about-record-title">{academicEducation.provider}</p>
-                  <p className="about-faculty">{academicEducation.faculty}</p>
+                  <h4>{localizedAcademicEducation.title}</h4>
+                  <p className="about-record-title">{localizedAcademicEducation.provider}</p>
+                  <p className="about-faculty">{localizedAcademicEducation.faculty}</p>
                 </div>
 
                 <dl className="about-education-meta">
                   <div>
                     <dt>
                       <Icon icon="fa7-solid:graduation-cap" aria-hidden="true" />
-                      Mezuniyet
+                      {t("Mezuniyet")}
                     </dt>
-                    <dd>{academicEducation.date}</dd>
+                    <dd>{localizedAcademicEducation.date}</dd>
                   </div>
                   <div>
                     <dt>
                       <Icon icon="ph:globe-simple-bold" aria-hidden="true" />
-                      Dil
+                      {t("Dil")}
                     </dt>
-                    <dd>İngilizce – B1</dd>
+                    <dd>{t("İngilizce – B1")}</dd>
                   </div>
                   <div>
                     <dt>
                       <Icon icon="mage:pen-fill" aria-hidden="true" />
-                      GNO
+                      {t("GNO")}
                     </dt>
-                    <dd>{academicEducation.grade}</dd>
+                    <dd>{localizedAcademicEducation.grade}</dd>
                   </div>
                 </dl>
               </article>
@@ -120,13 +124,13 @@ export default function About() {
                   <Icon icon="ph:medal-fill" />
                 </span>
                 <div>
-                  <h3>Sektörel Eğitimlerim</h3>
-                  <p>İçerik ve kazanımlar için bir eğitimi açabilirsin.</p>
+                  <h3>{t("Sektörel Eğitimlerim")}</h3>
+                  <p>{t("İçerik ve kazanımlar için bir eğitimi açabilirsin.")}</p>
                 </div>
               </header>
 
               <div className={courseGridClassName}>
-                {sectorEducation.map((course) => (
+                {localizedSectorEducation.map((course) => (
                   <CourseCard
                     course={course}
                     expanded={expandedCourseId === course.id}

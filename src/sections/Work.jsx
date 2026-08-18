@@ -5,10 +5,13 @@ import ProjectCard from "../components/projects/ProjectCard";
 import ProjectMedia from "../components/projects/ProjectMedia";
 import ProjectWelcome from "../components/projects/ProjectWelcome";
 import { projects } from "../data/projectData";
+import { useLanguage } from "../i18n/LanguageContext";
 
 export default function Work() {
+  const { t, localize } = useLanguage();
+  const localizedProjects = localize(projects);
   const [selectedId, setSelectedId] = useState(null);
-  const selectedProject = projects.find((project) => project.id === selectedId) ?? null;
+  const selectedProject = localizedProjects.find((project) => project.id === selectedId) ?? null;
   const showProjectOverview = () => setSelectedId(null);
 
   useEffect(() => {
@@ -18,7 +21,7 @@ export default function Work() {
 
     const selectProject = (event) => {
       const projectId = event.detail?.id;
-      if (projects.some((project) => project.id === projectId)) {
+      if (localizedProjects.some((project) => project.id === projectId)) {
         setSelectedId(projectId);
       }
     };
@@ -29,7 +32,7 @@ export default function Work() {
       window.removeEventListener("hashchange", resetProjectSelection);
       window.removeEventListener("portfolio:select-project", selectProject);
     };
-  }, []);
+  }, [localizedProjects]);
 
   return (
     <section className="section section-projects" id="work">
@@ -40,12 +43,12 @@ export default function Work() {
               className="projects-heading-reset"
               type="button"
               onClick={showProjectOverview}
-              aria-label="Projelerin başlangıç görünümünü göster"
+              aria-label={t("Projelerin başlangıç görünümünü göster")}
             >
-              Projelerim<span>.</span>
+              {t("Projelerim.").replace(".", "")}<span>.</span>
             </button>
           </h2>
-          <p>Yazılım, veri, yapay zekâ ve tasarım alanlarında ürettiğim çalışmaları burada bulabilirsin.</p>
+          <p>{t("Yazılım, veri, yapay zekâ ve tasarım alanlarında ürettiğim çalışmaları burada bulabilirsin.")}</p>
         </header>
 
         <div className="projects-intro-grid">
@@ -55,14 +58,13 @@ export default function Work() {
                 className="projects-heading-reset"
                 type="button"
                 onClick={showProjectOverview}
-                aria-label="Projelerin başlangıç görünümünü göster"
+                aria-label={t("Projelerin başlangıç görünümünü göster")}
               >
-                Projelerim<span>.</span>
+                {t("Projelerim.").replace(".", "")}<span>.</span>
               </button>
             </h2>
             <p>
-              Yazılım, veri, yapay zekâ ve tasarım alanlarında ürettiğim çalışmaları burada
-              bulabilirsin.
+              {t("Yazılım, veri, yapay zekâ ve tasarım alanlarında ürettiğim çalışmaları burada bulabilirsin.")}
             </p>
           </header>
 
@@ -80,7 +82,7 @@ export default function Work() {
                   ) : (
                     <Icon icon={selectedProject.icon} aria-hidden="true" />
                   )}
-                  Seçili proje
+                  {t("Seçili proje")}
                 </span>
                 <h3>{selectedProject.title}</h3>
                 <p>{selectedProject.description}</p>
@@ -97,8 +99,8 @@ export default function Work() {
                       href={selectedProject.github}
                       target="_blank"
                       rel="noreferrer"
-                      aria-label={`${selectedProject.title} GitHub deposunu aç`}
-                      title="GitHub deposunu aç"
+                      aria-label={`${selectedProject.title} ${t("GitHub deposunu aç")}`}
+                      title={t("GitHub deposunu aç")}
                     >
                       <Icon icon="mdi:github" aria-hidden="true" />
                     </a>
@@ -118,16 +120,16 @@ export default function Work() {
               <Icon icon="griddy-icons:folder-code" aria-hidden="true" />
               <span>
                 <h3 id="projects-browser-title">
-                  <span className="projects-browser-title-default">Projeler</span>
-                  <span className="projects-browser-title-mobile">Diğer Projeler</span>
+                  <span className="projects-browser-title-default">{t("Projeler")}</span>
+                  <span className="projects-browser-title-mobile">{t("Diğer Projeler")}</span>
                 </h3>
-                <small>İncelemek istediğin projeyi seçebilirsin.</small>
+                <small>{t("İncelemek istediğin projeyi seçebilirsin.")}</small>
               </span>
             </span>
           </header>
 
           <div className="projects-list">
-            {projects.map((project) => (
+            {localizedProjects.map((project) => (
               <ProjectCard
                 project={project}
                 selected={project.id === selectedId}

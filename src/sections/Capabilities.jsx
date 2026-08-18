@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { Icon } from "@iconify/react";
 import { capabilityProfile } from "../data/portfolioData";
+import { useLanguage } from "../i18n/LanguageContext";
 
 function SkillIcon({ icon, tone = "violet" }) {
   return (
@@ -11,6 +12,7 @@ function SkillIcon({ icon, tone = "violet" }) {
 }
 
 function TechnologyCard({ group, index, isExpanded, onToggle }) {
+  const { t } = useLanguage();
   const contentId = `technology-card-${index}`;
 
   return (
@@ -31,7 +33,7 @@ function TechnologyCard({ group, index, isExpanded, onToggle }) {
         <Icon className="skills-card-chevron" icon="tabler:chevron-down" aria-hidden="true" />
       </button>
       <div className="skills-card-content" id={contentId}>
-        <ul className="skills-chip-list" aria-label={`${group.title} yetenekleri`}>
+        <ul className="skills-chip-list" aria-label={`${group.title} ${t("yetenekleri")}`}>
           {group.skills.map((skill) => (
             <li key={skill}>{skill}</li>
           ))}
@@ -42,6 +44,8 @@ function TechnologyCard({ group, index, isExpanded, onToggle }) {
 }
 
 export default function Capabilities({ embedded = false }) {
+  const { t, localize } = useLanguage();
+  const localizedCapabilityProfile = localize(capabilityProfile);
   const [expandedTechnology, setExpandedTechnology] = useState(null);
 
   const content = (
@@ -49,15 +53,15 @@ export default function Capabilities({ embedded = false }) {
         <div className="skills-intro-grid">
           <div className="skills-copy">
             <h2>
-              Yetkinliklerim<span>.</span>
+              {t("Yetkinliklerim.").replace(".", "")}<span>.</span>
             </h2>
-            <p>{capabilityProfile.introduction}</p>
+            <p>{localizedCapabilityProfile.introduction}</p>
           </div>
 
           <article className="skills-focus-panel">
-            <h3>Odak Alanlarım</h3>
+            <h3>{t("Odak Alanlarım")}</h3>
             <div className="skills-focus-grid">
-              {capabilityProfile.focusAreas.map((area) => (
+              {localizedCapabilityProfile.focusAreas.map((area) => (
                 <div className="skills-focus-item" key={area.title}>
                   <SkillIcon icon={area.icon} tone={area.tone} />
                   <div>
@@ -72,12 +76,12 @@ export default function Capabilities({ embedded = false }) {
 
         <div className="skills-divider" aria-hidden="true">
           <span />
-          <h2>Kullandığım Teknolojiler</h2>
+          <h2>{t("Kullandığım Teknolojiler")}</h2>
           <span />
         </div>
 
         <div className="skills-tech-grid">
-          {capabilityProfile.technologyGroups.map((group, index) => (
+          {localizedCapabilityProfile.technologyGroups.map((group, index) => (
             <TechnologyCard
               group={group}
               index={index}
@@ -94,10 +98,10 @@ export default function Capabilities({ embedded = false }) {
           <article className="skills-info-card skills-language-card">
             <header className="skills-card-heading">
               <SkillIcon icon="ph:globe-simple-bold" tone="blue" />
-              <h3>Dil</h3>
+              <h3>{t("Dil")}</h3>
             </header>
             <ul className="skills-chip-list">
-              {capabilityProfile.languages.map((language) => (
+              {localizedCapabilityProfile.languages.map((language) => (
                 <li key={language}>{language}</li>
               ))}
             </ul>
@@ -106,10 +110,10 @@ export default function Capabilities({ embedded = false }) {
           <article className="skills-info-card skills-personal-card">
             <header className="skills-card-heading">
               <SkillIcon icon="material-symbols:star-rounded" />
-              <h3>Kişisel Yetenekler</h3>
+              <h3>{t("Kişisel Yetenekler")}</h3>
             </header>
             <ul className="skills-chip-list">
-              {capabilityProfile.personalSkills.map((skill) => (
+              {localizedCapabilityProfile.personalSkills.map((skill) => (
                 <li key={skill}>{skill}</li>
               ))}
             </ul>
@@ -118,10 +122,10 @@ export default function Capabilities({ embedded = false }) {
           <article className="skills-info-card skills-approach-card">
             <header className="skills-card-heading">
               <SkillIcon icon="mingcute:target-line" tone="mint" />
-              <h3>Çalışma Yaklaşımım</h3>
+              <h3>{t("Çalışma Yaklaşımım")}</h3>
             </header>
             <ul className="skills-approach-list">
-              {capabilityProfile.workingApproach.map((item) => (
+              {localizedCapabilityProfile.workingApproach.map((item) => (
                 <li key={item}>
                   <Icon icon="material-symbols:check-circle-outline-rounded" aria-hidden="true" />
                   <span>{item}</span>
@@ -138,7 +142,7 @@ export default function Capabilities({ embedded = false }) {
       <article
         className="about-page about-skills-page"
         id="capabilities"
-        aria-label="Yeteneklerim"
+        aria-label={t("Yeteneklerim")}
       >
         {content}
       </article>

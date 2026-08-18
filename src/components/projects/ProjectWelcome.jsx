@@ -1,5 +1,6 @@
 // src/components/projects/ProjectWelcome.jsx
 import { Icon } from "@iconify/react";
+import { useLanguage } from "../../i18n/LanguageContext";
 
 const welcomeTopics = [
   { icon: "mdi:web", label: "Web", position: "web", tone: "blue" },
@@ -19,6 +20,7 @@ const welcomeTopics = [
 ];
 
 export default function ProjectWelcome() {
+  const { t } = useLanguage();
   return (
     <article className="featured-project featured-project--welcome">
       <div className="project-welcome-visual">
@@ -41,7 +43,7 @@ export default function ProjectWelcome() {
               key={topic.label}
             >
               <Icon icon={topic.icon} aria-hidden="true" />
-              <small>{topic.label}</small>
+              <small>{t(topic.label)}</small>
             </span>
           ))}
         </div>

@@ -1,29 +1,34 @@
 import { useEffect, useState } from "react";
 import { Icon } from "@iconify/react";
 import { portfolio } from "../../data/portfolioData";
+import { useLanguage } from "../../i18n/LanguageContext";
 
 const navigation = [
-  { label: "Ana Sayfa", href: "#top", sections: ["top"], icon: "fluent:home-16-regular" },
+  { label: "Ana Sayfa", englishLabel: "Home", href: "#top", sections: ["top"], icon: "fluent:home-16-regular" },
   {
     label: "Hakkımda",
+    englishLabel: "About",
     href: "#about",
     sections: ["about"],
     icon: "mage:user",
   },
   {
     label: "Deneyim",
+    englishLabel: "Experience",
     href: "#experience",
     sections: ["experience"],
     icon: "mdi:work-outline",
   },
   {
     label: "Projelerim",
+    englishLabel: "Projects",
     href: "#work",
     sections: ["work"],
     icon: "griddy-icons:folder-code",
   },
   {
     label: "İletişim",
+    englishLabel: "Contact",
     href: "#contact",
     sections: ["contact"],
     icon: "material-symbols:mail-outline-rounded",
@@ -31,6 +36,8 @@ const navigation = [
 ];
 
 export default function Header() {
+  const { language, setLanguage, t, localize } = useLanguage();
+  const localizedPortfolio = localize(portfolio);
   const [isOpen, setIsOpen] = useState(false);
   const [activeSection, setActiveSection] = useState(
     window.location.hash.slice(1) || "top",
@@ -82,7 +89,7 @@ export default function Header() {
           <span className="brand-mark" aria-hidden="true">
             <Icon icon="hugeicons:flower" />
           </span>
-          <span>{portfolio.person.shortName}</span>
+          <span>{localizedPortfolio.person.shortName}</span>
         </a>
 
         <button
@@ -90,7 +97,7 @@ export default function Header() {
           type="button"
           aria-expanded={isOpen}
           aria-controls="primary-navigation"
-          aria-label={isOpen ? "Menüyü kapat" : "Menüyü aç"}
+          aria-label={isOpen ? t("Menüyü kapat") : t("Menüyü aç")}
           onClick={() => setIsOpen((current) => !current)}
         >
           <span />
@@ -101,7 +108,7 @@ export default function Header() {
         <nav
           id="primary-navigation"
           className={`primary-nav${isOpen ? " is-open" : ""}`}
-          aria-label="Ana menü"
+          aria-label={t("Ana menü")}
         >
           {navigation.map((item) => (
             <a
@@ -115,12 +122,12 @@ export default function Header() {
               }}
             >
               <Icon icon={item.icon} aria-hidden="true" />
-              <span className="nav-label">{item.label}</span>
+              <span className="nav-label">{language === "en" ? item.englishLabel : item.label}</span>
             </a>
           ))}
-          <div className="mobile-nav-actions" aria-label="Sosyal bağlantılar">
+          <div className="mobile-nav-actions" aria-label={t("Sosyal bağlantılar")}>
             <a
-              href={portfolio.socialLinks[1].href}
+              href={localizedPortfolio.socialLinks[1].href}
               target="_blank"
               rel="noreferrer"
               onClick={closeMenu}
@@ -130,7 +137,7 @@ export default function Header() {
               <Icon className="mobile-external-icon" icon="fluent:arrow-up-right-16-regular" />
             </a>
             <a
-              href={portfolio.socialLinks[0].href}
+              href={localizedPortfolio.socialLinks[0].href}
               target="_blank"
               rel="noreferrer"
               onClick={closeMenu}
@@ -147,23 +154,37 @@ export default function Header() {
               onClick={closeMenu}
             >
               <Icon icon="pepicons-pencil:cv" aria-hidden="true" />
-              <span>CV’mi Görüntüle</span>
+              <span>{t("CV’mi Görüntüle")}</span>
             </a>
+          </div>
+          <div className="mobile-language-switch" aria-label={t("Dil seçimi")}>
+            {['tr', 'en'].map((option) => (
+              <button
+                className={language === option ? "is-active" : ""}
+                type="button"
+                aria-pressed={language === option}
+                aria-label={t(option === "tr" ? "Türkçe" : "İngilizce")}
+                key={option}
+                onClick={() => setLanguage(option)}
+              >
+                {option.toUpperCase()}
+              </button>
+            ))}
           </div>
         </nav>
 
-        <div className="header-actions" aria-label="Hızlı bağlantılar">
+        <div className="header-actions" aria-label={t("Hızlı bağlantılar")}>
           <a
             className="download-link"
             href="/Ilayda-Arzu-Akkus-CV.pdf"
             target="_blank"
             rel="noreferrer"
-            aria-label="CV görüntüle"
+            aria-label={t("CV görüntüle")}
           >
             <Icon icon="pepicons-pencil:cv" aria-hidden="true" />
           </a>
           <a
-            href={portfolio.socialLinks[1].href}
+            href={localizedPortfolio.socialLinks[1].href}
             target="_blank"
             rel="noreferrer"
             aria-label="LinkedIn"
@@ -171,13 +192,27 @@ export default function Header() {
             <Icon icon="ri:linkedin-fill" aria-hidden="true" />
           </a>
           <a
-            href={portfolio.socialLinks[0].href}
+            href={localizedPortfolio.socialLinks[0].href}
             target="_blank"
             rel="noreferrer"
             aria-label="GitHub"
           >
             <Icon icon="mdi:github" aria-hidden="true" />
           </a>
+          <div className="language-switch" aria-label={t("Dil seçimi")}>
+            {['tr', 'en'].map((option) => (
+              <button
+                className={language === option ? "is-active" : ""}
+                type="button"
+                aria-pressed={language === option}
+                aria-label={t(option === "tr" ? "Türkçe" : "İngilizce")}
+                key={option}
+                onClick={() => setLanguage(option)}
+              >
+                {option.toUpperCase()}
+              </button>
+            ))}
+          </div>
         </div>
       </div>
     </header>

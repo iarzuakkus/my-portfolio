@@ -1,7 +1,9 @@
 import { useEffect, useState } from "react";
 import { Icon } from "@iconify/react";
+import { useLanguage } from "../../i18n/LanguageContext";
 
 export default function ProjectImage({ src, alt, icon }) {
+  const { t } = useLanguage();
   const [failed, setFailed] = useState(false);
 
   useEffect(() => {
@@ -10,9 +12,9 @@ export default function ProjectImage({ src, alt, icon }) {
 
   if (!src || failed) {
     return (
-      <span className="project-image-placeholder" aria-label={`${alt} görsel alanı`}>
+      <span className="project-image-placeholder" aria-label={`${alt} ${t("görsel alanı")}`}>
         <Icon icon={icon} aria-hidden="true" />
-        <small>Görsel eklenecek</small>
+        <small>{t("Görsel eklenecek")}</small>
       </span>
     );
   }

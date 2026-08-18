@@ -1,16 +1,18 @@
 import { useState } from "react";
 import { Icon } from "@iconify/react";
+import { useLanguage } from "../i18n/LanguageContext";
 
 export default function Contact() {
+  const { language, t } = useLanguage();
   const [formStatus, setFormStatus] = useState({ type: "idle", message: "" });
 
   const handleSubmit = async (event) => {
     event.preventDefault();
     const form = event.currentTarget;
     const formData = new FormData(event.currentTarget);
-    const payload = Object.fromEntries(formData.entries());
+    const payload = { ...Object.fromEntries(formData.entries()), language };
 
-    setFormStatus({ type: "sending", message: "Mesajınız gönderiliyor…" });
+    setFormStatus({ type: "sending", message: t("Mesajınız gönderiliyor…") });
 
     try {
       const request = await fetch("/.netlify/functions/send-contact-email", {
@@ -25,18 +27,18 @@ export default function Contact() {
         result = responseText ? JSON.parse(responseText) : {};
       } catch {
         throw new Error(
-          "E-posta servisine ulaşılamadı. Formu Netlify Dev adresinden açın.",
+          t("E-posta servisine ulaşılamadı. Formu Netlify Dev adresinden açın."),
         );
       }
 
-      if (!request.ok) throw new Error(result.message || "Mesaj gönderilemedi.");
+      if (!request.ok) throw new Error(result.message || t("Mesaj gönderilemedi."));
 
       form.reset();
       setFormStatus({ type: "success", message: result.message });
     } catch (error) {
       setFormStatus({
         type: "error",
-        message: error.message || "Mesaj gönderilemedi. Lütfen tekrar deneyin.",
+        message: error.message || t("Mesaj gönderilemedi. Lütfen tekrar deneyin."),
       });
     }
   };
@@ -46,40 +48,39 @@ export default function Contact() {
       <div className="shell contact-shell">
         <div className="contact-copy">
           <h2>
-            Bana
+            {t("Bana")}
             <br />
-            Ulaşın<span>.</span>
+            {t("Ulaşın")}<span>.</span>
           </h2>
           <p>
-            Yeni projeler, iş birlikleri veya sorularınız için benimle iletişime
-            geçebilirsiniz.
+            {t("Yeni projeler, iş birlikleri veya sorularınız için benimle iletişime geçebilirsiniz.")}
           </p>
         </div>
 
         <form className="contact-form" onSubmit={handleSubmit}>
           <div className="contact-form-row">
             <label>
-              <span>Adınız Soyadınız</span>
-              <input name="name" type="text" placeholder="Adınız Soyadınız" autoComplete="name" required />
+              <span>{t("Adınız Soyadınız")}</span>
+              <input name="name" type="text" placeholder={t("Adınız Soyadınız")} autoComplete="name" required />
             </label>
             <label>
-              <span>E-posta Adresiniz</span>
-              <input name="email" type="email" placeholder="E-posta Adresiniz" autoComplete="email" required />
+              <span>{t("E-posta Adresiniz")}</span>
+              <input name="email" type="email" placeholder={t("E-posta Adresiniz")} autoComplete="email" required />
             </label>
           </div>
 
           <label>
-            <span>Konu</span>
-            <input name="subject" type="text" placeholder="Konu" required />
+            <span>{t("Konu")}</span>
+            <input name="subject" type="text" placeholder={t("Konu")} required />
           </label>
 
           <label className="contact-message-field">
-            <span>Mesajınız</span>
-            <textarea name="message" placeholder="Mesajınız" required />
+            <span>{t("Mesajınız")}</span>
+            <textarea name="message" placeholder={t("Mesajınız")} required />
           </label>
 
           <button type="submit" disabled={formStatus.type === "sending"}>
-            {formStatus.type === "sending" ? "Gönderiliyor…" : "Mesaj Gönder"}
+            {formStatus.type === "sending" ? t("Gönderiliyor…") : t("Mesaj Gönder")}
             <Icon icon="material-symbols:send-outline-rounded" aria-hidden="true" />
           </button>
 
@@ -101,7 +102,7 @@ export default function Contact() {
 
           <small className="contact-privacy">
             <Icon icon="material-symbols:lock-outline" aria-hidden="true" />
-            Bilgileriniz yalnızca iletişim amacıyla kullanılır.
+            {t("Bilgileriniz yalnızca iletişim amacıyla kullanılır.")}
           </small>
         </form>
       </div>

@@ -1,5 +1,6 @@
 // src/components/projects/design-showcase/DesignCarouselItem.jsx
 import { useState } from "react";
+import { useLanguage } from "../../../i18n/LanguageContext";
 
 const initialRatio = (shape) => {
   if (shape === "portrait") return 0.7;
@@ -8,6 +9,7 @@ const initialRatio = (shape) => {
 };
 
 export default function DesignCarouselItem({ item, offset, onSelect, onOpen }) {
+  const { t } = useLanguage();
   const isActive = offset === 0;
   const [aspectRatio, setAspectRatio] = useState(() => initialRatio(item.shape));
   const visualShape = aspectRatio < 0.82 ? "portrait" : aspectRatio > 1.28 ? "landscape" : "square";
@@ -24,7 +26,7 @@ export default function DesignCarouselItem({ item, offset, onSelect, onOpen }) {
       style={{ "--design-aspect": aspectRatio }}
       type="button"
       aria-current={isActive ? "true" : undefined}
-      aria-label={isActive ? `${item.title} tasarımını büyüt` : `${item.title} tasarımını merkeze getir`}
+      aria-label={isActive ? `${item.title} ${t("tasarımını büyüt")}` : `${item.title} ${t("tasarımını merkeze getir")}`}
       onClick={handleClick}
     >
       <img

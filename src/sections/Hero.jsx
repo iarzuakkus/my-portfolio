@@ -1,9 +1,11 @@
 import { Icon } from "@iconify/react";
 import heroImage from "../assets/images/hero-profile.png";
 import { portfolio } from "../data/portfolioData";
+import { useLanguage } from "../i18n/LanguageContext";
 
 export default function Hero() {
-  const { person } = portfolio;
+  const { t, localize } = useLanguage();
+  const { person } = localize(portfolio);
 
   return (
     <section className="hero" id="top">
@@ -24,37 +26,35 @@ export default function Hero() {
                 <Icon icon="bitcoin-icons:cross-filled" />
                 <Icon icon="bitcoin-icons:cross-filled" />
               </span>
-              Merhaba,
+              {t("Merhaba,")}
             </p>
-            <h1>Ben Arzu</h1>
+            <h1>{t("Ben Arzu")}</h1>
             <p className="hero-role">
               <span className="hero-role-icon" aria-hidden="true">
                 <Icon icon="icon-park-outline:code-one" />
               </span>
-              <span className="role-typing">{person.role}yim</span>
+              <span className="role-typing">{t("Bilgisayar Mühendisiyim")}</span>
             </p>
             <p className="hero-summary">
-              Yazılım geliştirmeyi, problem çözmeyi ve teknoloji ile üretmeyi
-              seviyorum. Yapay zekâ ve doğal dil işleme odağında kullanıcı
-              dostu, anlaşılır ve etkili çözümler üretmeye odaklanıyorum.
+              {t("Yazılım geliştirmeyi, problem çözmeyi ve teknoloji ile üretmeyi seviyorum. Yapay zekâ ve doğal dil işleme odağında kullanıcı dostu, anlaşılır ve etkili çözümler üretmeye odaklanıyorum.")}
             </p>
             <div className="hero-actions">
               <a className="hero-button hero-button-primary" href="#work">
                 <span className="hero-button-icon hero-button-leading" aria-hidden="true">
                   <Icon icon="mdi:eye-outline" />
                 </span>
-                <strong>Projelerime Göz At</strong>
+                <strong>{t("Projelerime Göz At")}</strong>
               </a>
               <a className="hero-button hero-button-secondary" href="/Ilayda-Arzu-Akkus-CV.pdf" download>
                 <span className="hero-button-icon hero-button-leading" aria-hidden="true">
                   <Icon icon="material-symbols:download-rounded" />
                 </span>
-                <strong>CV’mi İndir</strong>
+                <strong>{t("CV’mi İndir")}</strong>
               </a>
             </div>
           </div>
 
-          <div className="hero-portrait" aria-label={`${person.name} portresi`}>
+          <div className="hero-portrait" aria-label={`${person.name} ${t("portresi")}`}>
             <span className="hero-decoration decoration-coral-ring" aria-hidden="true" />
             <div className="portrait-shape shape-back" aria-hidden="true" />
             <div className="portrait-shape shape-line" aria-hidden="true" />

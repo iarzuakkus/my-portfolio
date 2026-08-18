@@ -4,6 +4,7 @@ import DesignCarouselControls from "./DesignCarouselControls";
 import DesignCarouselIndicators from "./DesignCarouselIndicators";
 import DesignCarouselItem from "./DesignCarouselItem";
 import DesignLightbox from "./DesignLightbox";
+import { useLanguage } from "../../../i18n/LanguageContext";
 
 const normalize = (index, length) => (index + length) % length;
 const visibleOffsets = [-3, -2, -1, 0, 1, 2, 3];
@@ -15,6 +16,7 @@ const categoryForShape = (shape) => {
 };
 
 export default function DesignShowcaseCarousel({ project }) {
+  const { t } = useLanguage();
   const [activeIndex, setActiveIndex] = useState(0);
   const [isLightboxOpen, setLightboxOpen] = useState(false);
   const pointerRef = useRef(null);
@@ -26,12 +28,12 @@ export default function DesignShowcaseCarousel({ project }) {
       return {
         ...image,
         id: `${project.id}-${index + 1}`,
-        title: `Tasarım Çalışması ${String(index + 1).padStart(2, "0")}`,
-        category: categoryForShape(image.shape),
+        title: `${t("Tasarım Çalışması")} ${String(index + 1).padStart(2, "0")}`,
+        category: t(categoryForShape(image.shape)),
         year: "2024",
       };
     }),
-    [project],
+    [project, t],
   );
 
   const goTo = useCallback((index) => {
@@ -65,7 +67,7 @@ export default function DesignShowcaseCarousel({ project }) {
     <div
       className="project-media project-design-showcase"
       role="region"
-      aria-label="Tasarım çalışmaları galerisi"
+      aria-label={t("Tasarım çalışmaları galerisi")}
       tabIndex="0"
       onKeyDown={handleKeyDown}
     >

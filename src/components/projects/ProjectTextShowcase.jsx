@@ -1,6 +1,8 @@
 import { Icon } from "@iconify/react";
+import { useLanguage } from "../../i18n/LanguageContext";
 
 export default function ProjectTextShowcase({ project }) {
+  const { t } = useLanguage();
   const showcase = project.showcase;
 
   if (!showcase) return null;
@@ -13,13 +15,13 @@ export default function ProjectTextShowcase({ project }) {
           href={showcase.href}
           target="_blank"
           rel="noreferrer"
-          aria-label={`${showcase.title} için GitHub hesabımı incele`}
+          aria-label={`${showcase.title} GitHub`}
         >
           <span aria-hidden="true">
             <Icon icon="mdi:github" />
           </span>
           <div>
-            <small>DAHA FAZLA PROJE</small>
+            <small>{t("DAHA FAZLA PROJE")}</small>
             <h4>{showcase.title}</h4>
           </div>
         </a>
@@ -27,7 +29,7 @@ export default function ProjectTextShowcase({ project }) {
 
       <p>{showcase.description}</p>
 
-      <ul aria-label="GitHub çalışma alanları">
+      <ul aria-label={t("GitHub çalışma alanları")}>
         {showcase.tags.map((tag) => (
           <li key={tag}>{tag}</li>
         ))}

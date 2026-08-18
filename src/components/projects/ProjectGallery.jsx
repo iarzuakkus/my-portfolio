@@ -1,10 +1,12 @@
 import { useEffect, useState } from "react";
 import { Icon } from "@iconify/react";
 import ProjectImage from "./ProjectImage";
+import { useLanguage } from "../../i18n/LanguageContext";
 
 const isVideo = (source) => /\.(mp4|webm|ogg)$/i.test(source);
 
 export default function ProjectGallery({ project }) {
+  const { t } = useLanguage();
   const images = [project.media.cover, ...project.media.gallery];
   const [activeIndex, setActiveIndex] = useState(0);
   const activeMedia = images[activeIndex];
@@ -23,12 +25,12 @@ export default function ProjectGallery({ project }) {
         {isVideo(activeMedia) ? (
           <video key={activeMedia} controls playsInline preload="metadata">
             <source src={activeMedia} type="video/mp4" />
-            Tarayıcın bu videoyu oynatmayı desteklemiyor.
+            {t("Tarayıcın bu videoyu oynatmayı desteklemiyor.")}
           </video>
         ) : (
           <ProjectImage
             src={activeMedia}
-            alt={`${project.title} ekranı ${activeIndex + 1}`}
+            alt={`${project.title} ${t("ekranı")} ${activeIndex + 1}`}
             icon={project.icon}
           />
         )}
@@ -39,14 +41,14 @@ export default function ProjectGallery({ project }) {
 
       <div
         className="project-gallery-thumbs"
-        aria-label={`${project.title} görselleri`}
+        aria-label={`${project.title} ${t("görselleri")}`}
         style={{ "--gallery-count": images.length }}
       >
         {images.map((image, index) => (
           <button
             className={index === activeIndex ? "is-active" : ""}
             type="button"
-            aria-label={`${index + 1}. görseli göster`}
+            aria-label={`${index + 1}. ${t("görseli göster")}`}
             aria-pressed={index === activeIndex}
             key={image}
             onClick={() => setActiveIndex(index)}

@@ -1,4 +1,5 @@
 import { Icon } from "@iconify/react";
+import { useLanguage } from "../../i18n/LanguageContext";
 
 function openProject(event, projectId) {
   if (!projectId) return;
@@ -12,6 +13,7 @@ function openProject(event, projectId) {
 }
 
 export default function ExperienceCard({ item, expanded, onToggle }) {
+  const { t } = useLanguage();
   const detailId = `experience-detail-${item.id}`;
 
   return (
@@ -44,7 +46,7 @@ export default function ExperienceCard({ item, expanded, onToggle }) {
             </span>
           </span>
 
-          <span className="experience-tag-list" aria-label="Kullanılan teknolojiler ve yetkinlikler">
+          <span className="experience-tag-list" aria-label={t("Kullanılan teknolojiler ve yetkinlikler")}>
             {item.tags.map((tag) => (
               <span key={tag}>{tag}</span>
             ))}
@@ -53,7 +55,7 @@ export default function ExperienceCard({ item, expanded, onToggle }) {
 
         <span
           className="experience-toggle-label"
-          aria-label={expanded ? "Detayı kapat" : "Detayı aç"}
+          aria-label={expanded ? t("Detayı kapat") : t("Detayı aç")}
         >
           <Icon icon="tabler:chevron-down" aria-hidden="true" />
         </span>

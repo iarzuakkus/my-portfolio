@@ -1,11 +1,13 @@
 // src/components/projects/ProjectMedia.jsx
 import { Icon } from "@iconify/react";
+import { useLanguage } from "../../i18n/LanguageContext";
 import DesignShowcaseCarousel from "./design-showcase/DesignShowcaseCarousel";
 import ProjectGallery from "./ProjectGallery";
 import ProjectImage from "./ProjectImage";
 import ProjectTextShowcase from "./ProjectTextShowcase";
 
 export default function ProjectMedia({ project, compact = false }) {
+  const { t } = useLanguage();
   if (!project.media) {
     if (compact) {
       return (
@@ -43,7 +45,7 @@ export default function ProjectMedia({ project, compact = false }) {
       <div className="project-media project-media--compact-icon">
         <ProjectImage
           src={project.media.cardCover ?? project.media.cover}
-          alt={`${project.title} kapak görseli`}
+          alt={`${project.title} ${t("kapak görseli")}`}
           icon={project.icon}
         />
       </div>
